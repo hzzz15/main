@@ -1,0 +1,69 @@
+.reservation-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #e5e5e5;
+    box-sizing: border-box;
+    padding: 0 0 20px 0; /* 하단에 20px 패딩 추가 */
+    margin: 0;
+  }
+  
+  .reservation-header {
+    background-color: #fff;
+    height: 20vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+  }
+  
+  .header-content {
+    width: 100%; /* 전체 너비를 사용하도록 설정 */
+  }
+  
+  .header-content h1 {
+    font-size: 33px;
+    font-weight: bold;
+    color: #333;
+    margin: 70px 0 20px 0;
+  }
+  
+  /* 탭 컨테이너 중앙 정렬 수정 */
+  .tab-container {
+    display: flex;
+    gap: 120px;
+    width: 100%;
+    justify-content: center; /* 가로 중앙 정렬 추가 */
+    margin-top: 28px; /* 헤더와의 간격 */
+  }
+  
+  .tab-button {
+    background: none;
+    border: none;
+    padding: 8px 0;
+    font-size: 16px;
+    color: #666;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .tab-button.active {
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .tab-button.active::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #075915;
+  }
+  
+  
+  
