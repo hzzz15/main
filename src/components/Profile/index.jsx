@@ -30,7 +30,6 @@ function Profile() {
           <span>지난 산책 리포트</span>
         </div>
       </a>
-
       {/* 트레이너 모드로 전환 */}
       <a href="/trainer-mode" className="profile-footer">
         <span className="profile-trainer-mode-text">트레이너 모드로 전환</span>
