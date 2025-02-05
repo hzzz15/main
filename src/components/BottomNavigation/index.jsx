@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import "./style.css"
+import "./BottomNavigation.css"
 
 function BottomNavigation() {
   const [activeItem, setActiveItem] = useState("")

@@ -1,4 +1,4 @@
-import "./style.css"
+import "./Like.css"
 
 function Like() {
 
@@ -6,7 +6,7 @@ function Like() {
     <div className="like-container">
       {/* 헤더 */}
       <header className="like-header">
-        <div className="header-content">
+        <div className="like-header-content">
           <h1>발도장</h1>
           <h2>나의 발도장이 머물렀던 댕댕이들</h2>
         </div>

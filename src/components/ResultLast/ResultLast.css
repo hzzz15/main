@@ -1,0 +1,50 @@
+/* 전체 컨테이너 */
+.resultlast-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #e5e5e5;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* 헤더 */
+.resultlast-header {
+  background-color: #fff;
+  height: 25vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+/* 헤더 내용을 세로로 정렬 */
+.resultlast-header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* 뒤로가기 아이콘 */
+.resultlast-back-icon {
+  width: 24px;
+  height: auto;
+  cursor: pointer;
+  margin: 100px 0 0 0;
+
+}
+
+/* 제목 스타일 */
+.resultlast-header-content h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin:70px 0 0 0;
+
+}
+
