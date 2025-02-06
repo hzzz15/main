@@ -5,7 +5,7 @@ function New() {
   const [activeTab, setActiveTab] = useState("walk") // 'walk' 또는 'chat'
 
   return (
-    <div className="new-container">
+    <div className="new-container" style={{height: '100%', overflowY: 'auto'}}>
       {/* 헤더 */}
       <header className="new-header">
         <div className="new-header-content">

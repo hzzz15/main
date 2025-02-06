@@ -6,7 +6,7 @@ function Live() {
   const [activeTab, setActiveTab] = useState("walk") // 'walk' 또는 'chat'
 
   return (
-    <div className="live-container">
+    <div className="live-container" style={{height: '100%', overflowY: 'auto'}}>
       {/* 헤더 */}
       <header className="live-header">
         <div className="live-header-content">

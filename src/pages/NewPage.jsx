@@ -4,7 +4,7 @@ import BottomNavigation from '../components/BottomNavigation'
 
 function NewPage() {
   return (
-    <div>
+    <div className="page-wrapper">
       <New/>
       <BottomNavigation/>
     </div>

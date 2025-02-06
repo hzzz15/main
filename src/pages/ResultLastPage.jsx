@@ -3,7 +3,7 @@ import ResultLast from '../components/ResultLast'
 
 function ResultLastPage() {
   return (
-    <div>
+    <div className="page-wrapper">
       <ResultLast/>
     </div>
   )

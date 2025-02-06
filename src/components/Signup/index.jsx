@@ -10,7 +10,7 @@ function Signup() {
   };
 
   return (
-    <div className="signup-container">
+    <div className="signup-container" style={{height: '100%', overflowY: 'auto'}}>
       <div className="signup-header">
         <button className="signup-back-button">←</button>
         <div className="signup-logo">ㄷㄹㄷ</div>

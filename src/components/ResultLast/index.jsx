@@ -9,7 +9,7 @@ function ResultLast() {
   };
 
   return (
-    <div className="resultlast-container">
+    <div className="resultlast-container" style={{height: '100%', overflowY: 'auto'}}>
       {/* 헤더 (고정) */}
       <header className="resultlast-header">
         <div className="resultlast-header-content">

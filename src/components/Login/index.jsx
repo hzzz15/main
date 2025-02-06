@@ -5,7 +5,7 @@ function Login() {
   const navigate = useNavigate()
 
   return (
-    <div className="login-container">
+    <div className="login-container" style={{height: '100%', overflowY: 'auto'}}>
       <div className="login-header">
         <button className="login-back-button">←</button>
         <div className="login-logo">ㄷㄹㄷ</div>

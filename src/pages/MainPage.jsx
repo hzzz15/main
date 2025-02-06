@@ -4,7 +4,7 @@ import BottomNavigation from '../components/BottomNavigation'
 
 function MainPage() {
   return (
-    <div>
+    <div className="page-wrapper">
       <Main/>
       <BottomNavigation/>
     </div>

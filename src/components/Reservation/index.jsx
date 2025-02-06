@@ -5,7 +5,7 @@ function Reservation() {
   const [activeTab, setActiveTab] = useState("now") // 'now' 또는 'last'
 
   return (
-    <div className="reservation-container">
+    <div className="reservation-container" style={{height: '100%', overflowY: 'auto'}}>
       {/* 헤더 */}
       <header className="reservation-header">
         <div className="reservation-header-content">

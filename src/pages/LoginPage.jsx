@@ -3,7 +3,7 @@ import Login from '../components/Login'
 
 function LoginPage() {
   return (
-    <div>
+    <div className="page-wrapper">
       <Login/>
     </div>
   )
