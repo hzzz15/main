@@ -7,6 +7,9 @@ import LoginPage from './pages/LoginPage'
 import LivePage from './pages/LivePage';
 import LikePage from './pages/LikePage';
 import ReservationPage from './pages/ReservationPage';
+import SignupPage from './pages/SignupPage';
+import Signup2Page from './pages/Signup2Page';
+
 
 function App() {
   return (
@@ -18,7 +21,8 @@ function App() {
         <Route path="/LivePage" element={<LivePage/>} />
         <Route path="/LikePage" element={<LikePage/>} />
         <Route path="/ReservationPage" element={<ReservationPage/>} />
-
+        <Route path="/SignupPage" element={<SignupPage/>} />
+        <Route path="/Signup2Page" element={<Signup2Page/>} />
 
 
 
