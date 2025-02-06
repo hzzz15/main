@@ -50,7 +50,17 @@
     flex-direction: column;
   }
   
-  .signup2-input {
+  .signup2-tel-input {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    font-size: 16px;
+    outline: none;
+  }
+
+  .signup2-address-input {
     width: 100%;
     padding: 12px 0;
     border: none;
@@ -60,9 +70,6 @@
     outline: none;
   }
   
-  .signup2-input::placeholder {
-    color: #999;
-  }
   
   .signup2-button {
     margin-top: 20px;

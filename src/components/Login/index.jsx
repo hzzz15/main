@@ -1,7 +1,9 @@
-import React from 'react';
 import "./Login.css"
+import { useNavigate } from "react-router-dom"
 
 function Login() {
+  const navigate = useNavigate()
+
   return (
     <div className="login-container">
       <div className="login-header">
@@ -21,8 +23,11 @@ function Login() {
             <input type="password" id="password" placeholder="비밀번호" className="login-input" />
           </div>
 
-          <button type="submit" className="login-button">
+          <button type="submit" className="login-login-button">
             로그인
+          </button>
+          <button type="button" className="login-signup-button" onClick={() => navigate("/SignupPage")}>
+            회원가입
           </button>
         </form>
       </div>
@@ -30,6 +35,5 @@ function Login() {
   )
 }
 
-
-
 export default Login
+
