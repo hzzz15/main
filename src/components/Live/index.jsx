@@ -11,15 +11,15 @@ function Live() {
       <header className="live-header">
         <div className="live-header-content">
           <h1>라이브</h1>
-          <div className="live-tab-container">
-            <button
-              className={`live-tab-button ${activeTab === "walk" ? "active" : ""}`}
+          <div className="live-header-buttons">
+          <button
+              className={`live-header-button ${activeTab === "walk" ? "active" : ""}`}
               onClick={() => setActiveTab("walk")}
             >
               산책 경로
             </button>
             <button
-              className={`live-tab-button ${activeTab === "chat" ? "active" : ""}`}
+              className={`live-header-button ${activeTab === "chat" ? "active" : ""}`}
               onClick={() => setActiveTab("chat")}
             >
               채팅 하기

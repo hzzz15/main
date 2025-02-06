@@ -11,6 +11,9 @@ import SignupPage from './pages/SignupPage';
 import Signup2Page from './pages/Signup2Page';
 
 
+import NewPage from './pages/NewPage';
+
+
 function App() {
   return (
       <Routes>
@@ -24,6 +27,7 @@ function App() {
         <Route path="/SignupPage" element={<SignupPage/>} />
         <Route path="/Signup2Page" element={<Signup2Page/>} />
 
+        <Route path="/NewPage" element={<NewPage/>} />
 
 
       </Routes>

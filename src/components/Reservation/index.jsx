@@ -10,15 +10,15 @@ function Reservation() {
       <header className="reservation-header">
         <div className="reservation-header-content">
           <h1>예약내역</h1>
-          <div className="reservation-tab-container">
-            <button
-              className={`reservation-tab-button ${activeTab === "now" ? "active" : ""}`}
+          <div className="reservation-header-buttons">
+          <button
+              className={`reservation-header-button ${activeTab === "now" ? "active" : ""}`}
               onClick={() => setActiveTab("now")}
             >
               진행 예약
             </button>
             <button
-              className={`reservation-tab-button ${activeTab === "last" ? "active" : ""}`}
+              className={`reservation-header-button ${activeTab === "last" ? "active" : ""}`}
               onClick={() => setActiveTab("last")}
             >
               지난 예약

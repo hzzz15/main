@@ -1,14 +1,14 @@
-.reservation-container {
+.new-container {
     display: flex;
     flex-direction: column;
     height: 100vh;
     background-color: #e5e5e5;
     box-sizing: border-box;
-    padding: 0 0 20px 0; /* 하단에 20px 패딩 추가 */
+    padding: 0 0 20px 0;
     margin: 0;
   }
   
-  .reservation-header {
+  .new-header {
     background-color: #fff;
     height: auto;
     min-height: 209px;
@@ -21,7 +21,7 @@
     margin-bottom: 10px;
   }
   
-  .reservation-header-content {
+  .new-header-content {
     width: 100%;
     margin-top: 70px;
     display: flex;
@@ -29,21 +29,21 @@
     height: 100%;
   }
   
-  .reservation-header-content h1 {
+  .new-header-content h1 {
     font-size: 33px;
     font-weight: bold;
     color: #000000;
     margin: 0 0 auto 0;
   }
   
-  .reservation-header-buttons {
+  .new-header-buttons {
     display: flex;
     justify-content: center; /* 버튼을 가운데 정렬 */
     width: 100%;
     gap: 130px;
   }
   
-  .reservation-header-button {
+  .new-header-button {
     background: none;
     border: none;
     padding: 10px 0;
@@ -54,12 +54,12 @@
     margin-bottom: -1px;
   }
   
-  .reservation-header-button.active {
+  .new-header-button.active {
     color: #000;
     font-weight: 500;
   }
   
-  .reservation-header-button.active::after {
+  .new-header-button.active::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -69,19 +69,8 @@
     background-color: #075915;
   }
   
-  .reservation-header-button:hover {
+  .new-header-button:hover {
     color: #000;
   }
   
   
-  
-  
-  /* 채팅 메시지 스타일 */
-.reservation-chat-message {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 20vh - 30px); /* 뷰포트 높이에서 헤더 높이와 여백을 뺀 값 */
-  font-size: 18px;
-  color: #666;
-}
