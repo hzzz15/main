@@ -3,7 +3,7 @@ import './Profile.css';
 
 function Profile() {
   return (
-    <div className="profile-container" style={{height: '100%', overflowY: 'auto'}}>
+    <div className="profile-container" style={{minHeight: '100%', overflowY: 'auto'}}>
       {/* 헤더 */}
       <header className="profile-header">
         <div className="profile-header-top">

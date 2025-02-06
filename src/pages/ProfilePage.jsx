@@ -5,7 +5,9 @@ import BottomNavigation from '../components/BottomNavigation'
 function ProfilePage() {
   return (
     <div className="page-wrapper">
-      <Profile/>
+      <div className="content-wrapper">
+        <Profile/>
+      </div>
       <BottomNavigation/>
     </div>
   )

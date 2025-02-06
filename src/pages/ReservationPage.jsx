@@ -5,7 +5,9 @@ import BottomNavigation from '../components/BottomNavigation'
 function ReservationPage() {
   return (
     <div className="page-wrapper">
-      <Reservation/>
+      <div className="content-wrapper">
+        <Reservation/>
+      </div>
       <BottomNavigation/>
     </div>
   )

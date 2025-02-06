@@ -5,7 +5,9 @@ import BottomNavigation from '../components/BottomNavigation'
 function LivePage() {
   return (
     <div className="page-wrapper">
-      <Live/>
+      <div className="content-wrapper">
+        <Live/>
+      </div>
       <BottomNavigation/>
     </div>
   )

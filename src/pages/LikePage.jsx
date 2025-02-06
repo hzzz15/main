@@ -4,8 +4,10 @@ import BottomNavigation from '../components/BottomNavigation'
 
 function LikePage() {
   return (
-    <div className="page-wrapper" style={{ overflow: 'hidden' }}>
-      <Like/>
+    <div className="page-wrapper">
+      <div className="content-wrapper">
+        <Like/>
+      </div>
       <BottomNavigation/>
     </div>
   )

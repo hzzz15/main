@@ -2,7 +2,7 @@ import "./Main.css"
 
 function Main() {
   return (
-    <div className="main-container" style={{height: '100%', overflowY: 'auto'}}>
+    <div className="main-container" style={{minHeight: '100%', overflowY: 'auto'}}>
       <header>
         <h1>
           <img src="/mainicons/logo.png" alt="로고" className="main-logo" />
