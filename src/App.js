@@ -10,6 +10,12 @@ import ReservationPage from './pages/ReservationPage';
 import SignupPage from './pages/SignupPage';
 import Signup2Page from './pages/Signup2Page';
 import ReviewPage from './pages/ReviewPage'
+import TemporaryCarePage from './pages/TemporaryCarePage'
+import TemporaryCare_RePage from './pages/TemporaryCare_RePage'
+import Temporary_choicePage from './pages/Temporary_choicePage'
+import WalkPage from './pages/WalkPage'
+import Walk2Page from './pages/Walk2Page'
+
 
 import NewPage from './pages/NewPage';
 
@@ -27,7 +33,11 @@ function App() {
         <Route path="/SignupPage" element={<SignupPage/>} />
         <Route path="/Signup2Page" element={<Signup2Page/>} />
         <Route path="/ReviewPage" element={<ReviewPage/>} />
-
+        <Route path="/TemporaryCarePage" element={<TemporaryCarePage/>} />
+        <Route path="/TemporaryCare_RePage" element={<TemporaryCare_RePage/>} />
+        <Route path="/Temporary_choicePage" element={<Temporary_choicePage/>} />
+        <Route path="/WalkPage" element={<WalkPage/>} />
+        <Route path="/Walk2Page" element={<Walk2Page/>} />
 
 
         <Route path="/NewPage" element={<NewPage/>} />
