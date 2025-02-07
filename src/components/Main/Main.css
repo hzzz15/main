@@ -150,3 +150,17 @@ main::-webkit-scrollbar-thumb:hover {
   }
 }
 
+
+.clickable-card {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.clickable-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
