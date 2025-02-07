@@ -27,11 +27,11 @@ function Live() {
           </div>
         </div>
       </header>
-      {/* 진행예약 탭이 활성화되었을 때 메시지 표시 */}
-      {activeTab === "walk" && <div className="live-chat-message">진행예약 페이지 아직 미완성</div>}
+      {/* 산책경로 탭이 활성화되었을 때 메시지 표시 */}
+      {activeTab === "walk" && <div className="live-map-container"></div>}
       
-      {/* 지난예약 탭이 활성화되었을 때 메시지 표시 */}
-      {activeTab === "chat" && <div className="live-chat-message">지난예약 페이지 아직 미완성</div>}
+      {/* 채팅하기 탭이 활성화되었을 때 메시지 표시 */}
+      {activeTab === "chat" && <div className="live-chat-message">채팅하기 페이지 아직 미완성</div>}
     </div>
   )
 }

@@ -74,17 +74,20 @@
   color: #000;
 }
 
-
-
-/* 컨텐츠 컨테이너 스타일 */
-.live-content-container {
-  background-color: #fff;
-  flex: 1;
-  margin: 10px 20px 200px 20px; /* 하단 마진을 40px로 증가 */
+.live-map-container {
+  background-color: #ffffff;
   border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  max-height: calc(100vh - 20vh - 60px); /* 뷰포트 높이에서 헤더 높이와 마진을 뺀 값 */
+  margin: 10px 20px;
+  min-height: 300px; /* 최소 높이 설정 */
+  height: calc(100vh - 300px); /* 뷰포트 높이에서 300px를 뺀 값 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto; /* 내용이 넘칠 경우 스크롤 가능하도록 설정 */
 }
+
+
 
 /* 채팅 메시지 스타일 */
 .live-chat-message {
