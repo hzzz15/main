@@ -29,7 +29,7 @@ function Review() {
                 <span className="reviewer-name">ㅇㅇㅇ트레이너님</span>
                 <div className="review-star-rating">
                   {[1, 2, 3, 4, 5].map((star) => (
-                    <img key={star} src="/reviewicons/Star.png" alt="별점" className="review-star" />
+                    <img key={star} src="/reviewicons/star.png" alt="별점" className="review-star" />
                   ))}
                 </div>
               </div>
