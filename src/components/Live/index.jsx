@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./style.css";
+import "./Live.css";
 import Map from "../Map"; // Map 컴포넌트를 올바른 경로에서 임포트
 
 function Live() {
