@@ -31,7 +31,7 @@ export default function DogCard({ dog }) {
         onClick={handlePawClick}
         aria-label="좋아요"
       >
-        <img src="/img/paw-icon.png" alt="발바닥 아이콘" width="24" height="24" />
+        <img src="/temporarycareicons/paw.png" alt="발바닥 아이콘" width="24" height="24" />
       </button>
     </div>
   )

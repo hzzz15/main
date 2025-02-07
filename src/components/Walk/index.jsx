@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import "./style.css"
 
 const walkOptions = [
@@ -12,6 +13,7 @@ const walkOptions = [
 export default function Walk() {
   const [selectedDuration, setSelectedDuration] = useState(30)
   const [wantToday, setWantToday] = useState(false)
+  const navigate = useNavigate();
 
   const handleDurationSelect = (duration) => {
     setSelectedDuration(duration)
@@ -20,6 +22,10 @@ export default function Walk() {
   const getTotalPrice = () => {
     const basePrice = walkOptions.find((option) => option.duration === selectedDuration)?.price || 0
     return wantToday ? basePrice + 5000 : basePrice
+  }
+
+  const handleNextClick = () => {
+    navigate("/Walk2Page"); // /Walk2Page로 이동
   }
 
   return (
@@ -72,7 +78,7 @@ export default function Walk() {
           <span className="additional-price">+5,000원</span>
         </label>
 
-        <button className="next-button">다음으로</button>
+        <button className="next-button" onClick={handleNextClick}>다음으로</button>
       </div>
     </div>
   )
