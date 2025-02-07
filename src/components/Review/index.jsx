@@ -18,10 +18,16 @@ function Review() {
         </div>
       </header>
 
+      <div className="review-tags">
+        <button className="review-tag">소통 원활성</button>
+        <button className="review-tag">청결도</button>
+        <button className="review-tag">상황 공유</button>
+      </div>
+
       {/* 스크롤 가능한 리뷰 카드 컨테이너 */}
       <div className="review-scrollable-container">
         {/* 리뷰 카드 (반복) */}
-        {[1, 2, 3].map((_, index) => (
+        {[1, 2, 3, 4, 5].map((_, index) => (
           <div className="review-card" key={index}>
             <div className="review-profile">
               <img src="/reviewicons/avatar.png" alt="프로필 이미지" className="review-avatar-image" />
