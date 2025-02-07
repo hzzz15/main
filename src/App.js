@@ -15,6 +15,8 @@ import TemporaryCare_RePage from './pages/TemporaryCare_RePage'
 import Temporary_choicePage from './pages/Temporary_choicePage'
 import WalkPage from './pages/WalkPage'
 import Walk2Page from './pages/Walk2Page'
+import LiveResertPage from './pages/LiveResertPage';
+
 
 
 import NewPage from './pages/NewPage';
@@ -38,6 +40,7 @@ function App() {
         <Route path="/Temporary_choicePage" element={<Temporary_choicePage/>} />
         <Route path="/WalkPage" element={<WalkPage/>} />
         <Route path="/Walk2Page" element={<Walk2Page/>} />
+        <Route path="/LiveResertPage" element={<LiveResertPage/>} />
 
 
         <Route path="/NewPage" element={<NewPage/>} />
