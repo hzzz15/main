@@ -12,7 +12,7 @@
 .like-header {
   background-color: #fff;
   height: auto;
-  min-height: 189px;
+  min-height: 120px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@
 
 .like-header-content {
   width: 100%;
-  margin-top: 70px; /* h1, h2 위아래 위치 조정 */
+  margin-top: 30px; /* h1, h2 위아래 위치 조정 */
 }
 
 .like-header-content h1 {

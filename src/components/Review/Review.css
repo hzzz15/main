@@ -13,7 +13,7 @@
 .review-header {
   background-color: #fff;
   height: auto;
-  min-height: 189px;
+  min-height: 120px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@
   width: 24px;
   height: auto;
   cursor: pointer;
-  margin: 50px 0 0 0;
+  margin: 10px 0 0 0;
 }
 
 /* 제목 스타일 */
@@ -46,7 +46,7 @@
   font-size: 33px;
   font-weight: bold;
   color: #333;
-  margin: 30px 0 0 0;
+  margin: 10px 0 0 0;
 }
 
 /* 스크롤 가능한 산책 리포트 카드 컨테이너 */

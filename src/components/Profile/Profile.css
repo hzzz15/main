@@ -28,7 +28,7 @@
   justify-content: space-between;
   align-items: flex-end;
   width: 100%;
-  height: 67px; /* 유지: 기존 높이 그대로 유지 */
+  height: 26px; /* 유지: 기존 높이 그대로 유지 */
   position: relative;
 }
 
