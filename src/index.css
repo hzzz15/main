@@ -18,7 +18,6 @@ html, body {
   width: 390px;
   height: 100%;  /* 기존에 있던 높이 : 844px */
   border: 1px solid #ccc;
-  border-radius: 30px;
   background-color: #fff;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
