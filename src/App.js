@@ -9,7 +9,7 @@ import LikePage from './pages/LikePage';
 import ReservationPage from './pages/ReservationPage';
 import SignupPage from './pages/SignupPage';
 import Signup2Page from './pages/Signup2Page';
-
+import ReviewPage from './pages/ReviewPage'
 
 import NewPage from './pages/NewPage';
 
@@ -26,6 +26,9 @@ function App() {
         <Route path="/ReservationPage" element={<ReservationPage/>} />
         <Route path="/SignupPage" element={<SignupPage/>} />
         <Route path="/Signup2Page" element={<Signup2Page/>} />
+        <Route path="/ReviewPage" element={<ReviewPage/>} />
+
+
 
         <Route path="/NewPage" element={<NewPage/>} />
 
