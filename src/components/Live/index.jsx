@@ -28,7 +28,10 @@ function Live() {
         </div>
       </header>
       {/* 산책경로 탭이 활성화되었을 때 메시지 표시 */}
-      {activeTab === "walk" && <div className="live-map-container"></div>}
+      {activeTab === "walk" && <div className="live-map-container">
+        <Map/>
+        
+        </div>}
       
       {/* 채팅하기 탭이 활성화되었을 때 메시지 표시 */}
       {activeTab === "chat" && <div className="live-chat-message">채팅하기 페이지 아직 미완성</div>}
