@@ -1,9 +1,9 @@
-import { useState } from "react"
-import "./Live.css"
-
+import React, { useState } from "react";
+import "./style.css";
+import Map from "../Map"; // Map 컴포넌트를 올바른 경로에서 임포트
 
 function Live() {
-  const [activeTab, setActiveTab] = useState("walk") // 'walk' 또는 'chat'
+  const [activeTab, setActiveTab] = useState("walk"); // 'walk' 또는 'chat'
 
   return (
     <div className="live-container" style={{minHeight: '100%', overflowY: 'auto'}}>
@@ -33,8 +33,7 @@ function Live() {
       {/* 채팅하기 탭이 활성화되었을 때 메시지 표시 */}
       {activeTab === "chat" && <div className="live-chat-message">채팅하기 페이지 아직 미완성</div>}
     </div>
-  )
+  );
 }
 
-export default Live
-
+export default Live;
