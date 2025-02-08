@@ -78,7 +78,7 @@
 
 .doginformation-form-input {
   flex-grow: 1;
-  padding: 6px 10px;
+  padding: 6px 0;
   border: none;
   border-bottom: 1px solid #075915;
   background-color: transparent;
