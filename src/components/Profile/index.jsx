@@ -11,7 +11,7 @@ function Profile() {
           <a href="/my-profile" className="profile-link">내 프로필</a>
         </div>
         <div className="profile-header-bottom">
-          <a href="/pet-profile" className="profile-link-container">
+          <a href="/DogInformationPage" className="profile-link-container">
             <div className="profile-avatar">
               <img src="/profileicons/avatar.png" alt="프로필 이미지" />
             </div>
