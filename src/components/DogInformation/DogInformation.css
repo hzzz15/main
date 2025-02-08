@@ -67,17 +67,19 @@
 .doginformation-form-group {
   margin-bottom: 16px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  width: 100%;
 }
 
 .doginformation-label {
   width: 80px;
   flex-shrink: 0;
   color: #333;
+  padding-top: 6px;
 }
 
 .doginformation-form-input {
-  flex-grow: 1;
+  width: 100%;
   padding: 6px 0;
   border: none;
   border-bottom: 1px solid #075915;
@@ -95,11 +97,13 @@
   resize: vertical;
   border: 1px solid #075915;
   border-radius: 4px;
+  padding: 6px;
 }
 
 .doginformation-radio-group {
   display: flex;
   gap: 20px;
+  width: 100%;
 }
 
 .doginformation-radio-label {
@@ -113,7 +117,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-grow: 1;
+  width: 100%;
 }
 
 .doginformation-date-input {
@@ -133,11 +137,10 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-grow: 1;
+  width: 100%;
 }
 
 .doginformation-mbti-input {
-  flex-grow: 0;
   width: 60px;
   text-align: center;
   background-color: #f0f0f0;
@@ -160,11 +163,6 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
-  flex-shrink: 0;
-}
-
-.doginformation-mbti-button:hover {
-  background-color: #064512;
 }
 
 .doginformation-submit-button {
