@@ -29,24 +29,24 @@ function ReservationMatch() {
       </header>
 
       {activeTab === "now" && (
-        <div className="match-content">
-          <div className="match-card">
-            <div className="match-date">0000년 00월 00일</div>
-            <div className="match-status">매칭중...</div>
-            <div className="match-players">
-              <div className="player">
-                <div className="player-avatar">
-                  <img src="/dogprofile/마요.jpg" alt="강아지 사진" className="avatar-image" />
+        <div className="reservationmatch-match-content">
+          <div className="reservationmatch-match-card">
+            <div className="reservationmatch-match-date">0000년 00월 00일</div>
+            <div className="reservationmatch-match-status">매칭중...</div>
+            <div className="reservationmatch-match-players">
+              <div className="reservationmatch-player">
+                <div className="reservationmatch-player-avatar">
+                  <img src="/dogprofile/마요.jpg" alt="강아지 사진" className="reservationmatch-avatar-image" />
                 </div>
-                <div className="player-name">이름</div>
-                <div className="player-detail">멍BTI</div>
+                <div className="reservationmatch-player-name">이름</div>
+                <div className="reservationmatch-player-detail">멍BTI</div>
               </div>
               <div className="reservationmatch-match-image">
-                <img src="/reservationmatchicons/matching.png" alt="Matching" className="match-icon" />
+                <img src="/reservationmatchicons/matching.png" alt="Matching" className="reservationmatch-match-icon" />
               </div>
-              <div className="trainer">
-                <div className="trainer-avatar">
-                  <div className="question-mark">?</div>
+              <div className="reservationmatch-trainer">
+                <div className="reservationmatch-trainer-avatar">
+                  <div className="reservationmatch-question-mark">?</div>
                 </div>
               </div>
             </div>

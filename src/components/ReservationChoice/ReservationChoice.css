@@ -1,4 +1,4 @@
-.reservationmatch-container {
+.reservationchoice-container {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -7,7 +7,7 @@
   margin: 0;
 }
 
-.reservationmatch-header {
+.reservationchoice-header {
   background-color: #fff;
   height: auto;
   min-height: 140px;
@@ -20,7 +20,7 @@
   margin-bottom: 10px;
 }
 
-.reservationmatch-header-content {
+.reservationchoice-header-content {
   width: 100%;
   margin-top: 30px;
   display: flex;
@@ -28,21 +28,21 @@
   height: 100%;
 }
 
-.reservationmatch-header-content h1 {
+.reservationchoice-header-content h1 {
   font-size: 33px;
   font-weight: bold;
   color: #000000;
   margin: 0 0 auto 0;
 }
 
-.reservationmatch-header-buttons {
+.reservationchoice-header-buttons {
   display: flex;
   justify-content: center;
   width: 100%;
   gap: 130px;
 }
 
-.reservationmatch-header-button {
+.reservationchoice-header-button {
   background: none;
   border: none;
   padding: 10px 0;
@@ -53,12 +53,12 @@
   margin-bottom: -1px;
 }
 
-.reservationmatch-header-button.active {
+.reservationchoice-header-button.active {
   color: #000;
   font-weight: 500;
 }
 
-.reservationmatch-header-button.active::after {
+.reservationchoice-header-button.active::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -68,11 +68,11 @@
   background-color: #075915;
 }
 
-.reservationmatch-header-button:hover {
+.reservationchoice-header-button:hover {
   color: #000;
 }
 
-.reservationmatch-chat-message {
+.reservationchoice-chat-message {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,25 +81,25 @@
   color: #666;
 }
 
-.reservationmatch-match-content {
+.reservationchoice-match-content {
   padding: 20px;
 }
 
-.reservationmatch-match-card {
+.reservationchoice-match-card {
   background: white;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.reservationmatch-match-date {
+.reservationchoice-match-date {
   text-align: center;
   margin-bottom: 15px;
   font-size: 14px;
   color: #333;
 }
 
-.reservationmatch-match-status {
+.reservationchoice-match-status {
   text-align: center;
   margin-bottom: 20px;
   font-size: 16px;
@@ -107,20 +107,20 @@
   color: #000;
 }
 
-.reservationmatch-match-players {
+.reservationchoice-match-players {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.reservationmatch-player {
+.reservationchoice-player {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
 }
 
-.reservationmatch-player-avatar {
+.reservationchoice-player-avatar {
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -131,50 +131,50 @@
   overflow: hidden;
 }
 
-.reservationmatch-avatar-image {
+.reservationchoice-avatar-image {
   width: 100px;
   height: 100px;
   object-fit: cover;
 }
 
-.reservationmatch-question-mark {
+.reservationchoice-question-mark {
   font-size: 40px;
   color: #666;
 }
 
-.reservationmatch-player-name {
+.reservationchoice-player-name {
   font-size: 14px;
   color: #333;
 }
 
-.reservationmatch-player-detail {
+.reservationchoice-player-detail {
   font-size: 12px;
   color: #666;
   text-decoration: underline;
 }
 
-.reservationmatch-match-image {
+.reservationchoice-match-image {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.reservationmatch-match-icon {
+.reservationchoice-match-icon {
   width: 24px;
   height: 24px;
   align-self: center;
-  transform: translateY(-28px); /* 위로 20px 올림. 필요에 따라 이 값을 조정하세요. */
+  transform: translateY(-28px);
 }
 
-.reservationmatch-trainer {
+.reservationchoice-trainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  transform: translateY(-25px); /* 위로 20px 올림. 필요에 따라 이 값을 조정하세요. */
+  transform: translateY(-25px);
 }
 
-.reservationmatch-trainer-avatar {
+.reservationchoice-trainer-avatar {
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -185,3 +185,56 @@
   overflow: hidden;
 }
 
+.reservationchoice-match-confirmation {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.reservationchoice-match-question {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.reservationchoice-match-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.reservationchoice-match-button {
+  padding: 10px 0;
+  font-size: 16px;
+  border: 2px solid #075915;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: #075915;
+  font-weight: bold;
+}
+
+.reservationchoice-match-button-yes,
+.reservationchoice-match-button-no {
+  background-color: white;
+  color: #075915;
+}
+
+.reservationchoice-match-button:hover {
+  background-color: #075915;
+  color: white;
+}
+
+.reservationchoice-match-button-link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.reservationchoice-match-button-link:hover {
+  text-decoration: none;
+}
