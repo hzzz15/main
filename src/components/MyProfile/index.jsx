@@ -20,7 +20,7 @@ function MyProfile() {
               <br />
               안녕하세요!
             </h1>
-            <img src="/icons/avatar.png" alt="프로필 아바타" className="myprofile-avatar-icon" />
+            <img src="/dogprofile/마요.jpg" alt="프로필 아바타" className="myprofile-avatar-icon" />
           </div>
         </div>
       </header>
