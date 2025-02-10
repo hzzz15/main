@@ -98,7 +98,7 @@ function Signup2() {
             />
           </div>
 
-          <button type="submit" className="signup-button">
+          <button type="submit" className="signup2-button">
             회원가입
           </button>
 

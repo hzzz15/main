@@ -81,7 +81,7 @@
     display: block;
     margin: 20px auto 0;
     padding: 15px;
-    border: 3px solid #075915; /* 테두리 색상 추가 */
+    border: 2px solid #075915; /* 테두리 색상 추가 */
     border-radius: 30px;
     background-color: white; /* 배경색 흰색 */
     color: #075915; /* 글자 색상 변경 */
