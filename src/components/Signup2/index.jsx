@@ -56,7 +56,7 @@ function Signup2() {
   return (
     <div className="signup2-container" style={{ height: "100%", overflowY: "auto" }}>
       <div className="signup2-header">
-        <a href="/LoginPage" className="signup2-back-button">
+        <a href="/SignupPage" className="signup2-back-button">
           <img src="/icons/back.png" alt="뒤로가기" className="signup2-back-icon" />
         </a>
         <h1>
