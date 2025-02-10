@@ -1,7 +1,7 @@
 "use client"
 
 import DogCard from "../Dog"
-import "./style.css"
+import "./TemporaryCare.css"
 import { dogs } from "../../app/data"
 
 const TemporaryCare = () => {

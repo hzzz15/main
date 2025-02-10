@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import "./style.css"
+import "./Dog.css"
 
 export default function DogCard({ dog }) {
   const [isLiked, setIsLiked] = useState(false)

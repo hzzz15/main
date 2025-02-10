@@ -1,7 +1,7 @@
 "use client"
 
 import DogCard from "../Dog"
-import "./style.css"
+import "./TemporaryCare_Re.css"
 
 // 임시 데이터
 const recommendedDogs = [

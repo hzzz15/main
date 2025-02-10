@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import "./style.css"
+import "./Walk.css"
 
 const walkOptions = [
   { duration: 30, price: 18000 },

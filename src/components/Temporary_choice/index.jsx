@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { ArrowLeft } from "lucide-react"
-import "./style.css"
+import "./Temporary_choice.css"
 
 export default function TemporaryChoice({ dog }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)

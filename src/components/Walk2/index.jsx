@@ -1,5 +1,5 @@
 "use client"
-import "./style.css"
+import "./Walk2.css"
 
 export default function Walk2() {
   return (
