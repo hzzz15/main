@@ -88,4 +88,13 @@
     background-color: #0a7a2f;
   }
   
+  .signup2-email-input {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    font-size: 16px;
+    outline: none;
+  }
   

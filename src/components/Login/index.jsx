@@ -23,7 +23,7 @@ function Login() {
             <input type="password" id="password" placeholder="비밀번호" className="login-input" />
           </div>
 
-          <button type="submit" className="login-login-button">
+          <button type="submit" className="login-login-button" onClick={() => navigate("/")}>
             로그인
           </button>
           <button type="button" className="login-signup-button" onClick={() => navigate("/SignupPage")}>
