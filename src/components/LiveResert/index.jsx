@@ -34,7 +34,7 @@ function LiveResert() {
 
             <div className="liveresert-profile-section">
               <div className="liveresert-profile-circle liveresert-dog-photo">
-                <img src="/dogprofile/마요.jpg" alt="강아지사진" />
+                <img src="/dogprofile/dog.jpg" alt="강아지사진" />
               </div>
               <div className="liveresert-paw-prints">
                 <img
@@ -44,7 +44,7 @@ function LiveResert() {
                 />
               </div>
               <div className="liveresert-profile-circle liveresert-user-photo">
-                <img src="/trainerprofile/트레이너.jpg" alt="프로필" />
+                <img src="/trainerprofile/trainer.jpg" alt="프로필" />
               </div>
             </div>
 

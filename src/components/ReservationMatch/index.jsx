@@ -36,7 +36,7 @@ function ReservationMatch() {
             <div className="reservationmatch-match-players">
               <div className="reservationmatch-player">
                 <div className="reservationmatch-player-avatar">
-                  <img src="/dogprofile/마요.jpg" alt="강아지 사진" className="reservationmatch-avatar-image" />
+                  <img src="/dogprofile/dog.jpg" alt="강아지 사진" className="reservationmatch-avatar-image" />
                 </div>
                 <div className="reservationmatch-player-name">이름</div>
                 <div className="reservationmatch-player-detail">멍BTI</div>

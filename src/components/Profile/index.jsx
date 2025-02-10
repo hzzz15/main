@@ -13,7 +13,7 @@ function Profile() {
         <div className="profile-header-bottom">
           <a href="/DogInformationPage" className="profile-link-container">
             <div className="profile-avatar">
-              <img src="/dogprofile/마요.jpg" alt="프로필 이미지" />
+              <img src="/dogprofile/dog.jpg" alt="프로필 이미지" />
             </div>
             <div className="profile-details">
               <span>반려동물 프로필</span>

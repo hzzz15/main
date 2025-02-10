@@ -36,7 +36,7 @@ function ReservationChoice() {
             <div className="reservationchoice-match-players">
               <div className="reservationchoice-player">
                 <div className="reservationchoice-player-avatar">
-                  <img src="/dogprofile/마요.jpg" alt="강아지 사진" className="reservationchoice-avatar-image" />
+                  <img src="/dogprofile/dog.jpg" alt="강아지 사진" className="reservationchoice-avatar-image" />
                 </div>
                 <div className="reservationchoice-player-name">이름</div>
                 <div className="reservationchoice-player-detail">멍BTI</div>
@@ -46,7 +46,7 @@ function ReservationChoice() {
               </div>
               <div className="reservationchoice-player">
                 <div className="reservationchoice-player-avatar">
-                  <img src="/trainerprofile/트레이너.jpg" alt="트레이너 사진" className="reservationchoice-avatar-image" />
+                  <img src="/trainerprofile/trainer.jpg" alt="트레이너 사진" className="reservationchoice-avatar-image" />
                 </div>
                 <div className="reservationchoice-player-name">이름</div>
                 <div className="reservationchoice-player-detail">MBTI</div>
