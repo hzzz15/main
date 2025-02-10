@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage'
 import LivePage from './pages/LivePage';
 import LikePage from './pages/LikePage';
 import ReservationPage from './pages/ReservationPage';
+import ReservationMatchPage from './pages/ReservationMatchPage';
 import SignupPage from './pages/SignupPage';
 import Signup2Page from './pages/Signup2Page';
 import ReviewPage from './pages/ReviewPage'
@@ -20,6 +21,7 @@ import DogInformationPage from './pages/DogInformationPage';
 import MyProfilePage from './pages/MyProfilePage';
 
 
+
 function App() {
   return (
       <Routes>
@@ -30,6 +32,7 @@ function App() {
         <Route path="/LivePage" element={<LivePage/>} />
         <Route path="/LikePage" element={<LikePage/>} />
         <Route path="/ReservationPage" element={<ReservationPage/>} />
+        <Route path="/ReservationMatchPage" element={<ReservationMatchPage/>} />
         <Route path="/SignupPage" element={<SignupPage/>} />
         <Route path="/Signup2Page" element={<Signup2Page/>} />
         <Route path="/ReviewPage" element={<ReviewPage/>} />
