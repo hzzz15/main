@@ -73,12 +73,16 @@ function Signup() {
   return (
     <div className="signup-container" style={{ height: "100%", overflowY: "auto" }}>
       <div className="signup-header">
-        <button className="signup-back-button">←</button>
-        <div className="signup-logo">ㄷㄹㄷ</div>
+        <a href="/LoginPage" className="signup-back-button">
+          <img src="/icons/back.png" alt="뒤로가기" className="signup-back-icon" />
+        </a>
+        <h1>
+          <img src="/icons/logo.png" alt="로고" className="signup-logo" />
+        </h1>
       </div>
 
       <div className="signup-content">
-        <h1 className="signup-title">아이디와 비밀번호를 입력하시오</h1>
+        <h1 className="signup-title">아이디와<br />비밀번호를 입력하시오</h1>
 
         <form className="signup-form" onSubmit={handleNext}>
           <div className="signup-form-group">

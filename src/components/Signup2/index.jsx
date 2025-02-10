@@ -56,10 +56,12 @@ function Signup2() {
   return (
     <div className="signup2-container" style={{ height: "100%", overflowY: "auto" }}>
       <div className="signup2-header">
-        <button className="signup2-back-button" onClick={() => navigate(-1)}>
-          ←
-        </button>
-        <div className="signup2-logo">ㄷㄹㄷ</div>
+        <a href="/LoginPage" className="signup2-back-button">
+          <img src="/icons/back.png" alt="뒤로가기" className="signup2-back-icon" />
+        </a>
+        <h1>
+          <img src="/icons/logo.png" alt="로고" className="signup2-logo" />
+        </h1>
       </div>
 
       <div className="signup2-content">
@@ -96,9 +98,10 @@ function Signup2() {
             />
           </div>
 
-          <button type="submit" className="signup2-button">
+          <button type="submit" className="signup-button">
             회원가입
           </button>
+
         </form>
       </div>
     </div>
