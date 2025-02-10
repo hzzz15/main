@@ -30,7 +30,7 @@ function Review() {
         {[1, 2, 3, 4, 5].map((_, index) => (
           <div className="review-card" key={index}>
             <div className="review-profile">
-              <img src="/reviewicons/avatar.png" alt="프로필 이미지" className="review-avatar-image" />
+              <img src="/trainerprofile/트레이너.jpg" alt="프로필 이미지" className="review-avatar-image" />
               <div className="review-info">
                 <span className="reviewer-name">ㅇㅇㅇ트레이너님</span>
                 <div className="review-star-rating">

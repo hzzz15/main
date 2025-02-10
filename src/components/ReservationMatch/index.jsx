@@ -36,7 +36,7 @@ function ReservationMatch() {
             <div className="match-players">
               <div className="player">
                 <div className="player-avatar">
-                  <img src="/placeholder.svg?height=60&width=60" alt="강아지 사진" className="avatar-image" />
+                  <img src="/dogprofile/마요.jpg" alt="강아지 사진" className="avatar-image" />
                 </div>
                 <div className="player-name">이름</div>
                 <div className="player-detail">멍BTI</div>
@@ -46,10 +46,8 @@ function ReservationMatch() {
               </div>
               <div className="trainer">
                 <div className="trainer-avatar">
-                  <img src="/placeholder.svg?height=60&width=60" alt="강아지 사진" className="avatar-image" />
+                  <div className="question-mark">?</div>
                 </div>
-                <div className="trainer-name">이름</div>
-                <div className="trainer-detail">MBTI</div>
               </div>
             </div>
           </div>

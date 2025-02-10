@@ -108,8 +108,11 @@
 .review-avatar-image {
   width: 48px;
   height: 48px;
-  border-radius: 50%;
+  border-radius: 50%; /* 원형 */
+  object-fit: cover; /* 원형 안에 이미지 꽉 채우기 */
+  display: block; /* 혹시 inline 속성으로 인해 위치가 어긋날 경우 */
 }
+
 
 .review-info {
   display: flex;
