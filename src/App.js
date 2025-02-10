@@ -20,6 +20,7 @@ import Walk2Page from './pages/Walk2Page'
 import LiveResertPage from './pages/LiveResertPage';
 import DogInformationPage from './pages/DogInformationPage';
 import MyProfilePage from './pages/MyProfilePage';
+import DbtiPage from './pages/DbtiPage';
 
 
 
@@ -46,6 +47,7 @@ function App() {
         <Route path="/LiveResertPage" element={<LiveResertPage/>} />
         <Route path="/DogInformationPage" element={<DogInformationPage/>} />
         <Route path="/MyProfilePage" element={<MyProfilePage/>} />
+        <Route path="/DbtiPage" element={<DbtiPage/>} />
 
 
       </Routes>
