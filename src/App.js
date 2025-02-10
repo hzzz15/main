@@ -17,10 +17,7 @@ import WalkPage from './pages/WalkPage'
 import Walk2Page from './pages/Walk2Page'
 import LiveResertPage from './pages/LiveResertPage';
 import DogInformationPage from './pages/DogInformationPage';
-
-
-import NewPage from './pages/NewPage';
-
+import MyProfilePage from './pages/MyProfilePage';
 
 
 function App() {
@@ -43,9 +40,7 @@ function App() {
         <Route path="/Walk2Page" element={<Walk2Page/>} />
         <Route path="/LiveResertPage" element={<LiveResertPage/>} />
         <Route path="/DogInformationPage" element={<DogInformationPage/>} />
-
-
-        <Route path="/NewPage" element={<NewPage/>} />
+        <Route path="/MyProfilePage" element={<MyProfilePage/>} />
 
 
       </Routes>

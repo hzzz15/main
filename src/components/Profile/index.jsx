@@ -8,7 +8,7 @@ function Profile() {
       <header className="profile-header">
         <div className="profile-header-top">
           <h1>더보기</h1>
-          <a href="/my-profile" className="profile-link">내 프로필</a>
+          <a href="/MyProfilePage" className="profile-link">내 프로필</a>
         </div>
         <div className="profile-header-bottom">
           <a href="/DogInformationPage" className="profile-link-container">
