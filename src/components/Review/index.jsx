@@ -8,8 +8,13 @@ function Review() {
     navigate("/")
   }
 
+  // 평점을 문자열로 변환하는 함수
+  const getRating = (rating) => {
+    return `평점: ${rating.toFixed(1)}`
+  }
+
   return (
-    <div className="review-container" style={{ height: "100%", overflowY: "auto" }}>
+    <div className="review-container">
       {/* 헤더 (고정) */}
       <header className="review-header">
         <div className="review-header-content">
@@ -18,14 +23,15 @@ function Review() {
         </div>
       </header>
 
-      <div className="review-tags">
-        <button className="review-tag">소통 원활성</button>
-        <button className="review-tag">청결도</button>
-        <button className="review-tag">상황 공유</button>
-      </div>
-
-      {/* 스크롤 가능한 리뷰 카드 컨테이너 */}
+      {/* 스크롤 가능한 컨테이너 */}
       <div className="review-scrollable-container">
+        {/* 태그 부분 */}
+        <div className="review-tags">
+          <button className="review-tag">소통 원활성</button>
+          <button className="review-tag">청결도</button>
+          <button className="review-tag">상황 공유</button>
+        </div>
+
         {/* 리뷰 카드 (반복) */}
         {[1, 2, 3, 4, 5].map((_, index) => (
           <div className="review-card" key={index}>
@@ -33,10 +39,8 @@ function Review() {
               <img src="/trainerprofile/trainer.jpg" alt="프로필 이미지" className="review-avatar-image" />
               <div className="review-info">
                 <span className="reviewer-name">ㅇㅇㅇ트레이너님</span>
-                <div className="review-star-rating">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <img key={star} src="/reviewicons/star.png" alt="별점" className="review-star" />
-                  ))}
+                <div className="review-rating">
+                  {getRating(4.5)} {/* 예시로 4.5점을 사용 */}
                 </div>
               </div>
             </div>
@@ -49,4 +53,3 @@ function Review() {
 }
 
 export default Review
-

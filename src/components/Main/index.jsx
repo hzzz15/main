@@ -7,8 +7,8 @@ function Main() {
 
   const handleClick = (item) => {
     switch (item) {
-      case "mbti":
-        navigate("/mbti")
+      case "dbti":
+        navigate("/DbtiPage")
         break
       case "walk":
         navigate("/WalkPage")
@@ -37,7 +37,7 @@ function Main() {
           <Weather city="Seoul" />
         </div>
 
-        <div className="main-mbti-card clickable-card" onClick={() => handleClick("mbti")}>
+        <div className="main-mbti-card clickable-card" onClick={() => handleClick("dbti")}>
           <h2>우리 댕댕이의 멍BTI는?!</h2>
         </div>
 
