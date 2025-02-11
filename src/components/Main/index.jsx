@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import "./Main.css"
+import Weather from "./weather";
 
 function Main() {
   const navigate = useNavigate()
@@ -33,7 +34,7 @@ function Main() {
 
       <main>
         <div className="main-weather-section">
-          <h2>날씨</h2>
+          <Weather city="Seoul" />
         </div>
 
         <div className="main-mbti-card clickable-card" onClick={() => handleClick("mbti")}>
