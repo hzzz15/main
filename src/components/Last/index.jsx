@@ -65,9 +65,11 @@ function Last() {
   const renderReservationCards = () => {
     const yearReservations = reservations[selectedYear] || []
     if (yearReservations.length > 0) {
+      // 날짜를 기준으로 내림차순 정렬
+      const sortedReservations = [...yearReservations].sort((a, b) => new Date(b.date) - new Date(a.date))
       return (
         <div className="reservation-list">
-          {yearReservations.map((reservation) => (
+          {sortedReservations.map((reservation) => (
             <div key={reservation.id} className="reservation-card">
               <div className="reservation-time">{reservation.date}</div>
               <div className="trainer-info">
