@@ -7,7 +7,7 @@ import "./Last.css"
 function Last() {
   const [showYears, setShowYears] = useState(false)
   const [selectedYear, setSelectedYear] = useState(2025)
-  const years = [2025, 2024, 2023, 2022, 2021]
+  const years = [2025, 2024, 2023]
   const [reservations, setReservations] = useState({})
   const navigate = useNavigate()
 
