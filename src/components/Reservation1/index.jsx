@@ -35,7 +35,7 @@ function Reservation1() {
               <div className="reservation1-player-detail">멍BTI</div>
             </div>
             <div className="reservation1-match-image">
-              <img src="/reservationmatchicons/matching.png" alt="Matching" className="reservation1-match-icon" />
+              <img src="/reservationicons/matching.png" alt="Matching" className="reservation1-match-icon" />
             </div>
             <div className="reservation1-trainer">
               <div className="reservation1-trainer-avatar">
