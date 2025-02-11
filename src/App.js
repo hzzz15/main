@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage'
 import LivePage from './pages/LivePage';
 import LikePage from './pages/LikePage';
 import ReservationPage from './pages/ReservationPage';
+import ReservationLastPage from './pages/ReservationLastPage';
 import ReservationMatchPage from './pages/ReservationMatchPage';
 import ReservationChoicePage from './pages/ReservationChoicePage';
 import SignupPage from './pages/SignupPage';
@@ -34,6 +35,7 @@ function App() {
         <Route path="/LivePage" element={<LivePage/>} />
         <Route path="/LikePage" element={<LikePage/>} />
         <Route path="/ReservationPage" element={<ReservationPage/>} />
+        <Route path="/ReservationLastPage" element={<ReservationLastPage/>} />
         <Route path="/ReservationMatchPage" element={<ReservationMatchPage/>} />
         <Route path="/ReservationChoicePage" element={<ReservationChoicePage/>} />
         <Route path="/SignupPage" element={<SignupPage/>} />
