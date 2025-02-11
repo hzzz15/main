@@ -90,6 +90,7 @@
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
 }
 
 .last-year-button:hover {
@@ -129,3 +130,105 @@
   background-color: #075915;
   color: white;
 }
+
+.year-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.year-option {
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.year-option:hover {
+  background-color: #f5f5f5;
+}
+
+.reservation-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-time {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.trainer-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.trainer-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.trainer-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #e5e5e5;
+  overflow: hidden;
+}
+
+.trainer-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trainer-name {
+  font-size: 16px;
+  color: #333;
+}
+
+.action-button {
+  padding: 8px 20px;
+  border: 1px solid #075915;
+  border-radius: 20px;
+  color: #075915;
+  background: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 120px; /* 고정 너비 설정 */
+  text-align: center;
+  display: inline-block; /* inline-block으로 변경 */
+}
+
+.action-button:hover {
+  background: #075915;
+  color: white;
+}
+
+.review-button {
+  composes: action-button;
+}
+
+.meet-again-button {
+  composes: action-button;
+}
+
+.reservation-list {
+  padding: 20px 0;
+}
+
