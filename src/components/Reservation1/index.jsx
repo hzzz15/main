@@ -12,7 +12,7 @@ function Reservation1() {
           <div className="reservation1-header-buttons">
             <button className="reservation1-header-button active">진행 예약</button>
             <Link
-              to="/ReservationLastPage"
+              to="/LastPage"
               className="reservation1-header-button"
               style={{ background: "none", border: "none", textDecoration: "none" }}
             >

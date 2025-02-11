@@ -7,7 +7,7 @@ import LoginPage from './pages/LoginPage'
 import LivePage from './pages/LivePage';
 import LikePage from './pages/LikePage';
 import ReservationPage from './pages/ReservationPage';
-import ReservationLastPage from './pages/ReservationLastPage';
+import LastPage from './pages/LastPage';
 import Reservation1Page from './pages/Reservation1Page';
 import Reservation2Page from './pages/Reservation2Page';
 import SignupPage from './pages/SignupPage';
@@ -35,7 +35,7 @@ function App() {
         <Route path="/LivePage" element={<LivePage/>} />
         <Route path="/LikePage" element={<LikePage/>} />
         <Route path="/ReservationPage" element={<ReservationPage/>} />
-        <Route path="/ReservationLastPage" element={<ReservationLastPage/>} />
+        <Route path="/LastPage" element={<LastPage/>} />
         <Route path="/Reservation1Page" element={<Reservation1Page/>} />
         <Route path="/Reservation2Page" element={<Reservation2Page/>} />
         <Route path="/SignupPage" element={<SignupPage/>} />

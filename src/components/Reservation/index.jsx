@@ -14,7 +14,7 @@ function Reservation() {
               진행 예약
             </button>
             <Link 
-              to="/ReservationLastPage" 
+              to="/LastPage" 
               className="reservation-header-button"
               style={{ background: 'none', border: 'none', textDecoration: 'none' }}
             >

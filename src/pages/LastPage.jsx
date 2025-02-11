@@ -1,16 +1,16 @@
 import React from 'react'
-import ReservationLast from '../components/ReservationLast'
+import Last from '../components/Last'
 import BottomNavigation from '../components/BottomNavigation'
 
-function ReservationPage() {
+function LastPage() {
   return (
     <div className="page-wrapper">
       <div className="content-wrapper">
-        <ReservationLast/>
+        <Last/>
       </div>
       <BottomNavigation/>
     </div>
   )
 }
 
-export default ReservationPage
+export default LastPage
