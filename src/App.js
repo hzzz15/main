@@ -23,6 +23,7 @@ import LiveResertPage from './pages/LiveResertPage';
 import DogInformationPage from './pages/DogInformationPage';
 import MyProfilePage from './pages/MyProfilePage';
 import DbtiPage from './pages/DbtiPage';
+import Dbti_resultPage from './pages/Dbti_resultPage';
 
 
 
@@ -37,7 +38,6 @@ function App() {
         <Route path="/LikePage" element={<LikePage/>} />
         <Route path="/ReservationPage" element={<ReservationPage/>} />
         <Route path="/LastPage" element={<LastPage/>} />
-
         <Route path="/Reservation1Page" element={<Reservation1Page/>} />
         <Route path="/Reservation2Page" element={<Reservation2Page/>} />
         <Route path="/SignupPage" element={<SignupPage/>} />
@@ -52,6 +52,7 @@ function App() {
         <Route path="/DogInformationPage" element={<DogInformationPage/>} />
         <Route path="/MyProfilePage" element={<MyProfilePage/>} />
         <Route path="/DbtiPage" element={<DbtiPage/>} />
+        <Route path="/Dbti_resultPage" element={<Dbti_resultPage/>} />
 
 
       </Routes>
