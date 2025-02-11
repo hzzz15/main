@@ -1,4 +1,4 @@
-.reservationchoice-container {
+.reservation1-container {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -7,7 +7,7 @@
   margin: 0;
 }
 
-.reservationchoice-header {
+.reservation1-header {
   background-color: #fff;
   height: auto;
   min-height: 140px;
@@ -20,7 +20,7 @@
   margin-bottom: 10px;
 }
 
-.reservationchoice-header-content {
+.reservation1-header-content {
   width: 100%;
   margin-top: 30px;
   display: flex;
@@ -28,21 +28,21 @@
   height: 100%;
 }
 
-.reservationchoice-header-content h1 {
+.reservation1-header-content h1 {
   font-size: 33px;
   font-weight: bold;
   color: #000000;
   margin: 0 0 auto 0;
 }
 
-.reservationchoice-header-buttons {
+.reservation1-header-buttons {
   display: flex;
   justify-content: center;
   width: 100%;
   gap: 130px;
 }
 
-.reservationchoice-header-button {
+.reservation1-header-button {
   background: none;
   border: none;
   padding: 10px 0;
@@ -53,12 +53,12 @@
   margin-bottom: -1px;
 }
 
-.reservationchoice-header-button.active {
+.reservation1-header-button.active {
   color: #000;
   font-weight: 500;
 }
 
-.reservationchoice-header-button.active::after {
+.reservation1-header-button.active::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -68,11 +68,11 @@
   background-color: #075915;
 }
 
-.reservationchoice-header-button:hover {
+.reservation1-header-button:hover {
   color: #000;
 }
 
-.reservationchoice-chat-message {
+.reservation1-chat-message {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,25 +81,25 @@
   color: #666;
 }
 
-.reservationchoice-match-content {
+.reservation1-match-content {
   padding: 20px;
 }
 
-.reservationchoice-match-card {
+.reservation1-match-card {
   background: white;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.reservationchoice-match-date {
+.reservation1-match-date {
   text-align: center;
   margin-bottom: 15px;
   font-size: 14px;
   color: #333;
 }
 
-.reservationchoice-match-status {
+.reservation1-match-status {
   text-align: center;
   margin-bottom: 20px;
   font-size: 16px;
@@ -107,20 +107,20 @@
   color: #000;
 }
 
-.reservationchoice-match-players {
+.reservation1-match-players {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.reservationchoice-player {
+.reservation1-player {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
 }
 
-.reservationchoice-player-avatar {
+.reservation1-player-avatar {
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -131,42 +131,42 @@
   overflow: hidden;
 }
 
-.reservationchoice-avatar-image {
+.reservation1-avatar-image {
   width: 100px;
   height: 100px;
   object-fit: cover;
 }
 
-.reservationchoice-question-mark {
+.reservation1-question-mark {
   font-size: 40px;
   color: #666;
 }
 
-.reservationchoice-player-name {
+.reservation1-player-name {
   font-size: 14px;
   color: #333;
 }
 
-.reservationchoice-player-detail {
+.reservation1-player-detail {
   font-size: 12px;
   color: #666;
   text-decoration: underline;
 }
 
-.reservationchoice-match-image {
+.reservation1-match-image {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.reservationchoice-match-icon {
+.reservation1-match-icon {
   width: 24px;
   height: 24px;
   align-self: center;
   transform: translateY(-28px);
 }
 
-.reservationchoice-trainer {
+.reservation1-trainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -174,7 +174,7 @@
   transform: translateY(-25px);
 }
 
-.reservationchoice-trainer-avatar {
+.reservation1-trainer-avatar {
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -185,56 +185,3 @@
   overflow: hidden;
 }
 
-.reservationchoice-match-confirmation {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.reservationchoice-match-question {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.reservationchoice-match-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.reservationchoice-match-button {
-  padding: 10px 0;
-  font-size: 16px;
-  border: 2px solid #075915;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s;
-  width: 100px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  color: #075915;
-  font-weight: bold;
-}
-
-.reservationchoice-match-button-yes,
-.reservationchoice-match-button-no {
-  background-color: white;
-  color: #075915;
-}
-
-.reservationchoice-match-button:hover {
-  background-color: #075915;
-  color: white;
-}
-
-.reservationchoice-match-button-link {
-  text-decoration: none;
-  display: inline-block;
-}
-
-.reservationchoice-match-button-link:hover {
-  text-decoration: none;
-}

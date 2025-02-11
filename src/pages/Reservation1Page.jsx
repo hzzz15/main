@@ -1,16 +1,16 @@
 import React from 'react'
-import ReservationChoice from '../components/ReservationChoice'
+import Reservation1 from '../components/Reservation1'
 import BottomNavigation from '../components/BottomNavigation'
 
-function ReservationChoicePage() {
+function Reservation1Page() {
   return (
     <div className="page-wrapper">
       <div className="content-wrapper">
-        <ReservationChoice/>
+        <Reservation1/>
       </div>
       <BottomNavigation/>
     </div>
   )
 }
 
-export default ReservationChoicePage
+export default Reservation1Page

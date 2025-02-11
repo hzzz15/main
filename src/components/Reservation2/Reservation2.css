@@ -1,4 +1,4 @@
-.reservationmatch-container {
+.reservation2-container {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -7,7 +7,7 @@
   margin: 0;
 }
 
-.reservationmatch-header {
+.reservation2-header {
   background-color: #fff;
   height: auto;
   min-height: 140px;
@@ -20,7 +20,7 @@
   margin-bottom: 10px;
 }
 
-.reservationmatch-header-content {
+.reservation2-header-content {
   width: 100%;
   margin-top: 30px;
   display: flex;
@@ -28,21 +28,21 @@
   height: 100%;
 }
 
-.reservationmatch-header-content h1 {
+.reservation2-header-content h1 {
   font-size: 33px;
   font-weight: bold;
   color: #000000;
   margin: 0 0 auto 0;
 }
 
-.reservationmatch-header-buttons {
+.reservation2-header-buttons {
   display: flex;
   justify-content: center;
   width: 100%;
   gap: 130px;
 }
 
-.reservationmatch-header-button {
+.reservation2-header-button {
   background: none;
   border: none;
   padding: 10px 0;
@@ -53,12 +53,12 @@
   margin-bottom: -1px;
 }
 
-.reservationmatch-header-button.active {
+.reservation2-header-button.active {
   color: #000;
   font-weight: 500;
 }
 
-.reservationmatch-header-button.active::after {
+.reservation2-header-button.active::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -68,11 +68,11 @@
   background-color: #075915;
 }
 
-.reservationmatch-header-button:hover {
+.reservation2-header-button:hover {
   color: #000;
 }
 
-.reservationmatch-chat-message {
+.reservation2-chat-message {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,25 +81,25 @@
   color: #666;
 }
 
-.reservationmatch-match-content {
+.reservation2-match-content {
   padding: 20px;
 }
 
-.reservationmatch-match-card {
+.reservation2-match-card {
   background: white;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.reservationmatch-match-date {
+.reservation2-match-date {
   text-align: center;
   margin-bottom: 15px;
   font-size: 14px;
   color: #333;
 }
 
-.reservationmatch-match-status {
+.reservation2-match-status {
   text-align: center;
   margin-bottom: 20px;
   font-size: 16px;
@@ -107,20 +107,20 @@
   color: #000;
 }
 
-.reservationmatch-match-players {
+.reservation2-match-players {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.reservationmatch-player {
+.reservation2-player {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
 }
 
-.reservationmatch-player-avatar {
+.reservation2-player-avatar {
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -131,50 +131,50 @@
   overflow: hidden;
 }
 
-.reservationmatch-avatar-image {
+.reservation2-avatar-image {
   width: 100px;
   height: 100px;
   object-fit: cover;
 }
 
-.reservationmatch-question-mark {
+.reservation2-question-mark {
   font-size: 40px;
   color: #666;
 }
 
-.reservationmatch-player-name {
+.reservation2-player-name {
   font-size: 14px;
   color: #333;
 }
 
-.reservationmatch-player-detail {
+.reservation2-player-detail {
   font-size: 12px;
   color: #666;
   text-decoration: underline;
 }
 
-.reservationmatch-match-image {
+.reservation2-match-image {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.reservationmatch-match-icon {
+.reservation2-match-icon {
   width: 24px;
   height: 24px;
   align-self: center;
-  transform: translateY(-28px); /* 위로 20px 올림. 필요에 따라 이 값을 조정하세요. */
+  transform: translateY(-28px);
 }
 
-.reservationmatch-trainer {
+.reservation2-trainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  transform: translateY(-25px); /* 위로 20px 올림. 필요에 따라 이 값을 조정하세요. */
+  transform: translateY(-25px);
 }
 
-.reservationmatch-trainer-avatar {
+.reservation2-trainer-avatar {
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -183,5 +183,59 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+.reservation2-match-confirmation {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.reservation2-match-question {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.reservation2-match-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.reservation2-match-button {
+  padding: 10px 0;
+  font-size: 16px;
+  border: 2px solid #075915;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: #075915;
+  font-weight: bold;
+}
+
+.reservation2-match-button-yes,
+.reservation2-match-button-no {
+  background-color: white;
+  color: #075915;
+}
+
+.reservation2-match-button:hover {
+  background-color: #075915;
+  color: white;
+}
+
+.reservation2-match-button-link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.reservation2-match-button-link:hover {
+  text-decoration: none;
 }
 
