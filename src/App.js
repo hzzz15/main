@@ -30,6 +30,8 @@ import MBTITest from "./components/Dbti/index.jsx"
 import DbtiResult from "./components/Dbti_result/index.jsx"
 import Dbti_resultPage from './pages/Dbti_resultPage';
 
+import LastReviewPage from './pages/LastReviewPage';
+
 
 
 function App() {
@@ -63,6 +65,8 @@ function App() {
 
         <Route path="/" element={<MBTITest />} />
         <Route path="/Dbti_resultPage" element={<DbtiResult />} />
+
+        <Route path="/LastReviewPage" element={<LastReviewPage/>} />
 
 
       </Routes>
