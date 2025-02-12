@@ -7,13 +7,19 @@ html {
 }
 
 .Walk4-container {
-  height: 100vh;
+  height: 100%;
   max-width: 500px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   background-color: #e8eae8;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 /* 스크롤바 스타일링 */
@@ -82,5 +88,11 @@ html {
 
 .Walk4-next-button:hover {
   background-color: #005300;
+}
+
+@media (max-width: 500px) {
+  .Walk4-container {
+    width: 100%;
+  }
 }
 

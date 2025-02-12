@@ -7,14 +7,19 @@ html {
 }
 
 .Walk-container {
+  height: 100%;
   max-width: 500px;
   margin: 0 auto;
-  background-color: #e8eae8;
-  height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #e8eae8;
   overflow-y: auto;
-  padding-bottom: 20px;
+  -webkit-overflow-scrolling: touch;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 /* 스크롤바 스타일링 */
@@ -229,5 +234,11 @@ html {
 
 .Walk-next-button:hover {
   background-color: #005300;
+}
+
+@media (max-width: 500px) {
+  .Walk-container {
+    width: 100%;
+  }
 }
 
