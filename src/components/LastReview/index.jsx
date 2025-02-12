@@ -8,7 +8,7 @@ function LastReview() {
   const [rating, setRating] = useState("")
   const navigate = useNavigate()
 
-  // 예시 트레이너 데이터
+  // 예시 트레이너 데이터https://github.com/ShinHyoJinn/MainProj/commits/main/
   const trainerData = {
     name: "김철수",
   }
