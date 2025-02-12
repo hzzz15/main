@@ -1,9 +1,10 @@
 /* 전체 컨테이너 스타일 */
 .TemporaryCare_Re-temporary-care {
   background-color: #e8eae8;
-  min-height: 100vh;
-  box-sizing: border-box;
-  overflow-x: hidden; /* 좌우 스크롤 방지 */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 /* 헤더 스타일 */
@@ -11,6 +12,9 @@
   background-color: #ffffff;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 /* 헤더 내용 스타일 */
@@ -51,9 +55,27 @@
 
 /* 메인 컨텐츠 영역 스타일 */
 .TemporaryCare_Re-main-content {
+  flex: 1;
+  overflow-y: auto;
   padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+}
+
+/* 스크롤바 스타일링 */
+.TemporaryCare_Re-main-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.TemporaryCare_Re-main-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.TemporaryCare_Re-main-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.TemporaryCare_Re-main-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 /* 강아지 카드 그리드 스타일 */
@@ -70,3 +92,4 @@
     grid-template-columns: 1fr; /* 작은 화면에서는 한 열로 표시 */
   }
 }
+

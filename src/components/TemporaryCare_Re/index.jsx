@@ -1,7 +1,9 @@
 "use client";
 
+import { useNavigate } from "react-router-dom"; // useNavigate를 올바르게 가져옵니다.
 import DogCard from "../Dog";
 import "./TemporaryCare_Re.css";
+
 
 // 임시 데이터
 const recommendedDogs = [
@@ -36,6 +38,8 @@ const recommendedDogs = [
 ];
 
 const TemporaryCare_Re = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="TemporaryCare_Re-temporary-care">
       <header className="TemporaryCare_Re-header">
@@ -45,6 +49,7 @@ const TemporaryCare_Re = () => {
               src="/icons/back.png"
               alt="뒤로가기"
               className="TemporaryCare_Re-back-icon"
+              onClick={() => navigate("/TemporaryCarePage")}
             />
           </button>
           <div className="TemporaryCare_Re-title-description">
