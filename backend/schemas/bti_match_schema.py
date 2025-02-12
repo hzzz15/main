@@ -11,9 +11,11 @@ class PetSchema(BaseModel):
 
 class TrainerSchema(BaseModel):
     id: int
+    name: str             
     trainer_mbti: str
     experience: int
     rating: float
+    score: float          # XGBoost 예측 점수
 
     class Config:
         orm_mode = True

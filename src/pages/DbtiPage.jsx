@@ -3,8 +3,8 @@ import Dbti from '../components/Dbti'
 
 function DbtiPage() {
   return (
-    <div className= "content-wrapper2">
-        <Dbti/>
+    <div className="page-wrapper">
+      <Dbti/>
     </div>
   )
 }

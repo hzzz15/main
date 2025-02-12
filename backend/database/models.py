@@ -1,13 +1,17 @@
-from sqlalchemy.ext.automap import automap_base
-from database.db import engine
+from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy.ext.declarative import declarative_base
 
-# 기존 DB 테이블 자동 매핑
-Base = automap_base()
-Base.prepare(engine, reflect=True)
+Base = declarative_base()
 
-# 테이블 가져오기
-User = Base.classes.users
-Pet = Base.classes.pets
-Trainer = Base.classes.trainers
-MatchScore = Base.classes.match_scores
+class User(Base):
+    __tablename__ = "users"
 
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, nullable=False)
+    email = Column(String, unique=True, index=True)
+    password = Column(String, nullable=False)
+    phone_number = Column(String)
+    address = Column(String)
+    is_walker = Column(Boolean, default=False)
+    nickname = Column(String)
+    user_id = Column(String, unique=True, nullable=False)  
