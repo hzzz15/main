@@ -1,135 +1,163 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
 .Price-container {
-    min-height: 100vh;
-    max-width: 500px;
-    margin: 0 auto;
-    background-color: #e8eae8; /* 전체 배경색 */
+  height: 100vh;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #e8eae8;
+  overflow-y: auto;
+}
+
+/* 스크롤바 스타일링 */
+.Price-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.Price-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.Price-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.Price-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .Price-header {
-    padding: 20px;
-    background-color: white; /* 뒤로가기와 이용 요금 부분 배경 흰색 */
-    display: flex;
-    flex-direction: column; /* 요소를 세로로 정렬 */
-    align-items: flex-start; /* 왼쪽 정렬 */
-    gap: 30px;
+  padding: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
 }
 
 .Price-back-button {
-    padding: 8px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
+  padding: 8px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 .Price-title {
-    font-size: 24px;
-    font-weight: 500;
-    margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
 }
 
 .Price-duration-buttons {
-    display: grid; /* 가로 정렬을 위한 grid 사용 */
-    grid-template-columns: repeat(3, 1fr); /* 3개로 균등 배치 */
-    gap: 16px; /* 버튼 간격 */
-    padding: 20px; /* 위아래 간격 추가 */
-    margin-bottom: 24px;
-    justify-items: center; /* 버튼을 중앙 정렬 */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 20px;
+  margin-bottom: 24px;
+  justify-items: center;
 }
 
 .Price-duration-button {
-    padding: 12px 20px;
-    border-radius: 10px;
-    border: none;
-    background-color: #D9D9D9;
-    cursor: pointer;
-    font-size: 16px;
-    text-align: center;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: #d9d9d9;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
 }
 
 .Price-duration-button.selected {
-    background-color: #006400;
-    color: white;
+  background-color: #006400;
+  color: white;
 }
 
 .Price-info-section {
-    padding: 0 20px;
+  padding: 0 20px;
 }
 
 .Price-info-title {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
 }
 
 .Price-price-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0;
-    border-bottom: 1px solid #075915;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #075915;
 }
 
 .Price-dog-type {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .Price-dog-icon {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 .Price-size-desc {
-    color: #666;
-    font-size: 14px;
-    margin-left: 4px;
+  color: #666;
+  font-size: 14px;
+  margin-left: 4px;
 }
 
 .Price-amount {
-    color: #075915;
-    font-weight: 500;
+  color: #075915;
+  font-weight: 500;
 }
 
 .Price-notice {
-    margin: 20px 0;
-    color: #565656;
-    font-size: 14px;
-    line-height: 1.5;
+  margin: 20px 0;
+  color: #565656;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .Price-additional-service {
-    margin-top: 32px;
+  margin-top: 32px;
 }
 
 .Price-section-title {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
 }
 
 .Price-service-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0;
-    border-bottom: 1px solid #075915;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #075915;
 }
 
 .Price-service-info {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .Price-clock-icon {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 .Price-service-notice {
-    margin-top: 16px;
-    color: #565656;
-    font-size: 14px;
+  margin-top: 16px;
+  color: #565656;
+  font-size: 14px;
 }
+
