@@ -122,7 +122,6 @@
     border-radius: 4px;
     font-size: 16px;
     text-align: center;
-    -moz-appearance: textfield;
   }
   
   /* Chrome, Safari, Edge, Opera에서 화살표 제거 */
