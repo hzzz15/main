@@ -10,9 +10,10 @@ html {
   height: 100%;
   max-width: 500px;
   margin: 0 auto;
+  background-color: #e8eae8;
   display: flex;
   flex-direction: column;
-  background-color: #e8eae8;
+  padding-bottom: 20px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   position: fixed;
@@ -59,8 +60,7 @@ html {
 .Walk-info-section {
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
-  margin-bottom: 0;
+  align-items: center;
   text-align: center;
   position: relative;
   padding-bottom: 20px;
@@ -84,12 +84,11 @@ html {
 }
 
 .Walk-divider {
-  width: 1px;
+  width: 2px;
   background-color: #e0e0e0;
-  margin: 0 20px;
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 5%;
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -117,40 +116,55 @@ html {
 }
 
 .Walk-time-options {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: space-between;
   gap: 15px;
 }
 
-.Walk-time-option {
-  border: 1px solid #e0e0e0;
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
+.Walk-time-option-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background: none;
+  text-align: center;
+}
+
+.Walk-time-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  padding: 0;
-  transition: all 0.2s ease;
-}
-
-.Walk-time-option.Walk-selected {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #006400;
   background-color: #006400;
+  font-weight: bold;
+  font-size: 19px;
+  transition: all 0.3s ease;
   color: white;
-  border-color: #006400;
 }
 
-.Walk-duration {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 5px;
+.Walk-time-option:not(.selected) {
+  background-color: white;
+  border: 2px solid #e0e0e0;
+  color: #565656;
+}
+
+.Walk-time-option.selected {
+  background-color: #006400;
+  border-color: #006400;
+  color: white;
 }
 
 .Walk-price {
-  font-size: 14px;
+  font-size: 15px;
+  color: #565656;
+  margin-top: 10px;
+}
+
+.Walk-time-option.selected + .Walk-price {
+  color: #000000;
 }
 
 .Walk-bottom-section {
@@ -161,23 +175,31 @@ html {
   flex-direction: column;
   gap: 20px;
   border-top: 1px solid #e0e0e0;
+  align-items: center;
 }
 
 .Walk-today-option {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 15px;
   background-color: #fff;
   border-radius: 8px;
   cursor: pointer;
   border: 1px solid #e0e0e0;
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+  gap: 10px;
 }
 
 .Walk-checkbox-wrapper {
   position: relative;
-  width: 24px;
-  height: 24px;
-  margin-right: 12px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .Walk-checkbox-wrapper input {
@@ -192,8 +214,8 @@ html {
   position: absolute;
   top: 0;
   left: 0;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   border: 2px solid #006400;
   border-radius: 4px;
   background-color: white;
@@ -202,23 +224,24 @@ html {
 .Walk-checkbox-wrapper input:checked + .Walk-checkbox-custom::after {
   content: "";
   position: absolute;
-  top: 2px;
-  left: 6px;
-  width: 5px;
-  height: 10px;
+  top: 4px;
+  left: 7px;
+  width: 6px;
+  height: 12px;
   border: solid #006400;
-  border-width: 0 2px 2px 0;
+  border-width: 0 3px 3px 0;
   transform: rotate(45deg);
 }
 
 .Walk-today-text {
-  flex-grow: 1;
   font-size: 16px;
+  color: #333;
 }
 
 .Walk-additional-price {
-  color: #666;
   font-size: 14px;
+  color: #565656;
+  margin-left: auto;
 }
 
 .Walk-next-button {
@@ -230,6 +253,9 @@ html {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  width: 98%;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .Walk-next-button:hover {
@@ -239,6 +265,22 @@ html {
 @media (max-width: 500px) {
   .Walk-container {
     width: 100%;
+  }
+
+  .Walk-time-options {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Walk-time-option-wrapper {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .Walk-time-option {
+    width: 100%;
+    height: 80px;
+    border-radius: 10px;
   }
 }
 
