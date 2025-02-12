@@ -122,6 +122,7 @@ html {
   flex-wrap: nowrap;
   overflow-x: auto;
   padding-bottom: 10px;
+  min-width: min-content;
 }
 
 .Walk-time-option-wrapper {
@@ -130,6 +131,7 @@ html {
   align-items: center;
   text-align: center;
   flex: 0 0 auto;
+  width: 100px;
 }
 
 .Walk-time-option {
@@ -147,6 +149,7 @@ html {
   font-size: 19px;
   transition: all 0.3s ease;
   color: white;
+  flex-shrink: 0;
 }
 
 .Walk-time-option:not(.selected) {
@@ -271,10 +274,8 @@ html {
     width: 100%;
   }
 
-  .Walk-time-option {
-    width: 80px;
-    height: 80px;
-    border-radius: 10px;
+  .Walk-time-options {
+    justify-content: flex-start;
   }
 }
 
