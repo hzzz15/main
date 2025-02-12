@@ -1,44 +1,23 @@
 "use client";
 
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // useNavigate를 올바르게 가져옵니다.
 import DogCard from "../Dog";
 import "./TemporaryCare_Re.css";
 
 
-// 임시 데이터
-const recommendedDogs = [
-  {
-    이름: "추천강아지1",
-    "이미지 URL": "/placeholder.svg",
-    몸무게: "5kg",
-    성별: "수컷",
-    "현 상황": "임시보호 가능",
-  },
-  {
-    이름: "추천강아지2",
-    "이미지 URL": "/placeholder.svg",
-    몸무게: "3kg",
-    성별: "암컷",
-    "현 상황": "임시보호 가능",
-  },
-  {
-    이름: "추천강아지3",
-    "이미지 URL": "/placeholder.svg",
-    몸무게: "4kg",
-    성별: "수컷",
-    "현 상황": "임시보호 가능",
-  },
-  {
-    이름: "추천강아지4",
-    "이미지 URL": "/placeholder.svg",
-    몸무게: "6kg",
-    성별: "암컷",
-    "현 상황": "임시보호 가능",
-  },
-];
-
 const TemporaryCare_Re = () => {
   const navigate = useNavigate();
+  // 강아지 데이터를 저장할 state
+  const [dogs, setDogs] = useState([]);
+
+  // JSON 파일 불러오기
+  useEffect(() => {
+    fetch("data/animal_data.json") // public 폴더의 animal_data.json을 불러옴
+      .then((response) => response.json())
+      .then((data) => setDogs(data))
+      .catch((error) => console.error("JSON 데이터를 불러오는 중 오류 발생:", error));
+  }, []);
 
   return (
     <div className="TemporaryCare_Re-temporary-care">
@@ -65,9 +44,11 @@ const TemporaryCare_Re = () => {
 
       <main className="TemporaryCare_Re-main-content">
         <div className="TemporaryCare_Re-dogs-grid">
-          {recommendedDogs.map((dog, index) => (
-            <DogCard key={index} dog={dog} />
-          ))}
+        {dogs.length > 0 ? (
+            dogs.map((dog, index) => <DogCard key={index} dog={dog} />)
+          ) : (
+            <p>강아지 데이터를 불러오는 중...</p>
+          )}
         </div>
       </main>
     </div>
