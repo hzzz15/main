@@ -96,6 +96,9 @@ html {
 .Walk-time-section {
   padding: 0 20px;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .Walk-time-header {
@@ -103,26 +106,18 @@ html {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-}
-
-.Walk-time-header h2 {
-  font-size: 18px;
-  margin: 0;
-}
-
-.Walk-today-label {
-  font-size: 14px;
-  color: #666;
+  width: 100%;
 }
 
 .Walk-time-options {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 15px;
   flex-wrap: nowrap;
   overflow-x: auto;
   padding-bottom: 10px;
   min-width: min-content;
+  max-width: 100%;
 }
 
 .Walk-time-option-wrapper {
