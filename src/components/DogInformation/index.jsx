@@ -1,10 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"  // 🔹 useNavigate 추가
+import { useLocation } from "react-router-dom"
 import "./DogInformation.css"
 
 export default function DogInformation() {
+  // useLocation을 통해 이전 페이지에서 전달된 mbti 값을 가져옵니다.
+  const location = useLocation()
+  const mbtiFromTest = location.state?.mbti || "" // 값이 없으면 빈 문자열
+
   const [birthYear, setBirthYear] = useState("")
   const [birthMonth, setBirthMonth] = useState("")
   const [birthDay, setBirthDay] = useState("")
@@ -12,8 +16,6 @@ export default function DogInformation() {
   const [isYearValid, setIsYearValid] = useState(true)
   const [isMonthValid, setIsMonthValid] = useState(true)
   const [isDayValid, setIsDayValid] = useState(true)
-
-  const navigate = useNavigate()  // 🔹 navigate 정의 추가
 
   const handleNumberInput = (e, setter, maxLength) => {
     const value = e.target.value.replace(/\D/g, "")
@@ -32,6 +34,7 @@ export default function DogInformation() {
     setWeight(parts.join("."))
   }
 
+  // 아래의 isValidYear, isValidMonth, isValidDay 등은 기존 코드와 동일합니다.
   const isValidYear = (year) => {
     const currentYear = new Date().getFullYear()
     return year >= 1900 && year <= currentYear
@@ -58,7 +61,7 @@ export default function DogInformation() {
   useEffect(() => {
     setIsDayValid(
       birthDay === "" ||
-        (birthYear !== "" && birthMonth !== "" && isValidDay(Number(birthYear), Number(birthMonth), Number(birthDay))),
+        (birthYear !== "" && birthMonth !== "" && isValidDay(Number(birthYear), Number(birthMonth), Number(birthDay)))
     )
   }, [birthYear, birthMonth, birthDay])
 
@@ -90,13 +93,13 @@ export default function DogInformation() {
             <div className="doginformation-radio-group">
               <label className="doginformation-radio-label">
                 <input type="radio" name="gender" value="female" />
-                <span>여자아이</span>
+                <span>암컷아이</span>
               </label>
               <label className="doginformation-radio-label">
                 <input type="radio" name="gender" value="male" />
-                <span>남자아이</span>
+                <span>수컷아이</span>
               </label>
-            </div> 
+            </div>
           </div>
 
           <div className="doginformation-form-group">
@@ -164,6 +167,7 @@ export default function DogInformation() {
               <input
                 type="text"
                 className="doginformation-form-input doginformation-mbti-input"
+                value={mbtiFromTest} // 이전 테스트 결과로 자동 채워집니다.
                 placeholder="ENFP"
                 maxLength="4"
                 readOnly
@@ -183,11 +187,7 @@ export default function DogInformation() {
             <textarea className="doginformation-form-input doginformation-textarea" />
           </div>
 
-          <button
-            type="button"
-            className="doginformation-submit-button"
-            onClick={() => navigate("/ProfilePage")}
-          >
+          <button type="submit" className="doginformation-submit-button">
             등록 완료
           </button>
         </form>

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import "./Dbti.css"
 
+// 각 카테고리별 질문 데이터 (각 카테고리 3문항)
 const questions = {
   "E/I": [
     {
@@ -16,7 +17,11 @@ const questions = {
       question: "다른 강아지를 만나면?",
       choices: ["바로 달려가서 인사함.", "조심스럽게 접근하거나 관심이 없음."],
     },
-    { id: "ei3", question: "새로운 장소에 가면?", choices: ["신나서 이곳저곳 뛰어다님.", "처음엔 조심스럽고 경계함."] },
+    {
+      id: "ei3",
+      question: "새로운 장소에 가면?",
+      choices: ["신나서 이곳저곳 뛰어다님.", "처음엔 조심스럽고 경계함."],
+    },
   ],
   "S/N": [
     {
@@ -46,7 +51,11 @@ const questions = {
       question: "간식을 줄 때?",
       choices: ["훈련을 해야만 간식을 받는 걸 이해함.", "주인이 주기만을 기대하며 기다림."],
     },
-    { id: "tf3", question: "산책 중 명령을 내리면?", choices: ["바로 반응하며 따른다.", "기분에 따라 반응이 다름."] },
+    {
+      id: "tf3",
+      question: "산책 중 명령을 내리면?",
+      choices: ["바로 반응하며 따른다.", "기분에 따라 반응이 다름."],
+    },
   ],
   "J/P": [
     {
@@ -74,8 +83,14 @@ const MBTITest = () => {
   const [answers, setAnswers] = useState([])
   const [selectedChoice, setSelectedChoice] = useState(null)
 
+  // 각 질문에 해당하는 카테고리 정보를 포함하여 하나의 배열로 평탄화합니다.
   useEffect(() => {
-    const flattenedQuestions = Object.values(questions).flat()
+    const flattenedQuestions = []
+    for (const category in questions) {
+      questions[category].forEach((q) => {
+        flattenedQuestions.push({ ...q, category })
+      })
+    }
     setAllQuestions(flattenedQuestions)
   }, [])
 
@@ -83,31 +98,51 @@ const MBTITest = () => {
     navigate(-1)
   }
 
-  const handleChoiceSelect = (choice) => {
-    setSelectedChoice(choice)
+  // 선택지 클릭 시, 해당 질문의 카테고리 정보를 기반으로 첫 번째 선택이면 첫 글자, 두 번째면 세 번째 인덱스 글자("E/I"의 경우 "E" 또는 "I")를 저장합니다.
+  const handleChoiceSelect = (choiceIndex) => {
+    const currentQuestion = allQuestions[currentIndex]
+    const letter =
+      choiceIndex === 0 ? currentQuestion.category[0] : currentQuestion.category[2]
+    setSelectedChoice(letter)
   }
 
-  const handleNext = () => {
-    if (selectedChoice) {
-      setAnswers([...answers, selectedChoice])
+  const handleNext = async () => {
+    if (selectedChoice !== null) {
+      const updatedAnswers = [...answers, selectedChoice]
+      setAnswers(updatedAnswers)
       setSelectedChoice(null)
       if (currentIndex < allQuestions.length - 1) {
         setCurrentIndex(currentIndex + 1)
       } else {
-        saveResult()
+        // 마지막 질문에서는 결과 제출
+        await submitTest(updatedAnswers)
       }
     }
   }
 
-  const saveResult = () => {
-    const mbti = ["E/I", "S/N", "T/F", "J/P"]
-      .map((category, index) => {
-        const subAnswers = answers.slice(index * 3, (index + 1) * 3)
-        return subAnswers.filter((val) => val === category[0]).length >= 2 ? category[0] : category[2]
-      })
-      .join("")
+  // GET 방식으로 답변 데이터를 쿼리 스트링에 담아 백엔드에 요청합니다.
+  const submitTest = async (allAnswers) => {
+    try {
+      const queryString = new URLSearchParams({
+        answers: allAnswers.join(","),
+      }).toString()
 
-    navigate("/Dbti_resultPage", { state: { mbti } })
+      // 절대 URL을 사용하여 백엔드 서버 (localhost:8000)의 API 엔드포인트에 GET 요청
+      const response = await fetch(`http://localhost:8000/api/submitMbtiTest?${queryString}`, {
+        method: "GET",
+      })
+
+      if (!response.ok) {
+        console.error("서버 에러:", response.status)
+        return
+      }
+
+      const data = await response.json()
+      console.log("서버 응답:", data)
+      navigate("/Dbti_resultPage", { state: { mbti: data.mbti } })
+    } catch (error) {
+      console.error("테스트 제출 실패:", error)
+    }
   }
 
   const isLastQuestion = currentIndex === allQuestions.length - 1
@@ -132,7 +167,10 @@ const MBTITest = () => {
       </header>
 
       <div className="progress-bar-container">
-        <div className="progress-bar" style={{ width: `${((currentIndex + 1) / allQuestions.length) * 100}%` }} />
+        <div
+          className="progress-bar"
+          style={{ width: `${((currentIndex + 1) / allQuestions.length) * 100}%` }}
+        />
       </div>
 
       <div className="test-container">
@@ -140,21 +178,29 @@ const MBTITest = () => {
         <h1 className="question-text">{allQuestions[currentIndex].question}</h1>
 
         <div className="choices-container">
-          {allQuestions[currentIndex].choices.map((choice, index) => (
-            <button
-              key={index}
-              onClick={() => handleChoiceSelect(choice)}
-              className={`choice-button ${selectedChoice === choice ? "selected" : ""}`}
-            >
-              {choice}
-            </button>
-          ))}
+          {allQuestions[currentIndex].choices.map((choice, index) => {
+            const optionLetter =
+              index === 0
+                ? allQuestions[currentIndex].category[0]
+                : allQuestions[currentIndex].category[2]
+            return (
+              <button
+                key={index}
+                onClick={() => handleChoiceSelect(index)}
+                className={`choice-button ${
+                  selectedChoice === optionLetter ? "selected" : ""
+                }`}
+              >
+                {choice}
+              </button>
+            )
+          })}
         </div>
 
         <button
-          className={`next-button ${selectedChoice ? "" : "disabled"}`}
-          onClick={isLastQuestion ? saveResult : handleNext}
-          disabled={!selectedChoice}
+          className={`next-button ${selectedChoice !== null ? "" : "disabled"}`}
+          onClick={handleNext}
+          disabled={selectedChoice === null}
         >
           {isLastQuestion ? "결과보기" : "다음으로"}
         </button>
@@ -164,4 +210,3 @@ const MBTITest = () => {
 }
 
 export default MBTITest
-
