@@ -1,10 +1,37 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
 .Walk4-container {
-  min-height: 100vh;
+  height: 100vh;
   max-width: 500px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   background-color: #e8eae8;
+  overflow-y: auto;
+}
+
+/* 스크롤바 스타일링 */
+.Walk4-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.Walk4-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.Walk4-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.Walk4-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 /* Header Section */
@@ -56,3 +83,4 @@
 .Walk4-next-button:hover {
   background-color: #005300;
 }
+

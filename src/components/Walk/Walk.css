@@ -1,11 +1,38 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
 .Walk-container {
   max-width: 500px;
   margin: 0 auto;
   background-color: #e8eae8;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
   padding-bottom: 20px;
+}
+
+/* 스크롤바 스타일링 */
+.Walk-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.Walk-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.Walk-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.Walk-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .Walk-top-section {
@@ -203,3 +230,4 @@
 .Walk-next-button:hover {
   background-color: #005300;
 }
+
