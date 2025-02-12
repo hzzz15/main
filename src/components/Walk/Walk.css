@@ -119,6 +119,9 @@ html {
   display: flex;
   justify-content: space-between;
   gap: 15px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 10px;
 }
 
 .Walk-time-option-wrapper {
@@ -126,6 +129,7 @@ html {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  flex: 0 0 auto;
 }
 
 .Walk-time-option {
@@ -267,18 +271,8 @@ html {
     width: 100%;
   }
 
-  .Walk-time-options {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .Walk-time-option-wrapper {
-    width: 100%;
-    max-width: 200px;
-  }
-
   .Walk-time-option {
-    width: 100%;
+    width: 80px;
     height: 80px;
     border-radius: 10px;
   }
