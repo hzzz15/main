@@ -1,5 +1,5 @@
 /* 전체 컨테이너 스타일 */
-.temporary-care {
+.TemporaryCare-temporary-care {
   background-color: #e8eae8;
   min-height: 100vh;
   box-sizing: border-box;
@@ -7,14 +7,14 @@
 }
 
 /* 헤더 스타일 */
-.header {
+.TemporaryCare-header {
   background-color: #ffffff;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* 헤더 내용 스타일 */
-.header-content {
+.TemporaryCare-header-content {
   display: flex;
   flex-direction: column;
   max-width: 1200px;
@@ -22,7 +22,7 @@
 }
 
 /* 뒤로 가기 버튼 스타일 */
-.back-button {
+.TemporaryCare-back-button {
   background: none;
   border: none;
   font-size: 24px;
@@ -32,32 +32,32 @@
 }
 
 /* 제목과 설명 컨테이너 스타일 */
-.title-description {
+.TemporaryCare-title-description {
   margin-top: 16px;
 }
 
 /* 제목 스타일 */
-.title-description h1 {
+.TemporaryCare-title-description h1 {
   margin: 0 0 16px 0;
   font-size: 24px;
 }
 
 /* 설명 텍스트 스타일 */
-.description {
+.TemporaryCare-description {
   margin: 0;
   color: #666;
   line-height: 1.5;
 }
 
 /* 메인 컨텐츠 영역 스타일 */
-.main-content {
+.TemporaryCare-main-content {
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 /* 매칭 버튼 스타일 */
-.matching-button {
+.TemporaryCare-matching-button {
   width: 100%;
   padding: 15px;
   background-color: #006400;
@@ -69,7 +69,7 @@
 }
 
 /* 강아지 카드 그리드 스타일 */
-.dogs-grid {
+.TemporaryCare-dogs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 16px;
@@ -79,27 +79,20 @@
 }
 
 /* 스크롤바 스타일링 */
-.dogs-grid::-webkit-scrollbar {
+.TemporaryCare-dogs-grid::-webkit-scrollbar {
   width: 6px;
 }
 
-.dogs-grid::-webkit-scrollbar-track {
+.TemporaryCare-dogs-grid::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-.dogs-grid::-webkit-scrollbar-thumb {
+.TemporaryCare-dogs-grid::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 3px;
 }
 
-.dogs-grid::-webkit-scrollbar-thumb:hover {
+.TemporaryCare-dogs-grid::-webkit-scrollbar-thumb:hover {
   background: #555;
-}
-
-/* 반응형 디자인을 위한 미디어 쿼리 */
-@media (max-width: 768px) {
-  .dogs-grid {
-    grid-template-columns: 1fr; /* 작은 화면에서는 한 열로 표시 */
-  }
 }
 

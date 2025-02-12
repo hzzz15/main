@@ -1,19 +1,20 @@
-.walk-container {
+.Walk-container {
   max-width: 500px;
   margin: 0 auto;
   background-color: #e8eae8;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  padding-bottom: 20px;
 }
 
-.top-section {
+.Walk-top-section {
   background-color: #ffffff;
   padding: 20px;
   margin-bottom: 20px;
 }
 
-.back-button {
+.Walk-back-button {
   background: none;
   border: none;
   font-size: 24px;
@@ -23,7 +24,7 @@
   margin-bottom: 20px;
 }
 
-.info-section {
+.Walk-info-section {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
@@ -33,24 +34,24 @@
   padding-bottom: 20px;
 }
 
-.info-box-container {
+.Walk-info-box-container {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-.info-box {
+.Walk-info-box {
   flex: 1;
   padding: 10px;
 }
 
-.info-box p {
+.Walk-info-box p {
   margin: 5px 0;
   font-size: 14px;
   color: #333;
 }
 
-.divider {
+.Walk-divider {
   width: 1px;
   background-color: #e0e0e0;
   margin: 0 20px;
@@ -61,35 +62,35 @@
   transform: translateX(-50%);
 }
 
-.time-section {
+.Walk-time-section {
   padding: 0 20px;
   margin-bottom: 20px;
 }
 
-.time-header {
+.Walk-time-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.time-header h2 {
+.Walk-time-header h2 {
   font-size: 18px;
   margin: 0;
 }
 
-.today-label {
+.Walk-today-label {
   font-size: 14px;
   color: #666;
 }
 
-.time-options {
+.Walk-time-options {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
 }
 
-.time-option {
+.Walk-time-option {
   border: 1px solid #e0e0e0;
   border-radius: 50%;
   width: 100px;
@@ -104,31 +105,33 @@
   transition: all 0.2s ease;
 }
 
-.time-option.selected {
+.Walk-time-option.Walk-selected {
   background-color: #006400;
   color: white;
   border-color: #006400;
 }
 
-.duration {
+.Walk-duration {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-.price {
+.Walk-price {
   font-size: 14px;
 }
 
-.bottom-section {
-  padding: 0 20px;
+.Walk-bottom-section {
+  padding: 20px;
+  background-color: #ffffff;
   margin-top: auto;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  border-top: 1px solid #e0e0e0;
 }
 
-.today-option {
+.Walk-today-option {
   display: flex;
   align-items: center;
   padding: 15px;
@@ -138,14 +141,14 @@
   border: 1px solid #e0e0e0;
 }
 
-.checkbox-wrapper {
+.Walk-checkbox-wrapper {
   position: relative;
   width: 24px;
   height: 24px;
   margin-right: 12px;
 }
 
-.checkbox-wrapper input {
+.Walk-checkbox-wrapper input {
   opacity: 0;
   position: absolute;
   width: 100%;
@@ -153,7 +156,7 @@
   cursor: pointer;
 }
 
-.checkbox-custom {
+.Walk-checkbox-custom {
   position: absolute;
   top: 0;
   left: 0;
@@ -164,7 +167,7 @@
   background-color: white;
 }
 
-.checkbox-wrapper input:checked + .checkbox-custom::after {
+.Walk-checkbox-wrapper input:checked + .Walk-checkbox-custom::after {
   content: "";
   position: absolute;
   top: 2px;
@@ -176,17 +179,17 @@
   transform: rotate(45deg);
 }
 
-.today-text {
+.Walk-today-text {
   flex-grow: 1;
   font-size: 16px;
 }
 
-.additional-price {
+.Walk-additional-price {
   color: #666;
   font-size: 14px;
 }
 
-.next-button {
+.Walk-next-button {
   background-color: #006400;
   color: white;
   border: none;
@@ -197,7 +200,6 @@
   transition: background-color 0.2s ease;
 }
 
-.next-button:hover {
+.Walk-next-button:hover {
   background-color: #005300;
 }
-
