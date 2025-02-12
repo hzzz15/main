@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"  // 🔹 useNavigate 추가
 import "./DogInformation.css"
 
 export default function DogInformation() {
@@ -11,6 +12,8 @@ export default function DogInformation() {
   const [isYearValid, setIsYearValid] = useState(true)
   const [isMonthValid, setIsMonthValid] = useState(true)
   const [isDayValid, setIsDayValid] = useState(true)
+
+  const navigate = useNavigate()  // 🔹 navigate 정의 추가
 
   const handleNumberInput = (e, setter, maxLength) => {
     const value = e.target.value.replace(/\D/g, "")
@@ -46,7 +49,7 @@ export default function DogInformation() {
 
   useEffect(() => {
     setIsYearValid(birthYear === "" || isValidYear(Number(birthYear)))
-  }, [birthYear, isValidYear]) // Added isValidYear to dependencies
+  }, [birthYear])
 
   useEffect(() => {
     setIsMonthValid(birthMonth === "" || isValidMonth(Number(birthMonth)))
@@ -87,13 +90,13 @@ export default function DogInformation() {
             <div className="doginformation-radio-group">
               <label className="doginformation-radio-label">
                 <input type="radio" name="gender" value="female" />
-                <span>암컷아이</span>
+                <span>여자아이</span>
               </label>
               <label className="doginformation-radio-label">
                 <input type="radio" name="gender" value="male" />
-                <span>수컷아이</span>
+                <span>남자아이</span>
               </label>
-            </div>
+            </div> 
           </div>
 
           <div className="doginformation-form-group">
@@ -180,7 +183,11 @@ export default function DogInformation() {
             <textarea className="doginformation-form-input doginformation-textarea" />
           </div>
 
-          <button type="submit" className="doginformation-submit-button">
+          <button
+            type="button"
+            className="doginformation-submit-button"
+            onClick={() => navigate("/ProfilePage")}
+          >
             등록 완료
           </button>
         </form>
@@ -188,4 +195,3 @@ export default function DogInformation() {
     </div>
   )
 }
-

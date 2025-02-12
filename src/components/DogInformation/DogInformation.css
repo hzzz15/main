@@ -52,13 +52,13 @@
 
 .doginformation-content {
   flex: 1;
-  background-color: #e5e5e5;
+  background-color: #E8EAE8;
   padding: 20px;
   overflow-y: auto;
 }
 
 .doginformation-form-title {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   margin-bottom: 20px;
   color: #333;

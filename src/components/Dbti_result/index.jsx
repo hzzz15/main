@@ -34,10 +34,14 @@ const DbtiResult = () => {
       </div>
 
       {/* 등록하기 버튼 */}
-      <button className="DbtiResult-button">등록하기</button>
+      <button 
+        className="DbtiResult-button" 
+        onClick={() => navigate("/DogInformationPage")}
+      >
+        등록하기
+      </button>
     </div>
   )
 }
 
 export default DbtiResult
-
