@@ -134,12 +134,20 @@ export default function Walk3() {
         </div>
       </div>
 
-      <div className="Walk3-bottom-section-wrapper">
-        <div className="Walk3-bottom-section">
-          <div className="Walk3-confirm-and-next">
-            <p className="Walk3-confirm-text">방문 날짜를 <br/>확인해주세요</p>
-            <button className="Walk3-next-button" onClick={() => navigate("/Walk4Page")}>다음으로</button>
-          </div>
+      {/* Bottom Section */}
+      <div className="Walk3-bottom-section">
+        <div className="Walk3-bottom-content">
+          <p className="Walk3-confirm-text">
+            방문 날짜를
+            <br />
+            확인해주세요
+          </p>
+          <button
+            className="Walk3-next-button"
+            onClick={() => navigate("/Walk4Page")}
+          >
+            다음으로
+          </button>
         </div>
       </div>
     </div>

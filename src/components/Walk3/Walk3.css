@@ -142,21 +142,16 @@
     background-color: rgba(7, 89, 21, 0.2);
   }
   
-  /* Bottom Section */
-  .Walk3-bottom-section-wrapper {
-    margin-top: auto; /* 하단으로 이동 */
+  .Walk3-bottom-section {
+    margin-top: auto;
     background-color: white;
-    width: 100%;
-    padding: 20px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
   }
   
-  .Walk3-confirm-and-next {
+  .Walk3-bottom-content {
+    padding: 20px;
     display: flex;
-    justify-content: flex-start; /* 버튼을 왼쪽으로 정렬 */
     align-items: center;
-    max-width: 500px;
-    margin: 0 auto;
+    justify-content: space-between;
   }
   
   .Walk3-confirm-text {
@@ -171,11 +166,5 @@
     border-radius: 8px;
     border: none;
     cursor: pointer;
-    transition: background-color 0.2s;
-    margin-left: 167px; /* 버튼을 조금 더 오른쪽으로 이동 */ /* 버튼을 왼쪽으로 이동 */
-  }
-  
-  .Walk3-next-button:hover {
-    background-color: #005300;
   }
   
