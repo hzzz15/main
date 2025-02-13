@@ -40,7 +40,7 @@ export default function Walk5() {
       </div>
 
       <div className="Walk5-bottom-section">
-        <button className="Walk5-next-button" onClick={() => navigate("/NextPage")}>
+        <button className="Walk5-next-button" onClick={() => navigate("/Reservation1Page")}>
           다음으로
         </button>
       </div>
