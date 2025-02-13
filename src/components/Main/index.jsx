@@ -19,8 +19,8 @@ function Main() {
     console.log("현재 로그인 상태:", isLoggedIn); // 🔥 디버깅용 로그
 
     if (!isLoggedIn) {
-      console.log("로그인 필요! 로그인 페이지로 이동");
-      navigate("/LoginPage");
+      console.log("로그인 필요! 인트로페이지로 이동");
+      navigate("/IntroPage");
       return;
     }
 
