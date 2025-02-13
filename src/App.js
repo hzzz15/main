@@ -39,6 +39,8 @@ import Walk4Page from './pages/Walk4Page'
 import Walk5Page from './pages/Walk5Page'
 import PricePage from './pages/PricePage';
 
+import IntroPage from './pages/IntroPage';
+
 function App() {
   return (
       <Routes>
@@ -79,6 +81,9 @@ function App() {
         <Route path="/Walk4Page" element={<Walk4Page/>} />
         <Route path="/Walk5Page" element={<Walk5Page/>} />
         <Route path="/PricePage" element={<PricePage/>} />
+
+        <Route path="/IntroPage" element={<IntroPage/>} />
+
 
       </Routes>
     
