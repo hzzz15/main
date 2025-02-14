@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
-from services.bti_match_service import get_pet_by_id, recommend_trainers
-from schemas.bti_match_schema import TrainerRecommendation
+from backend.services.bti_match_service import get_pet_by_id, recommend_trainers
+from backend.schemas.bti_match_schema import TrainerRecommendation
 
 router = APIRouter()
 

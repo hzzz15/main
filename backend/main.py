@@ -1,6 +1,7 @@
 from fastapi import FastAPI
-from routers import users, Dbti_router
-from routers.bti_match import router as bti_match
+from backend.routers import users, Dbti_router, auth
+from backend.routers.bti_match import router as bti_match
+
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
 
@@ -19,6 +20,7 @@ app.add_middleware(
 app.include_router(users.router)
 app.include_router(bti_match, prefix="/api")
 app.include_router(Dbti_router.router, prefix="/api")
+app.include_router(auth.router, prefix="/api/auth")
 
 @app.get("/")
 async def root():

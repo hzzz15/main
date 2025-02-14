@@ -93,11 +93,11 @@ export default function DogInformation() {
             <div className="doginformation-radio-group">
               <label className="doginformation-radio-label">
                 <input type="radio" name="gender" value="female" />
-                <span>암컷아이</span>
+                <span>여자아이</span>
               </label>
               <label className="doginformation-radio-label">
                 <input type="radio" name="gender" value="male" />
-                <span>수컷아이</span>
+                <span>남자아이</span>
               </label>
             </div>
           </div>

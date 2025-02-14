@@ -1,7 +1,7 @@
 # app/routers/mbti_router.py
 from fastapi import APIRouter, HTTPException
-from schemas.Dbti_schema import MbtiTestRequest, MbtiTestResponse
-from services.Dbti_service import calculate_mbti, save_mbti_result
+from backend.schemas.Dbti_schema import MbtiTestRequest, MbtiTestResponse
+from backend.services.Dbti_service import calculate_mbti, save_mbti_result
 
 router = APIRouter()
 
