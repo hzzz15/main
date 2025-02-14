@@ -14,6 +14,10 @@ function MyProfile() {
   const [isAddressEditable, setIsAddressEditable] = useState(false);
   const [isEmailEditable, setIsEmailEditable] = useState(false);
   const [isNicknameEditable, setIsNicknameEditable] = useState(false); // Added nickname editability state
+  const [originalNickname, setOriginalNickname] = useState('');
+  const [originalPhoneNumber, setOriginalPhoneNumber] = useState('');
+  const [originalAddress, setOriginalAddress] = useState('');
+  const [originalEmail, setOriginalEmail] = useState('');
 
   useEffect(() => {
     const storedUserId = localStorage.getItem('user_id');
@@ -37,6 +41,10 @@ function MyProfile() {
       setAddress(data.address || '');
       setEmail(data.email || '');
       setNickname(data.nickname || ''); // Added nickname update
+      setOriginalNickname(data.nickname || '');
+      setOriginalPhoneNumber(data.phone_number || '');
+      setOriginalAddress(data.address || '');
+      setOriginalEmail(data.email || '');
     }
   };
 
@@ -61,18 +69,30 @@ function MyProfile() {
   };
 
   const togglePhoneEdit = () => {
+    if (isPhoneEditable) {
+      setPhoneNumber(originalPhoneNumber);
+    }
     setIsPhoneEditable(!isPhoneEditable);
   };
 
   const toggleAddressEdit = () => {
+    if (isAddressEditable) {
+      setAddress(originalAddress);
+    }
     setIsAddressEditable(!isAddressEditable);
   };
 
   const toggleEmailEdit = () => {
+    if (isEmailEditable) {
+      setEmail(originalEmail);
+    }
     setIsEmailEditable(!isEmailEditable);
   };
 
   const toggleNicknameEdit = () => { // Added nickname edit toggle
+    if (isNicknameEditable) {
+      setNickname(originalNickname);
+    }
     setIsNicknameEditable(!isNicknameEditable);
   };
 
@@ -96,6 +116,10 @@ function MyProfile() {
       setIsPhoneEditable(false);
       setIsAddressEditable(false);
       setIsEmailEditable(false);
+      setOriginalNickname(nickname);
+      setOriginalPhoneNumber(phoneNumber);
+      setOriginalAddress(address);
+      setOriginalEmail(email);
     }
   };
 
