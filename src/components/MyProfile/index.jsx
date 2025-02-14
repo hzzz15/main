@@ -9,9 +9,11 @@ function MyProfile() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [address, setAddress] = useState('');
   const [email, setEmail] = useState('');
+  const [nickname, setNickname] = useState(''); // Added nickname state
   const [isPhoneEditable, setIsPhoneEditable] = useState(false);
   const [isAddressEditable, setIsAddressEditable] = useState(false);
   const [isEmailEditable, setIsEmailEditable] = useState(false);
+  const [isNicknameEditable, setIsNicknameEditable] = useState(false); // Added nickname editability state
 
   useEffect(() => {
     const storedUserId = localStorage.getItem('user_id');
@@ -24,7 +26,7 @@ function MyProfile() {
   const fetchUserInfo = async (userId) => {
     const { data, error } = await supabase
       .from("users")
-      .select("phone_number, address, email")
+      .select("phone_number, address, email, nickname") // Updated to include nickname
       .eq("user_id", userId)
       .single();
 
@@ -34,6 +36,7 @@ function MyProfile() {
       setPhoneNumber(data.phone_number || '');
       setAddress(data.address || '');
       setEmail(data.email || '');
+      setNickname(data.nickname || ''); // Added nickname update
     }
   };
 
@@ -53,6 +56,10 @@ function MyProfile() {
     setEmail(e.target.value);
   };
 
+  const handleNicknameChange = (e) => { // Added nickname change handler
+    setNickname(e.target.value);
+  };
+
   const togglePhoneEdit = () => {
     setIsPhoneEditable(!isPhoneEditable);
   };
@@ -65,10 +72,15 @@ function MyProfile() {
     setIsEmailEditable(!isEmailEditable);
   };
 
+  const toggleNicknameEdit = () => { // Added nickname edit toggle
+    setIsNicknameEditable(!isNicknameEditable);
+  };
+
   const handleSave = async () => {
     const { error } = await supabase
       .from("users")
       .update({
+        nickname: nickname, // Added nickname update
         phone_number: phoneNumber,
         address: address,
         email: email,
@@ -80,6 +92,7 @@ function MyProfile() {
       alert("정보 업데이트에 실패했습니다.");
     } else {
       alert("정보가 성공적으로 업데이트되었습니다.");
+      setIsNicknameEditable(false); // Added reset for nickname editability
       setIsPhoneEditable(false);
       setIsAddressEditable(false);
       setIsEmailEditable(false);
@@ -94,7 +107,7 @@ function MyProfile() {
           <img src="/icons/back.png" alt="뒤로가기" className="myprofile-back-icon" onClick={handleBackClick} />
           <div className="myprofile-title-container">
             <h1>
-              {userId}님,
+              {nickname}님, {/* Updated to display nickname */}
               <br />
               안녕하세요!
             </h1>
@@ -110,6 +123,24 @@ function MyProfile() {
             <span className="myprofile-info-label">아이디</span>
             <div className="myprofile-input-button-container">
               <input type="text" className="myprofile-input" value={userId} readOnly />
+            </div>
+          </div>
+        </div>
+
+        <div className="myprofile-info-section"> {/* Added nickname section */}
+          <div className="myprofile-info-item">
+            <span className="myprofile-info-label">닉네임</span>
+            <div className="myprofile-input-button-container">
+              <input 
+                type="text" 
+                className="myprofile-input" 
+                value={nickname} 
+                onChange={handleNicknameChange}
+                readOnly={!isNicknameEditable}
+              />
+              <button className="myprofile-change-button" onClick={toggleNicknameEdit}>
+                {isNicknameEditable ? '취소' : '닉네임변경'}
+              </button>
             </div>
           </div>
         </div>
