@@ -44,6 +44,7 @@ import IntroPage from './pages/IntroPage';
 // 트레이너 페이지
 import Reservation_TPage from './pages/Reservation_TPage';
 import Last_TPage from './pages/Last_TPage';
+import Profile_TPage from './pages/Profile_TPage';
 
 
 
@@ -95,6 +96,7 @@ function App() {
         // 트레이너 페이지
         <Route path="/Reservation_TPage" element={<Reservation_TPage/>} />
         <Route path="/Last_TPage" element={<Last_TPage/>} />
+        <Route path="/Profile_TPage" element={<Profile_TPage/>} />
 
 
 
