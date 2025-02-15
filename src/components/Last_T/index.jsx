@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import "./Last.css"
+import "./Last_T.css"
 
-function Last() {
+function Last_T() {
   const [showYears, setShowYears] = useState(false)
   const [selectedYear, setSelectedYear] = useState(2025)
   const years = [2025, 2024, 2023]
@@ -56,10 +56,6 @@ function Last() {
     setShowYears(false)
   }
 
-  const handleReviewClick = (reservationId) => {
-    navigate(`/LastReviewPage?id=${reservationId}`)
-  }
-
   const handleMeetAgainClick = (reservationId) => {
     // 여기에 다시만나기 로직 추가
     console.log(`다시만나기 클릭: ${reservationId}`)
@@ -79,24 +75,18 @@ function Last() {
                 <div className="trainer-profile">
                   <div className="trainer-avatar">
                     <img
-                      src={`/trainerprofile/${reservation.trainer.replace("트레이너", "")}.jpg`}
-                      alt={`${reservation.trainer} profile`}
+                      src={`/dogprofile/${reservation.dog.replace("강아지", "")}.jpg`}
+                      alt={`${reservation.dog} profile`}
                     />
                   </div>
-                  <div className="trainer-name">{reservation.trainer}님</div>
+                  <div className="trainer-name">{reservation.dog}님</div>
                 </div>
-                {!reservation.hasReview ? (
-                  <button className="action-button review-button" onClick={() => handleReviewClick(reservation.id)}>
-                    후기 작성
-                  </button>
-                ) : (
-                  <button
-                    className="action-button meet-again-button"
-                    onClick={() => handleMeetAgainClick(reservation.id)}
-                  >
-                    다시만나기
-                  </button>
-                )}
+                <button
+                  className="action-button meet-again-button"
+                  onClick={() => handleMeetAgainClick(reservation.id)}
+                >
+                  다시만나기
+                </button>
               </div>
             </div>
           ))}
@@ -123,7 +113,7 @@ function Last() {
           <h1>예약내역</h1>
           <div className="last-header-buttons">
             <Link
-              to="/ReservationPage"
+              to="/Reservation_TPage"
               className="last-header-button"
               style={{ background: "none", border: "none", textDecoration: "none" }}
             >
@@ -155,5 +145,4 @@ function Last() {
   )
 }
 
-export default Last
-
+export default Last_T
