@@ -45,7 +45,7 @@ import IntroPage from './pages/IntroPage';
 import Reservation_TPage from './pages/Reservation_TPage';
 import Last_TPage from './pages/Last_TPage';
 import Profile_TPage from './pages/Profile_TPage';
-
+import TrainerInformationPage from './pages/TrainerInformationPage';
 
 
 
@@ -97,7 +97,7 @@ function App() {
         <Route path="/Reservation_TPage" element={<Reservation_TPage/>} />
         <Route path="/Last_TPage" element={<Last_TPage/>} />
         <Route path="/Profile_TPage" element={<Profile_TPage/>} />
-
+        <Route path="/TrainerInformationPage" element={<TrainerInformationPage/>} />
 
 
 
