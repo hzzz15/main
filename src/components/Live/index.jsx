@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Live.css";
-import Map from "../Map"; // Map 컴포넌트를 올바른 경로에서 임포트
 
 function Live() {
   const [activeTab, setActiveTab] = useState("walk"); // 'walk' 또는 'chat'
@@ -29,7 +28,7 @@ function Live() {
       </header>
       {/* 산책경로 탭이 활성화되었을 때 메시지 표시 */}
       {activeTab === "walk" && <div className="live-map-container">
-        
+
         </div>}
       
       {/* 채팅하기 탭이 활성화되었을 때 메시지 표시 */}
