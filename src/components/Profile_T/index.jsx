@@ -24,7 +24,7 @@ function Profile_T() {
       </header>
 
       {/* 리포트 */}
-      <a href="/ResultLastPage" className="profile-report">
+      <a href="/Review_TPage" className="profile-report">
         <div className="profile-report-card">
           <img src="/profileicons/myreview.png" alt="내 리뷰 아이콘" />
           <span>내 후기 확인하기</span>
