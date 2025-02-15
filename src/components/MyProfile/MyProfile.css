@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   height: 80%;
-  background-color: #E8EAE8;
+  background-color: #e8eae8;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -157,3 +157,20 @@
 .myprofile-save-button:hover {
   background-color: #064512;
 }
+
+/* 로그아웃 버튼 스타일 */
+.myprofile-logout-button {
+  display: block;
+  width: 35%;
+  padding: 8px 12px; /* 상하 패딩을 8px로 줄이고, 좌우는 12px 유지 */
+  background-color: white;
+  color: #075915;
+  border: 2px solid #075915;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 20px auto 0;
+  line-height: 1.2; /* 줄 간격을 좀 더 좁게 설정 */
+}
+

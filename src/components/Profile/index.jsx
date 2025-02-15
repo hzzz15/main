@@ -1,29 +1,14 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Profile.css';
 
 function Profile() {
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    // 로컬 스토리지에서 사용자 정보 삭제
-    localStorage.removeItem('user_id');
-    localStorage.removeItem('token');
-    
-    // 로그인 페이지로 리다이렉트
-    navigate('/IntroPage');
-  };
-
   return (
     <div className="profile-container" style={{minHeight: '100%', overflowY: 'auto'}}>
       {/* 헤더 */}
       <header className="profile-header">
         <div className="profile-header-top">
           <h1>더보기</h1>
-          <div className="profile-actions">
-            <button onClick={handleLogout} className="profile-logout-button">로그아웃</button>
-            <a href="/MyProfilePage" className="profile-link">내 프로필</a>
-          </div>
+          <a href="/MyProfilePage" className="profile-link">내 프로필</a>
         </div>
         <div className="profile-header-bottom">
           <a href="/DogInformationPage" className="profile-link-container">
