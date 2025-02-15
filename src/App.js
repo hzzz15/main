@@ -41,6 +41,13 @@ import PricePage from './pages/PricePage';
 
 import IntroPage from './pages/IntroPage';
 
+// 트레이너 페이지
+import Reservation_TPage from './pages/Reservation_TPage';
+
+
+
+
+
 function App() {
   return (
       <Routes>
@@ -83,6 +90,12 @@ function App() {
         <Route path="/PricePage" element={<PricePage/>} />
 
         <Route path="/IntroPage" element={<IntroPage/>} />
+
+
+
+        <Route path="/Reservation_TPage" element={<Reservation_TPage/>} />
+
+
 
 
       </Routes>
