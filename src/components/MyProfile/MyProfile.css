@@ -142,16 +142,16 @@
 /* 저장 버튼 스타일 */
 .myprofile-save-button {
   display: block;
-  width: 100%;
+  width: 70%;
   padding: 15px;
   background-color: #075915;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 25px;
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 50px;
+  margin: 50px auto 0;
 }
 
 .myprofile-save-button:hover {
