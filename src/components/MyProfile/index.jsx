@@ -133,7 +133,7 @@ function MyProfile() {
       console.error("Error logging out:", error)
       alert("로그아웃에 실패했습니다.")
     } else {
-      localStorage.removeItem("user_id")
+      localStorage.removeItem("token")
       navigate("/IntroPage") // Adjust this to your login page route
     }
   }
