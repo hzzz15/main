@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from backend.routers import users, Dbti_router, auth
 from backend.routers.bti_match import router as bti_match
-
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
 

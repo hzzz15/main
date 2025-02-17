@@ -1,73 +1,71 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-const Map = ({ address }) => {
+const Map = () => {
+  const mapRef = useRef(null);
   const [map, setMap] = useState(null);
-  const [marker, setMarker] = useState(null); // 마커 객체
+  const [polyline, setPolyline] = useState(null);
 
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src =
-      "//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_KAKAO_MAP_API_KEY&autoload=false";
-    script.async = true;
-
-    script.onload = () => {
-      window.kakao.maps.load(() => {
-        const container = document.getElementById("map");
-        const options = {
-          center: new window.kakao.maps.LatLng(37.5665, 126.9780), // 초기 서울 좌표
-          level: 3,
-        };
-        const createdMap = new window.kakao.maps.Map(container, options);
-        setMap(createdMap);
-      });
-    };
-
-    document.head.appendChild(script);
+    fetchAddresses();
   }, []);
 
-  useEffect(() => {
-    if (address && map) {
-      fetchCoordinates(address);
-    }
-  }, [address, map]);
-
-  const fetchCoordinates = async (inputAddress) => {
+  const fetchAddresses = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/convert-address?address=${encodeURIComponent(inputAddress)}`);
-      if (!response.ok) {
-        throw new Error("좌표 변환 실패");
+      const response = await fetch("http://localhost:8000/api/address/addresses");
+      const data = await response.json();
+
+      console.log("📌 받아온 주소 데이터:", data);
+
+      if (!data || data.length < 2) {
+        console.error("🚨 출발지와 목적지를 설정할 데이터가 부족합니다.");
+        return;
       }
 
-      const data = await response.json();
-      const coords = new window.kakao.maps.LatLng(data.latitude, data.longitude);
+      const startLocation = data[0];
+      const startPosition = new window.Tmapv2.LatLng(startLocation.latitude, startLocation.longitude);
 
-      // 지도 중심 이동
-      map.setCenter(coords);
+      const endLocation = data[data.length - 1];
+      const endPosition = new window.Tmapv2.LatLng(endLocation.latitude, endLocation.longitude);
 
-      // 기존 마커 제거
-      if (marker) marker.setMap(null);
-
-      // 새로운 마커 추가
-      const newMarker = new window.kakao.maps.Marker({
-        map: map,
-        position: coords,
+      const newMap = new window.Tmapv2.Map(mapRef.current, {
+        center: startPosition,
+        width: "100%",
+        height: "100%",
+        zoom: 16,
       });
-      setMarker(newMarker);
+
+      setMap(newMap);
+      console.log("🗺️ 지도 객체 생성 완료:", newMap);
+
+      const startMarker = new window.Tmapv2.Marker({
+        position: startPosition,
+        map: newMap,
+        label: "출발지",
+      });
+
+      const endMarker = new window.Tmapv2.Marker({
+        position: endPosition,
+        map: newMap,
+        label: "목적지",
+      });
+
+      console.log("📍 출발지 마커 추가 완료:", startMarker);
+      console.log("📍 목적지 마커 추가 완료:", endMarker);
+
+      drawPedestrianRoute(startLocation, endLocation, newMap);
     } catch (error) {
-      console.error("주소 변환 오류:", error);
+      console.error("🚨 주소 데이터를 불러오는데 실패했습니다:", error);
     }
   };
 
+  const drawPedestrianRoute = async (start, end, mapInstance) => {
+    // ... (이전 코드와 동일)
+  };
+
   return (
-    <div
-      id="map"
-      style={{
-        width: "100%",
-        height: "450px",
-        marginTop: "20px",
-        borderRadius: "8px",
-      }}
-    />
+    <div style={{ width: "100%", height: "100%" }}>
+      <div id="map" ref={mapRef} style={{ width: "100%", height: "100%", borderRadius: "20px" }} />
+    </div>
   );
 };
 
