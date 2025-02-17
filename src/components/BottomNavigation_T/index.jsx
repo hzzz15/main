@@ -35,7 +35,7 @@ function BottomNavigation_T() {
         navigate("/Reservation_TPage")
         break
       case "라이브":
-        navigate("/Live_TPage_T")
+        navigate("/Live_TPage")
         break
       case "발도장":
         navigate("/Like_TPage")

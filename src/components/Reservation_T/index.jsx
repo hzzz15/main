@@ -80,7 +80,7 @@ function Reservation_T() {
                   <p className="reservation-t-match-question">매칭하시겠습니까?</p>
                   <div className="reservation-t-match-buttons">
                     <button
-                      onClick={() => navigate("/LivePage")}
+                      onClick={() => navigate("/Live_TPage")}
                       className="reservation-t-match-button reservation-t-match-button-yes"
                     >
                       예
