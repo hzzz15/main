@@ -40,4 +40,11 @@
     margin: 0; /* 마진 제거 */
   }
   
-  
+  .like-chat-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 20vh - 30px); /* 뷰포트 높이에서 헤더 높이와 여백을 뺀 값 */
+    font-size: 18px;
+    color: #666;
+  }
