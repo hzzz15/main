@@ -4,8 +4,8 @@ import BottomNavigation_T from '../components/BottomNavigation_T'
 
 function Live_TPage() {
   return (
-    <div className="page-wrapper">
-      <div className="content-wrapper">
+    <div>
+      <div>
         <Live_T/>
       </div>
       <BottomNavigation_T/>
