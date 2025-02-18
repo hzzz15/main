@@ -80,7 +80,7 @@
   border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   margin: 10px 20px;
-  min-height: 300px; /* 최소 높이 설정 */
+  min-height: 100%; /* 최소 높이 설정 */
   height: calc(100vh - 300px); /* 뷰포트 높이에서 300px를 뺀 값 */
   display: flex;
   justify-content: center;
