@@ -40,7 +40,7 @@
   width: 24px;
   height: auto;
   cursor: pointer;
-  margin: 8px 0 0 28px;
+  margin: 8px 0 0 15px;
 }
 
 /* ✅ 제목 */
@@ -48,12 +48,12 @@
   font-size: 33px;
   font-weight: bold;
   color: #075915;
-  margin: 25px 0 0 28px;
+  margin: 25px 0 0 15px;
 }
 
 /* ✅ 설명 문구 추가 */
 .TemporaryCare-test-description {
-  margin: 0 0 0 28px;
+  margin: 0 0 0 15px;
   font-size: 18px;
   color: #565656;
   margin-top: 8px;
