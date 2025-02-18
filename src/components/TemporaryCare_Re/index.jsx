@@ -8,11 +8,13 @@ import "./TemporaryCare_Re.css"
 const TemporaryCare_Re = () => {
   const navigate = useNavigate()
   const [dogs, setDogs] = useState([])
+
+   //태그 추가하고 싶으면 여기에 객체추가 { name: " 태그이름 ", isSelected: false }
   const [tags, setTags] = useState([
-    { name: "사람좋아", isSelected: false },
-    { name: "애교많아요", isSelected: false },
-    { name: "친화력굿", isSelected: false },
-  ]) //태그 추가하고 싶으면 여기에 객체를 추가하세요
+    { name: "", isSelected: false },
+    { name: "", isSelected: false },
+    { name: "", isSelected: false },
+  ])
 
   useEffect(() => {
     fetch("data/animal_data.json")
@@ -59,7 +61,7 @@ const TemporaryCare_Re = () => {
                 className={`TemporaryCare_Re-tag ${tag.isSelected ? "selected" : ""}`}
                 onClick={() => handleTagClick(index)}
               >
-                #{tag.name}
+                {tag.name} {/* #{tag.name} */}
               </button>
             ))}
           </div>
