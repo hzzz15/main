@@ -1,23 +1,31 @@
-"use client";
+"use client"
 
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // useNavigate를 올바르게 가져옵니다.
-import DogCard from "../Dog";
-import "./TemporaryCare_Re.css";
-
+import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import DogCard from "../Dog"
+import "./TemporaryCare_Re.css"
 
 const TemporaryCare_Re = () => {
-  const navigate = useNavigate();
-  // 강아지 데이터를 저장할 state
-  const [dogs, setDogs] = useState([]);
+  const navigate = useNavigate()
+  const [dogs, setDogs] = useState([])
+  const [tags, setTags] = useState([
+    { name: "사람좋아", isSelected: false },
+    { name: "애교많아요", isSelected: false },
+    { name: "친화력굿", isSelected: false },
+  ]) //태그 추가하고 싶으면 여기에 객체를 추가하세요
 
-  // JSON 파일 불러오기
   useEffect(() => {
-    fetch("data/animal_data.json") // public 폴더의 animal_data.json을 불러옴
+    fetch("data/animal_data.json")
       .then((response) => response.json())
       .then((data) => setDogs(data))
-      .catch((error) => console.error("JSON 데이터를 불러오는 중 오류 발생:", error));
-  }, []);
+      .catch((error) => console.error("JSON 데이터를 불러오는 중 오류 발생:", error))
+  }, [])
+
+  const handleTagClick = (index) => {
+    const newTags = [...tags]
+    newTags[index].isSelected = !newTags[index].isSelected
+    setTags(newTags)
+  }
 
   return (
     <div className="TemporaryCare_Re-temporary-care">
@@ -42,17 +50,34 @@ const TemporaryCare_Re = () => {
         </div>
       </header>
 
-      <main className="TemporaryCare_Re-main-content">
-        <div className="TemporaryCare_Re-dogs-grid">
-        {dogs.length > 0 ? (
-            dogs.map((dog, index) => <DogCard key={index} dog={dog} />)
-          ) : (
-            <p>강아지 데이터를 불러오는 중...</p>
-          )}
+      <div className="TemporaryCare_Re-scrollable-content">
+        <div className="TemporaryCare_Re-tags-container">
+          <div className="TemporaryCare_Re-tags">
+            {tags.map((tag, index) => (
+              <button
+                key={index}
+                className={`TemporaryCare_Re-tag ${tag.isSelected ? "selected" : ""}`}
+                onClick={() => handleTagClick(index)}
+              >
+                #{tag.name}
+              </button>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
-  );
-};
 
-export default TemporaryCare_Re;
+        <main className="TemporaryCare_Re-main-content">
+          <div className="TemporaryCare_Re-dogs-grid">
+            {dogs.length > 0 ? (
+              dogs.map((dog, index) => <DogCard key={index} dog={dog} />)
+            ) : (
+              <p>강아지 데이터를 불러오는 중...</p>
+            )}
+          </div>
+        </main>
+      </div>
+    </div>
+  )
+}
+
+export default TemporaryCare_Re
+
