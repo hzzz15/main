@@ -50,7 +50,9 @@ import Profile_TPage from './pages/Profile_TPage';
 import TrainerInformationPage from './pages/TrainerInformationPage';
 import Review_TPage from './pages/Review_TPage';
 import Like_TPage from './pages/Like_TPage';
-
+import Live_TPage from './pages/Live_TPage';
+import LiveResert_TPage from './pages/LiveResert_TPage';
+import Main_TPage from './pages/Main_TPage';
 
 function App() {
   return (
@@ -104,6 +106,9 @@ function App() {
         <Route path="/TrainerInformationPage" element={<TrainerInformationPage/>} />
         <Route path="/Review_TPage" element={<Review_TPage/>} />
         <Route path="/Like_TPage" element={<Like_TPage/>} />
+        <Route path="/Live_TPage" element={<Live_TPage/>} />
+        <Route path="/LiveResert_TPage" element={<LiveResert_TPage/>} />
+        <Route path="/Main_TPage" element={<Main_TPage/>} />
 
 
 

@@ -51,7 +51,7 @@ function MyProfile() {
   }
 
   const handleBackClick = () => {
-    navigate("/ProfilePage")
+    navigate(-1)
   }
 
   const handlePhoneChange = (e) => {

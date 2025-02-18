@@ -61,7 +61,7 @@ function Review_T() {
   }
 
   const handleBackClick = () => {
-    navigate("/Profile_TPage");
+    navigate(-1);
   };
 
   const renderReservationCards = () => {

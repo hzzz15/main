@@ -31,7 +31,7 @@ function Review() {
   const navigate = useNavigate()
 
   const handleBackClick = () => {
-    navigate("/")
+    navigate(-1)
   }
 
   // 평점을 문자열로 변환하는 함수
