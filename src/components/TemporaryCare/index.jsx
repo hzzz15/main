@@ -35,7 +35,7 @@ const TemporaryCare = () => {
 
       <main className="TemporaryCare-main-content">
         <button className="TemporaryCare-matching-button"
-          onClick={() => navigate("/TemporaryCare_RePage")}
+          onClick={() => navigate("/TemporaryCare_testPage")}
           >
           당신과 찰떡인 강아지 맞춤추천
         </button>

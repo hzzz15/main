@@ -3,6 +3,7 @@ from backend.routers import users, Dbti_router, auth
 from backend.routers.bti_match import router as bti_match
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
+from backend.routers import users, Dbti_router, Care_recommed
 
 # 밥꺼 추가
 from backend.routers.address import router as address_router
@@ -21,9 +22,10 @@ app.add_middleware(
 
 # weather.py의 라우터 등록
 app.include_router(users.router)
-app.include_router(bti_match, prefix="/api")
+app.include_router(bti_match, prefix="/api") 
 app.include_router(Dbti_router.router, prefix="/api")
 app.include_router(auth.router, prefix="/api/auth")
+app.include_router(Care_recommed.router)
 
 # 밥꺼 추가
 app.include_router(address_router, prefix="/api/address", tags=["Address"])
