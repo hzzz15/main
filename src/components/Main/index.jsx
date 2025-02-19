@@ -52,7 +52,7 @@ function Main() {
 
       <main>
         <div className="main-weather-section">
-          <Weather city="Seoul" />
+          <Weather city="천안시" district="동남구" />
         </div>
 
         <div className="main-mbti-card clickable-card" onClick={() => handleClick("dbti")}>
