@@ -6,17 +6,23 @@ import Weather from "./weather";
 function Main() {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [weatherLocation, setWeatherLocation] = useState(() => {
+    // 초기 상태를 로컬 스토리지에서 가져오거나 기본값 설정
+    const storedWeatherLocation = localStorage.getItem('weatherLocation');
+    return storedWeatherLocation ? JSON.parse(storedWeatherLocation) : { city: '서울특별시', district: '강남구' }; //날씨정보 입력하는곳
+  });
 
-  // ✅ 로그인 상태 확인 (토큰 키값 수정)
   useEffect(() => {
-    const token = localStorage.getItem("token"); // 🔥 "authToken"이 아니라 "token" 확인
-    console.log("로그인 토큰:", token); // 🔥 디버깅용 로그
+    const token = localStorage.getItem("token");
+    console.log("로그인 토큰:", token);
     setIsLoggedIn(!!token);
-  }, []);
 
-  // ✅ 버튼 클릭 핸들러 (로그인 체크 후 이동)
+    // 날씨 정보를 로컬 스토리지에 저장
+    localStorage.setItem('weatherLocation', JSON.stringify(weatherLocation));
+  }, [weatherLocation]);
+
   const handleClick = (item) => {
-    console.log("현재 로그인 상태:", isLoggedIn); // 🔥 디버깅용 로그
+    console.log("현재 로그인 상태:", isLoggedIn);
 
     if (!isLoggedIn) {
       console.log("로그인 필요! 인트로페이지로 이동");
@@ -52,7 +58,11 @@ function Main() {
 
       <main>
         <div className="main-weather-section">
-          <Weather city="천안시" district="동남구" />
+          {weatherLocation.city && weatherLocation.district ? (
+            <Weather city={weatherLocation.city} district={weatherLocation.district} />
+          ) : (
+            <div>날씨 정보를 불러오는 중...</div>
+          )}
         </div>
 
         <div className="main-mbti-card clickable-card" onClick={() => handleClick("dbti")}>

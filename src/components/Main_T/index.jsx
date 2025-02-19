@@ -1,9 +1,23 @@
 import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react";
 import "./Main_T.css"
 import Weather from "./weather";
 
 function Main_T() {
   const navigate = useNavigate()
+  const [weatherLocation, setWeatherLocation] = useState(() => {
+    // 초기 상태를 로컬 스토리지에서 가져오거나 기본값 설정
+    const storedWeatherLocation = localStorage.getItem('weatherLocation');
+    return storedWeatherLocation ? JSON.parse(storedWeatherLocation) : { city: '천안시', district: '동남구' };
+  });
+
+  useEffect(() => {
+    // 로컬 스토리지에서 날씨 정보를 가져옴
+    const storedWeatherLocation = localStorage.getItem('weatherLocation');
+    if (storedWeatherLocation) {
+      setWeatherLocation(JSON.parse(storedWeatherLocation));
+    }
+  }, []);
 
   const handleClick = (item) => {
     switch (item) {
@@ -34,7 +48,11 @@ function Main_T() {
 
       <main>
         <div className="Main_T-weather-section">
-          <Weather city="Seoul" />
+          {weatherLocation.city && weatherLocation.district ? (
+            <Weather city={weatherLocation.city} district={weatherLocation.district} />
+          ) : (
+            <div>날씨 정보를 불러오는 중...</div>
+          )}
         </div>
 
         <div className="Main_T-mbti-card clickable-card" onClick={() => handleClick("MyProfile_T")}>
