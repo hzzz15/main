@@ -55,7 +55,9 @@ const TemporaryCare_Re = () => {
             <p className="TemporaryCare_Re-description">
               당신의 마음과 맞는 강아지를 찾아보세요
               <br />
-              특별한 인연을 맺고, 함께 행복한 추억을 만들어가요!
+              특별한 인연을 맺고, 함께 행복한 추억을
+              <br />
+              만들어가요!
             </p>
           </div>
         </div>

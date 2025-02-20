@@ -89,7 +89,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  padding: 5px 15px;
+  padding: 5px 15px 5px 5px;
 }
 
 .TemporaryCare_Re-scrollable-content::-webkit-scrollbar {
