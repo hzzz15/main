@@ -1,14 +1,41 @@
 "use client"
 
 import { useLocation, useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react"
 import DogCard from "../Dog"
 import "./TemporaryCare_Re.css"
 
 const TemporaryCare_Re = () => {
   const navigate = useNavigate()
   const location = useLocation()
+  
+  // 초기 태그 상태를 빈 배열로 설정
+  const [tags, setTags] = useState([])
 
-  // ✅ FastAPI에서 받은 추천된 강아지 리스트 그대로 사용
+  useEffect(() => {
+    // location.state 데이터 확인
+    console.log("location.state:", location.state)
+
+    if (location.state?.top_3_tags) {
+      console.log("받은 top_3_tags:", location.state.top_3_tags)
+      
+      const newTags = location.state.top_3_tags.map(([tagName, count]) => ({
+        name: tagName,
+        isSelected: false,
+        count: count
+      }))
+      
+      console.log("변환된 태그:", newTags)
+      setTags(newTags)
+    }
+  }, [location.state])
+
+  const handleTagClick = (index) => {
+    const newTags = [...tags]
+    newTags[index].isSelected = !newTags[index].isSelected
+    setTags(newTags)
+  }
+
   const recommendedDogs = location.state?.recommendedDogs || []
 
   return (
@@ -34,15 +61,35 @@ const TemporaryCare_Re = () => {
         </div>
       </header>
 
-      <main className="TemporaryCare_Re-main-content">
-        <div className="TemporaryCare_Re-dogs-grid">
-          {recommendedDogs.length > 0 ? (
-            recommendedDogs.map((dog, index) => <DogCard key={index} dog={dog} />)
-          ) : (
-            <p>추천된 강아지가 없습니다.</p>
-          )}
+      <div className="TemporaryCare_Re-scrollable-content">
+        <div className="TemporaryCare_Re-tags-container">
+          <div className="TemporaryCare_Re-tags">
+            {tags.length > 0 ? (
+              tags.map((tag, index) => (
+                <button
+                  key={index}
+                  className={`TemporaryCare_Re-tag ${tag.isSelected ? "selected" : ""}`}
+                  onClick={() => handleTagClick(index)}
+                >
+                  {tag.name}
+                </button>
+              ))
+            ) : (
+              <p>태그를 불러오는 중...</p>
+            )}
+          </div>
         </div>
-      </main>
+
+        <main className="TemporaryCare_Re-main-content">
+          <div className="TemporaryCare_Re-dogs-grid">
+            {recommendedDogs.length > 0 ? (
+              recommendedDogs.map((dog, index) => <DogCard key={index} dog={dog} />)
+            ) : (
+              <p>추천된 강아지가 없습니다.</p>
+            )}
+          </div>
+        </main>
+      </div>
     </div>
   )
 }

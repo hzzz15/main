@@ -102,7 +102,6 @@ const TemporaryCareTest = () => {
     navigate(-1)
   }
 
-  // 사용자가 답변을 선택하면 해당 태그 저장
   const handleChoiceSelect = (choice) => {
     setSelectedChoice(choice.text)
     setSelectedTags((prevTags) => [...new Set([...prevTags, ...choice.tags])])
@@ -136,8 +135,17 @@ const TemporaryCareTest = () => {
 
       const data = await response.json()
       console.log("FastAPI 응답:", data)
+      console.log("전달하는 데이터:", {
+        recommendedDogs: data.recommended_dogs,
+        top_3_tags: data.top_3_tags
+      })
 
-      navigate("/TemporaryCare_RePage", { state: { recommendedDogs: data.recommended_dogs } })
+      navigate("/TemporaryCare_RePage", { 
+        state: { 
+          recommendedDogs: data.recommended_dogs,
+          top_3_tags: data.top_3_tags
+        } 
+      })
     } catch (error) {
       console.error("테스트 제출 실패:", error)
     }
@@ -196,4 +204,3 @@ const TemporaryCareTest = () => {
 }
 
 export default TemporaryCareTest
-
