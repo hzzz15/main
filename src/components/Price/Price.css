@@ -12,7 +12,7 @@ html {
   margin: 0 auto;
   background-color: #e8eae8;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch; /* iOS 스크롤 개선 */
+  -webkit-overflow-scrolling: touch;
   position: absolute;
   top: 0;
   left: 0;
