@@ -8,16 +8,16 @@ function BottomNavigation() {
   const [activeItem, setActiveItem] = useState("")
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const navigate = useNavigate()
-
-  // ✅ 로그인 상태 확인 (토큰 키값 수정)
+  
+  // 로그인 상태 확인 (토큰 키값 수정)
   useEffect(() => {
     const token = localStorage.getItem("token")
-    console.log("로그인 토큰:", token) // 🔥 디버깅용 로그
+    console.log("로그인 토큰:", token)
     setIsLoggedIn(!!token)
   }, [])
 
   const handleClick = (item) => {
-    console.log("현재 로그인 상태:", isLoggedIn) // 🔥 디버깅용 로그
+    console.log("현재 로그인 상태:", isLoggedIn)
 
     if (!isLoggedIn) {
       console.log("로그인 필요! 인트로페이지로 이동")
@@ -43,7 +43,6 @@ function BottomNavigation() {
       case "프로필":
         navigate("/ProfilePage")
         break
-      // 다른 항목들에 대한 라우팅도 여기에 추가할 수 있습니다.
     }
   }
 

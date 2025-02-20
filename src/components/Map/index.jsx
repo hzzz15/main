@@ -61,7 +61,7 @@ const Map = () => {
     }
   };
 
-  // ✅ Tmap API를 이용한 보행자 경로 요청
+  // Tmap API를 이용한 보행자 경로 요청
   const drawPedestrianRoute = async (start, end, mapInstance) => {
     try {
       console.log("📌 start 데이터:", start);
@@ -96,7 +96,7 @@ const Map = () => {
         return;
       }
 
-      // ✅ EPSG3857 좌표를 WGS84 좌표로 변환 후 폴리라인 그리기
+      // EPSG3857 좌표를 WGS84 좌표로 변환 후 폴리라인 그리기
       const drawInfoArr = [];
       for (let i = 0; i < resultData.length; i++) {
         const geometry = resultData[i].geometry;
@@ -107,7 +107,7 @@ const Map = () => {
               geometry.coordinates[j][1]
             );
 
-            // ✅ 좌표 변환: EPSG3857 → WGS84
+            // 좌표 변환: EPSG3857 → WGS84
             const convertPoint = new window.Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlng);
             const convertChange = new window.Tmapv2.LatLng(convertPoint._lat, convertPoint._lng);
             drawInfoArr.push(convertChange);
@@ -123,14 +123,14 @@ const Map = () => {
         return;
       }
 
-      // ✅ 기존 폴리라인 삭제
+      // 기존 폴리라인 삭제
       if (polyline) {
         console.log("🛑 기존 폴리라인 삭제");
         polyline.setMap(null);
         setPolyline(null);
       }
 
-      // ✅ 새로운 폴리라인 추가
+      // 새로운 폴리라인 추가
       const newPolyline = new window.Tmapv2.Polyline({
         path: drawInfoArr,
         strokeColor: "#0000FF",
@@ -143,7 +143,7 @@ const Map = () => {
       setPolyline(newPolyline);
       console.log("🛤️ 변환된 보행자 경로 폴리라인 추가 완료:", newPolyline);
 
-      // ✅ 지도 자동 확대 조정
+      // 지도 자동 확대 조정
       const bounds = new window.Tmapv2.LatLngBounds();
       drawInfoArr.forEach((latLng) => bounds.extend(latLng));
       mapInstance.fitBounds(bounds);

@@ -12,6 +12,7 @@ function Review_T() {
   const navigate = useNavigate()
 
   const fetchReservations = () => {
+    // 임시데이터
     return {
       2024: [
         {

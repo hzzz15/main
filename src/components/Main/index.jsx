@@ -7,9 +7,8 @@ function Main() {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [weatherLocation, setWeatherLocation] = useState(() => {
-    // 초기 상태를 로컬 스토리지에서 가져오거나 기본값 설정
     const storedWeatherLocation = localStorage.getItem('weatherLocation');
-    return storedWeatherLocation ? JSON.parse(storedWeatherLocation) : { city: '서울특별시', district: '강남구' }; //날씨정보 입력하는곳
+    return storedWeatherLocation ? JSON.parse(storedWeatherLocation) : { city: '서울특별시', district: '강남구' };
   });
 
   useEffect(() => {

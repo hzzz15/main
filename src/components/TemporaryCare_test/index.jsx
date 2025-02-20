@@ -95,17 +95,17 @@ const questions = [
 const TemporaryCareTest = () => {
   const navigate = useNavigate()
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [selectedTags, setSelectedTags] = useState([]) // 선택된 태그 저장
+  const [selectedTags, setSelectedTags] = useState([])
   const [selectedChoice, setSelectedChoice] = useState(null)
 
   const handleBackClick = () => {
     navigate(-1)
   }
 
-  // ✅ 사용자가 답변을 선택하면 해당 태그 저장
+  // 사용자가 답변을 선택하면 해당 태그 저장
   const handleChoiceSelect = (choice) => {
     setSelectedChoice(choice.text)
-    setSelectedTags((prevTags) => [...new Set([...prevTags, ...choice.tags])]) // 중복 제거 후 태그 추가
+    setSelectedTags((prevTags) => [...new Set([...prevTags, ...choice.tags])])
   }
 
   const handleNext = async () => {
@@ -122,7 +122,7 @@ const TemporaryCareTest = () => {
   const submitTest = async (selectedTags) => {
     try {
       const queryString = new URLSearchParams({
-        tags: selectedTags.join(","), // 선택한 태그를 쿼리 스트링으로 변환
+        tags: selectedTags.join(","),
       }).toString()
 
       const response = await fetch(`http://localhost:8000/api/recommend_dogs?${queryString}`, {
@@ -137,7 +137,6 @@ const TemporaryCareTest = () => {
       const data = await response.json()
       console.log("FastAPI 응답:", data)
 
-      // ✅ 결과 페이지로 이동
       navigate("/TemporaryCare_RePage", { state: { recommendedDogs: data.recommended_dogs } })
     } catch (error) {
       console.error("테스트 제출 실패:", error)

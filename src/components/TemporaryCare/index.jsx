@@ -1,6 +1,6 @@
 "use client";
 
-import { useNavigate } from "react-router-dom"; // useNavigate를 올바르게 가져옵니다.
+import { useNavigate } from "react-router-dom";
 import DogCard from "../Dog";
 import "./TemporaryCare.css";
 import { dogs } from "../../app/data";

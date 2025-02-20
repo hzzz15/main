@@ -8,7 +8,7 @@ function Login() {
   const [password, setPassword] = useState("");
 
   const handleLogin = async (event) => {
-    event.preventDefault(); // 기본 폼 제출 방지
+    event.preventDefault();
 
     try {
       const response = await fetch("http://127.0.0.1:8000/api/auth/login", {
@@ -23,12 +23,12 @@ function Login() {
 
       const data = await response.json();
 
-      // ✅ 로그인 성공 시, user_id 및 token 저장
+      // 로그인 성공 시, user_id 및 token 저장
       localStorage.setItem("user_id", data.user_id);
       localStorage.setItem("token", data.token);
 
       alert("로그인 성공!");
-      navigate("/"); // 로그인 후 메인 페이지로 이동
+      navigate("/");
     } catch (error) {
       alert(error.message);
     }

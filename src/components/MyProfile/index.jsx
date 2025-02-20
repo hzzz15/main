@@ -32,7 +32,7 @@ function MyProfile() {
   const fetchUserInfo = async (userId) => {
     const { data, error } = await supabase
       .from("users")
-      .select("phone_number, address, email, nickname") // Updated to include nickname
+      .select("phone_number, address, email, nickname")
       .eq("user_id", userId)
       .single()
 
@@ -42,7 +42,7 @@ function MyProfile() {
       setPhoneNumber(data.phone_number || "")
       setAddress(data.address || "")
       setEmail(data.email || "")
-      setNickname(data.nickname || "") // Added nickname update
+      setNickname(data.nickname || "")
       setOriginalNickname(data.nickname || "")
       setOriginalPhoneNumber(data.phone_number || "")
       setOriginalAddress(data.address || "")
@@ -67,7 +67,6 @@ function MyProfile() {
   }
 
   const handleNicknameChange = (e) => {
-    // Added nickname change handler
     setNickname(e.target.value)
   }
 
@@ -93,7 +92,6 @@ function MyProfile() {
   }
 
   const toggleNicknameEdit = () => {
-    // Added nickname edit toggle
     if (isNicknameEditable) {
       setNickname(originalNickname)
     }
@@ -104,7 +102,7 @@ function MyProfile() {
     const { error } = await supabase
       .from("users")
       .update({
-        nickname: nickname, // Added nickname update
+        nickname: nickname,
         phone_number: phoneNumber,
         address: address,
         email: email,
@@ -116,7 +114,7 @@ function MyProfile() {
       alert("정보 업데이트에 실패했습니다.")
     } else {
       alert("정보가 성공적으로 업데이트되었습니다.")
-      setIsNicknameEditable(false) // Added reset for nickname editability
+      setIsNicknameEditable(false)
       setIsPhoneEditable(false)
       setIsAddressEditable(false)
       setIsEmailEditable(false)
@@ -134,19 +132,18 @@ function MyProfile() {
       alert("로그아웃에 실패했습니다.")
     } else {
       localStorage.removeItem("token")
-      navigate("/IntroPage") // Adjust this to your login page route
+      navigate("/IntroPage")
     }
   }
 
   return (
     <div className="myprofile-container" style={{ height: "100%", overflowY: "auto" }}>
-      {/* 헤더 (고정) */}
       <header className="myprofile-header">
         <div className="myprofile-header-content">
           <img src="/icons/back.png" alt="뒤로가기" className="myprofile-back-icon" onClick={handleBackClick} />
           <div className="myprofile-title-container">
             <h1>
-              {nickname}님, {/* Updated to display nickname */}
+              {nickname}님,
               <br />
               안녕하세요!
             </h1>
@@ -168,7 +165,6 @@ function MyProfile() {
 
         <div className="myprofile-info-section">
           {" "}
-          {/* Added nickname section */}
           <div className="myprofile-info-item">
             <span className="myprofile-info-label">닉네임</span>
             <div className="myprofile-input-button-container">

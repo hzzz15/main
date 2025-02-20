@@ -4,7 +4,6 @@ import './Profile_T.css';
 function Profile_T() {
   return (
     <div className="profile-container" style={{minHeight: '100%', overflowY: 'auto'}}>
-      {/* 헤더 */}
       <header className="profile-header">
         <div className="profile-header-top">
           <h1>더보기</h1>
@@ -23,14 +22,13 @@ function Profile_T() {
         </div>
       </header>
 
-      {/* 리포트 */}
       <a href="/Review_TPage" className="profile-report">
         <div className="profile-report-card">
           <img src="/profileicons/myreview.png" alt="내 리뷰 아이콘" />
           <span>내 후기 확인하기</span>
         </div>
       </a>
-      {/* 견주 모드로 전환 */}
+
       <a href="/" className="profile-footer">
         <span className="profile-trainer-mode-text">견주 모드로 전환</span>
         <img

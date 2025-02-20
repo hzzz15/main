@@ -23,7 +23,7 @@
 
 .like-t-header-content {
   width: 100%;
-  margin-top: 8px; /* h1, h2 위아래 위치 조정 */
+  margin-top: 8px;
 }
 
 .like-t-header-content h1 {
@@ -41,20 +41,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 20vh - 30px); /* 뷰포트 높이에서 헤더 높이와 여백을 뺀 값 */
+  height: calc(100vh - 20vh - 30px);
   font-size: 18px;
   color: #666;
 }
 
-/* 강아지 카드 그리드 스타일 */
 .like-t-dogs-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2x2 그리드 */
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   padding: 20px;
 }
 
-/* 스크롤바 스타일링 */
 .like-t-main-content::-webkit-scrollbar {
   width: 6px;
 }

@@ -72,7 +72,7 @@
     flex: 1;
     overflow-y: auto;
     padding: 20px;
-    margin-bottom: 100px; /* Add margin to account for bottom space */
+    margin-bottom: 100px;
   }
   
   .reservation-t-chat-message {

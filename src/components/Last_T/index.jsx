@@ -11,7 +11,7 @@ function Last_T() {
   const [reservations, setReservations] = useState({})
   const navigate = useNavigate()
 
-  // 예약 데이터를 가져오는 함수
+  // 예약 데이터 가져오는 함수
   const fetchReservations = () => {
     // 예시 데이터
     return {
