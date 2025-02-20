@@ -59,7 +59,7 @@
   color: white;
   border: none;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-bottom: -20px;
   cursor: pointer;
 }
 
@@ -67,7 +67,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2x2 배열 */
   gap: 24px;
-  padding: 20px;
+  padding: 20px 20px 20px 8px; 
 }
 
 .TemporaryCare-main-content::-webkit-scrollbar {
