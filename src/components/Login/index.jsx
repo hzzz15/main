@@ -10,40 +10,41 @@ export default function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
-    const response = await fetch("http://localhost:8000/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ user_id: userId, password: password }),
-    });
-
-    const data = await response.json();
-
-    if (response.ok) {
-      console.log("✅ FastAPI 로그인 성공:", data);
-
-      // ✅ JWT 토큰 저장 (FastAPI에서 발급)
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user_id", data.user_id);
-
-      // ✅ Supabase 세션 설정
-      const { error } = await supabase.auth.setSession({
-        access_token: data.token,  // FastAPI JWT를 Supabase 세션에 적용
-        refresh_token: data.token, // 리프레시 토큰도 동일하게 적용
-      });
-
-      if (error) {
-        console.error("❌ Supabase 세션 설정 실패:", error.message);
-        alert("로그인 세션을 설정하는 데 실패했습니다.");
-        return;
-      }
-
-      console.log("✅ Supabase 세션 설정 완료");
-      alert("로그인 성공!");
-      navigate("/"); // ✅ 로그인 후 이동할 페이지
-    } else {
-      alert("로그인 실패: " + data.detail);
+  
+    // 1️⃣ `user_id`로 이메일 찾기
+    const { data: users, error: userError } = await supabase
+      .from("users")  // ✅ Supabase `users` 테이블에서 검색
+      .select("email")
+      .eq("user_id", userId)
+      .single();
+  
+    if (userError || !users) {
+      console.error("🚨 아이디를 찾을 수 없습니다.");
+      alert("아이디가 존재하지 않습니다.");
+      return;
     }
+  
+    const email = users.email;
+  
+    // 2️⃣ Supabase 로그인 실행
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email,  // ✅ 찾은 이메일을 사용하여 로그인
+      password: password,
+    });
+  
+    if (error) {
+      console.error("🚨 로그인 실패:", error.message);
+      alert("로그인 실패: " + error.message);
+      return;
+    }
+  
+    console.log("✅ 로그인 성공! 세션:", data.session);
+  
+    // 3️⃣ JWT 저장 (Supabase에서 발급된 토큰 저장)
+    localStorage.setItem("supabaseToken", data.session.access_token);
+  
+    alert("로그인 성공!");
+    navigate("/");
   };
 
   return (

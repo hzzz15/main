@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Signup2.css";
+import { supabase } from "../../lib/supabaseClient";
 
 export default function Signup2() {
     const navigate = useNavigate();
@@ -29,33 +30,68 @@ export default function Signup2() {
     }, []);
 
     const handleSignup = async (e) => {
-        e.preventDefault();
+      e.preventDefault();
     
-        const response = await fetch("http://localhost:8000/api/auth/signup", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                user_id: userId,
-                password: password,
-                email: email,
-                name: name,
-                phone_number: phoneNumber, // ✅ 올바른 변수명
-                address: address, // ✅ 올바른 변수명
-                nickname: nickname, // ✅ 올바른 변수명
-            }),
-            mode:"cors",
-        });
+      // ✅ Supabase 회원가입 실행
+      const { data, error } = await supabase.auth.signUp({
+        email: email,
+        password: password,
+        options: {
+          data: {
+            name: name,
+            phone_number: phoneNumber,
+            address: address,
+            nickname: nickname,
+          },
+        },
+      });
     
-        const data = await response.json();
+      if (error) {
+        console.error("🚨 회원가입 실패:", error.message);
+        alert("회원가입 실패: " + error.message);
+        return;
+      }
     
-        if (response.ok) {
-            alert("회원가입 성공! 로그인 해주세요.");
-            localStorage.removeItem("signupData"); // ✅ 회원가입 완료 후 localStorage에서 데이터 삭제
-            navigate("/LoginPage");
-        } else {
-            alert("회원가입 실패: " + data.detail);
+      console.log("✅ 회원가입 성공:", data);
+    
+      // ✅ Supabase에서 생성된 `user.id(UUID)` 가져오기
+      const user = data.user;
+      if (user) {
+        const userUuid = user.id;  // Supabase `auth.users.id` (UUID)
+    
+        // ✅ `users` 테이블에 `uuid_id` + `user_id`(로그인용) + 기타 정보 저장
+        const { error: insertError } = await supabase
+          .from("users")
+          .upsert([
+            {
+              uuid_id: userUuid,    // ✅ Supabase에서 받은 UUID
+              user_id: userId,      // ✅ 사용자가 입력한 로그인 아이디
+              name: name,
+              email: email,
+              phone_number: phoneNumber,
+              address: address,
+              nickname: nickname,
+            },
+          ], 
+          { 
+            onConflict: ['uuid_id'] // uuid_id 충돌 시 업데이트
+          });
+    
+        if (insertError) {
+          console.error("🚨 유저 데이터 저장 실패:", insertError.message);
+          alert("유저 정보 저장에 실패했습니다.");
+          return;
         }
+      }
+    
+      alert("회원가입 성공! 로그인 해주세요.");
+      localStorage.removeItem("signupData");
+      navigate("/LoginPage");
     };
+    
+    
+      
+      
     
 
     return (

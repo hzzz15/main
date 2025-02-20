@@ -3,30 +3,44 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import "./BottomNavigation_T.css"
+import { supabase } from "../../lib/supabaseClient";
 
 function BottomNavigation_T() {
   const [activeItem, setActiveItem] = useState("")
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const navigate = useNavigate()
 
-  // 로그인 상태 확인 (토큰 키값 수정)
+  // ✅ 로그인 상태 확인 (Supabase 세션 기반)
   useEffect(() => {
-    const token = localStorage.getItem("token")
-    console.log("로그인 토큰:", token)
-    setIsLoggedIn(!!token)
-  }, [])
+    const checkSession = async () => {
+      const { data: { session }, error } = await supabase.auth.getSession();
 
+      if (error) {
+        console.error("🚨 세션 가져오기 실패:", error.message);
+        setIsLoggedIn(false);
+        return;
+      }
+
+      if (session) {
+        console.log("✅ 로그인된 사용자 정보:", session.user);
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+    };
+
+    checkSession();
+  }, []);
+  
   const handleClick = (item) => {
-    console.log("현재 로그인 상태:", isLoggedIn)
+    console.log("현재 로그인 상태:", isLoggedIn); // 🔥 디버깅용 로그
 
     if (!isLoggedIn) {
-      console.log("로그인 필요! 인트로페이지로 이동")
-      navigate("/IntroPage")
-      return
+      console.log("로그인 필요! 인트로 페이지로 이동");
+      navigate("/IntroPage");
+      return;
     }
 
-    setActiveItem(item)
-    console.log(`${item} 클릭됨`)
     switch (item) {
       case "예약하기":
         navigate("/Main_TPage")
@@ -43,7 +57,6 @@ function BottomNavigation_T() {
       case "프로필":
         navigate("/Profile_TPage")
         break
-      // 다른 항목들에 대한 라우팅도 여기에 추가할 수 있습니다.
     }
   }
 

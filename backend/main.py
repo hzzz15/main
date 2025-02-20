@@ -8,6 +8,7 @@ from backend.routers import users, Dbti_router, Care_recommed
 
 
 from backend.routers.auth import router as auth_router
+from backend.routers.upload import router as upload_router
 from dotenv import load_dotenv
 
 # 밥꺼 추가
@@ -29,13 +30,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# weather.py의 라우터 등록
+# 라우터 등록
 app.include_router(users.router)
 app.include_router(bti_match, prefix="/api") 
 app.include_router(Dbti_router.router, prefix="/api")
 app.include_router(auth.router, prefix="/api/auth")
 app.include_router(Care_recommed.router)
-
+app.include_router(upload_router, prefix="/upload", tags=["Upload"])
 app.include_router(auth_router, prefix="/api/auth", tags=["Auth"])  # ✅ prefix 유지
 
 # 밥꺼 추가
@@ -78,4 +79,4 @@ async def favicon():
 load_dotenv()
 
 # ✅ 환경 변수 출력 (개발 중에만 유지)
-print("✅ DATABASE_URL:", os.getenv("SUPABASE_DB_URL"))
+print("✅ DATABASE_URL:", os.getenv("DATABASE_URL"))
