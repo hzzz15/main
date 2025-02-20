@@ -6,6 +6,10 @@ from backend.routers import users, Dbti_router, auth
 from backend.routers.bti_match import router as bti_match
 from backend.routers import users, Dbti_router, Care_recommed
 
+
+from backend.routers.auth import router as auth_router
+from dotenv import load_dotenv
+
 # 밥꺼 추가
 from backend.routers.address import router as address_router
 from backend.routers.google_places import router as google_places_router  # Google Places 라우터 임포트
@@ -31,6 +35,8 @@ app.include_router(bti_match, prefix="/api")
 app.include_router(Dbti_router.router, prefix="/api")
 app.include_router(auth.router, prefix="/api/auth")
 app.include_router(Care_recommed.router)
+
+app.include_router(auth_router, prefix="/api/auth", tags=["Auth"])  # ✅ prefix 유지
 
 # 밥꺼 추가
 app.include_router(address_router, prefix="/api/address", tags=["Address"])
@@ -67,3 +73,9 @@ async def root():
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon():
     return Response(status_code=204)
+
+# ✅ 환경 변수 로드
+load_dotenv()
+
+# ✅ 환경 변수 출력 (개발 중에만 유지)
+print("✅ DATABASE_URL:", os.getenv("SUPABASE_DB_URL"))

@@ -1,36 +1,48 @@
 import "./Login.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "../../lib/supabaseClient";  // ✅ Supabase 추가
 
-function Login() {
-  const navigate = useNavigate();
+export default function Login() {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleLogin = async (event) => {
-    event.preventDefault();
+  const handleLogin = async (e) => {
+    e.preventDefault();
 
-    try {
-      const response = await fetch("http://127.0.0.1:8000/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ user_id: userId, password: password }),
+    const response = await fetch("http://localhost:8000/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ user_id: userId, password: password }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log("✅ FastAPI 로그인 성공:", data);
+
+      // ✅ JWT 토큰 저장 (FastAPI에서 발급)
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user_id", data.user_id);
+
+      // ✅ Supabase 세션 설정
+      const { error } = await supabase.auth.setSession({
+        access_token: data.token,  // FastAPI JWT를 Supabase 세션에 적용
+        refresh_token: data.token, // 리프레시 토큰도 동일하게 적용
       });
 
-      if (!response.ok) {
-        throw new Error("로그인 실패! 아이디 또는 비밀번호를 확인해주세요.");
+      if (error) {
+        console.error("❌ Supabase 세션 설정 실패:", error.message);
+        alert("로그인 세션을 설정하는 데 실패했습니다.");
+        return;
       }
 
-      const data = await response.json();
-
-      // 로그인 성공 시, user_id 및 token 저장
-      localStorage.setItem("user_id", data.user_id);
-      localStorage.setItem("token", data.token);
-
+      console.log("✅ Supabase 세션 설정 완료");
       alert("로그인 성공!");
-      navigate("/");
-    } catch (error) {
-      alert(error.message);
+      navigate("/"); // ✅ 로그인 후 이동할 페이지
+    } else {
+      alert("로그인 실패: " + data.detail);
     }
   };
 
@@ -87,5 +99,3 @@ function Login() {
     </div>
   );
 }
-
-export default Login;
