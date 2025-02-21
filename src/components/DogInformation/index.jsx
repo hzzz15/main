@@ -167,7 +167,7 @@ export default function DogInformation() {
                 type="text"
                 className="doginformation-form-input doginformation-mbti-input"
                 value={mbtiFromTest} // 이전 테스트 결과로 자동 채워집니다.
-                placeholder="DBTI"
+                placeholder="멍BTI"
                 maxLength="4"
                 readOnly
                 disabled
