@@ -69,8 +69,16 @@
   border-radius: 20px;
   border: 1px solid #075915;
   background-color: white;
-  color: #075915;
+  color: black;
   font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.TemporaryCare_Re-tag:hover,
+.TemporaryCare_Re-tag.selected {
+  background-color: #075915;
+  color: white;
 }
 
 .TemporaryCare_Re-main-content {
@@ -100,4 +108,3 @@
 .TemporaryCare_Re-scrollable-content::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
