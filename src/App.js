@@ -65,7 +65,6 @@ import Dbti_resultPage from "./pages/Dbti_resultPage"
 // 임시보호
 import TemporaryCarePage from "./pages/TemporaryCarePage"
 import TemporaryCare_RePage from "./pages/TemporaryCare_RePage"
-import Temporary_choicePage from "./pages/Temporary_choicePage"
 import TemporaryCare_testPage from "./pages/TemporaryCare_testPage"
 
 
@@ -151,7 +150,6 @@ function App() {
       {/* 임시보호 */}
       <Route path="/TemporaryCarePage" element={<TemporaryCarePage />} />
       <Route path="/TemporaryCare_RePage" element={<TemporaryCare_RePage />} />
-      <Route path="/Temporary_choicePage" element={<Temporary_choicePage />} />
       <Route path="/TemporaryCare_testPage" element={<TemporaryCare_testPage />} />
 
 
