@@ -35,7 +35,6 @@ function Main() {
         setIsLoggedIn(false)
       }
     }
-
     checkSession()
 
     // 날씨 정보를 로컬 스토리지에 저장
