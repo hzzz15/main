@@ -3,7 +3,7 @@
     flex-direction: column;
     height: calc(100% - 100px); /* BottomNavigation 높이를 뺌 */
     padding-bottom: 100px; /* BottomNavigation 높이만큼 패딩 추가 */
-    background-color: #E8EAE8;
+    background-color: #F2F0D5;
     box-sizing: border-box;
     padding: 0 0 20px 0; /* 하단에 20px 패딩 추가 */
     margin: 0;
@@ -77,11 +77,10 @@
   /* 산책 리포트 카드 스타일 */
 .LiveResert_T-walk-report-card {
     background-color: #fff;
-    margin: 20px;
+    margin: 10px 20px 20px 20px;
     padding: 24px;
     border-radius: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
   }
   
   /* 날짜 및 제목 스타일 */

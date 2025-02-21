@@ -67,7 +67,7 @@
   flex: 1;
   overflow-y: auto;
   padding: 20px;
-  background-color: #e5e5e5;
+  background-color: #DCEBDC;
 }
 
 .myprofile-info-section {
@@ -111,19 +111,21 @@
 }
 
 .myprofile-change-button {
-  background-color: #d9d9d9;
+  background-color: #ffffff;
   border: none;
   border-radius: 15px;
   padding: 8px 15px;
   font-size: 14px;
-  color: #333;
+  color: #075915;
   cursor: pointer;
   margin-left: 10px;
   white-space: nowrap;
+  border: 1px solid #075915;
+  border-radius: 25px;
 }
 
 .myprofile-change-button:hover {
-  background-color: #d0d0d0;
+  background-color: #ffffff;
 }
 
 .myprofile-save-button {
@@ -150,10 +152,9 @@
   padding: 8px 12px;
   background-color: white;
   color: #075915;
-  border: 2px solid #075915;
+  border: 1px solid #075915;
   border-radius: 25px;
   font-size: 16px;
-  font-weight: bold;
   cursor: pointer;
   margin: 20px auto 0;
   line-height: 1.2;

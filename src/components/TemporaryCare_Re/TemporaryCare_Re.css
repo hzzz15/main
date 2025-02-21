@@ -1,5 +1,5 @@
 .TemporaryCare_Re-temporary-care {
-  background-color: #e8eae8;
+  background-color: #DCEBDC;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -52,7 +52,7 @@
 }
 
 .TemporaryCare_Re-tags-container {
-  background-color: #e8eae8;
+  background-color: #DCEBDC;
   padding: 8px 0;
 }
 

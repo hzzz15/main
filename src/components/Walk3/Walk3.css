@@ -12,7 +12,7 @@ html {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  background-color: #e8eae8;
+  background-color: #DCEBDC;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   position: absolute;
