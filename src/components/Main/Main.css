@@ -220,7 +220,6 @@ main::-webkit-scrollbar-thumb:hover {
   right: -5px;
   width: 70px;
   object-fit: contain;
-  overflow: hidden;
 }
 
 .main-review-section {
