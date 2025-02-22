@@ -43,15 +43,24 @@
     align-items: flex-start;
     width: 70%;
 }
+.trainer-name {
+    margin-bottom: 10px;
+}
+.trainer-mbti {
+    margin-top: 0;
+
+    margin-bottom: 5px;
+}
 
 /* 궁합 - 오른쪽 정렬 */
 .trainer-compatibility {
+    margin-top: 10px;
     text-align: right;
     width: 30%;
 }
 
 .trainer-compatibility p {
-    margin: 2px 0;
+    margin: 10px 5px 10px 0;
 }
 
 .compatibility-score {
@@ -59,3 +68,4 @@
     font-weight: bold;
     color: #075915;
 }
+ 
