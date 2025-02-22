@@ -86,8 +86,12 @@ function Main() {
           )}
         </div>
 
-        <div className="main-mbti-card clickable-card" onClick={() => handleClick("dbti")}>
-          <h2>우리 댕댕이의 멍BTI는?!</h2>
+        <div className="dbti-card main-dbti-card clickable-card" onClick={() => handleClick("dbti")}>
+          <h2>우리 댕댕이의 <br/>멍BTI는?!</h2>
+          <div className="main-dog-images">
+            <img src="/img/dog1.png" alt="강아지1" className="main-dog-image1" />
+            <img src="/img/dog1.png" alt="강아지1" className="main-dog-image1-2" />
+          </div>
         </div>
 
         <div className="main-info-grid">
@@ -96,8 +100,8 @@ function Main() {
             <p>GPS 경로로 함께</p>
             <p>산책 로드 확인</p>
             <div className="main-dog-images">
-              <img src="/img/dog1.png" alt="강아지1" className="main-dog-image1" />
               <img src="/img/dog2.png" alt="강아지2" className="main-dog-image2" />
+              <img src="/img/dog3.png" alt="강아지3" className="main-dog-image3" />
             </div>
           </div>
           <div className="care-card main-info-card clickable-card" onClick={() => handleClick("temporarycare")}>
@@ -119,6 +123,9 @@ function Main() {
             <button className="main-tag">청결도</button>
             <button className="main-tag">상황 공유</button>
           </div>
+          {/* <div className="main-dog-images">
+            <img src="/img/dog7.png" alt="강아지7" className="main-dog-image7" />
+          </div> */}
         </div>
       </main>
     </div>
