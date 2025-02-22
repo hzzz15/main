@@ -50,7 +50,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  padding: 0px 7px 0px 0px;
+  padding: 10px 20px 10px 7px;
 }
 
 /* 스크롤바 스타일링 */

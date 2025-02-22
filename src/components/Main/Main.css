@@ -21,7 +21,7 @@ body {
   padding-bottom: 100px;
   background-color: #dcebdc;
   box-sizing: border-box;
-  padding: 0 0 20px 0;
+  padding: 0 0 5px 0;
   margin: 0;
 }
 
@@ -50,8 +50,8 @@ body {
   left: 23px;
 }
 
-main {
-  padding: 1rem;
+.main-content {
+  padding: 10px 10px 10px 16px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -60,21 +60,21 @@ main {
   flex-grow: 1;
 }
 
-main::-webkit-scrollbar {
+.main-content::-webkit-scrollbar {
   width: 6px;
 }
 
-main::-webkit-scrollbar-track {
-  background: #f1f1f1;
+.main-content::-webkit-scrollbar-track {
+  background: #DCEBDC;
 }
 
-main::-webkit-scrollbar-thumb {
-  background: #888;
+.main-content::-webkit-scrollbar-thumb {
+  background: #DCEBDC;
   border-radius: 3px;
 }
 
-main::-webkit-scrollbar-thumb:hover {
-  background: #555;
+.main-content::-webkit-scrollbar-thumb:hover {
+  background: #DCEBDC;
 }
 
 .main-weather-section,

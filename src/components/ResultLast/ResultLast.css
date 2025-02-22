@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 80%;
-  background-color: #DCEBDC;
+  background-color: #dcebdc;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -44,7 +44,6 @@
   margin: 10px 0 0 0;
 }
 
-
 .resultlast-scrollable-container {
   flex-grow: 1;
   overflow-y: auto;
@@ -54,7 +53,7 @@
 
 .resultlast-walk-report-card {
   background-color: #fff;
-  margin: 20px;
+  margin: 20px 14px 20px 20px;
   padding: 24px;
   border-radius: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -110,7 +109,6 @@
   object-fit: cover; /* 이미지가 원형 안에 꽉 차도록 */
 }
 
-
 .resultlast-paw-prints {
   display: flex;
   gap: 8px;
@@ -121,13 +119,11 @@
   height: 55px;
 }
 
-
 .resultlast-walk-details {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-
 
 .resultlast-detail-item {
   display: flex;
@@ -154,3 +150,39 @@
   height: 100px;
   width: 100%;
 }
+
+/* 스크롤바 스타일 */
+.resultlast-scrollable-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.resultlast-scrollable-container::-webkit-scrollbar-track {
+  background: #dcebdc;
+}
+
+.resultlast-scrollable-container::-webkit-scrollbar-thumb {
+  background: #dcebdc;
+  border-radius: 3px;
+}
+
+.resultlast-scrollable-container::-webkit-scrollbar-thumb:hover {
+  background: #dcebdc;
+}
+
+.resultlast-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.resultlast-container::-webkit-scrollbar-track {
+  background: #dcebdc;
+}
+
+.resultlast-container::-webkit-scrollbar-thumb {
+  background: #dcebdc;
+  border-radius: 3px;
+}
+
+.resultlast-container::-webkit-scrollbar-thumb:hover {
+  background: #dcebdc;
+}
+

@@ -40,7 +40,7 @@ const TemporaryCare = () => {
           당신과 찰떡인 강아지 맞춤추천
         </button>
 
-        <div className="dogs-grid">
+        <div className="TemporaryCare-dogs-grid">
           {dogs.map((dog, index) => (
             <DogCard key={index} dog={dog} />
           ))}

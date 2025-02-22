@@ -46,7 +46,7 @@ function Main_T() {
         </h1>
       </header>
 
-      <main>
+      <main className="main-t-content">
         <div className="Main_T-weather-section">
           {weatherLocation.city && weatherLocation.district ? (
             <Weather city={weatherLocation.city} district={weatherLocation.district} />

@@ -77,7 +77,7 @@ function Main() {
         </h1>
       </header>
 
-      <main>
+      <main className="main-content">
         <div className="main-weather-section">
           {weatherLocation.city && weatherLocation.district ? (
             <Weather city={weatherLocation.city} district={weatherLocation.district} />

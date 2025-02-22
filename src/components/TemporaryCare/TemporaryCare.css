@@ -63,11 +63,11 @@
   cursor: pointer;
 }
 
-.dogs-grid {
+.TemporaryCare-dogs-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2x2 배열 */
   gap: 24px;
-  padding: 5px 8px 5px 0px; 
+  padding: 20px 8px 5px 0px; 
 }
 
 .TemporaryCare-main-content::-webkit-scrollbar {

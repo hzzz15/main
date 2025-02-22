@@ -47,7 +47,7 @@
 .review-scrollable-container {
   flex-grow: 1;
   overflow-y: auto;
-  padding: 20px;
+  padding: 10px 14px 0px 20px;
 }
 
 /* 태그 스타일 */
@@ -143,5 +143,22 @@
 .review-content-box .review-tag {
   font-size: 0.8rem;
   padding: 0.3rem 0.7rem;
+}
+
+.review-scrollable-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.review-scrollable-container::-webkit-scrollbar-track {
+  background: #dcebdc;
+}
+
+.review-scrollable-container::-webkit-scrollbar-thumb {
+  background: #dcebdc;
+  border-radius: 3px;
+}
+
+.review-scrollable-container::-webkit-scrollbar-thumb:hover {
+  background: #dcebdc;
 }
 
