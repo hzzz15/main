@@ -1,93 +1,151 @@
-body,
-html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
-}
-
+/* Walk4 전체 컨테이너 */
 .Walk4-container {
-  height: 100%;
-  max-width: 500px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  background-color: #DCEBDC;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  background-color: #e8eae8; /* 배경색 변경 */
 }
 
-/* 스크롤바 스타일링 */
-.Walk4-container::-webkit-scrollbar {
-  width: 6px;
-}
-
-.Walk4-container::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-.Walk4-container::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 3px;
-}
-
-.Walk4-container::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
 
 .Walk4-header {
+  background-color: #ffffff;
   padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* ✅ 트레이너 리스트 스크롤 가능하게 */
+.Walk4-trainer-list {
+  flex-grow: 1; /* 남은 공간을 모두 차지 */
+  overflow-y: auto; /* 스크롤 가능 */
+  display: grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr)); /* 🔥 최소 크기 설정 */
+  gap: 12px;
+  padding: 10px 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  max-width: 600px; /* 최대 크기 유지 */
+  margin: 0 auto; 
+
+  /* 🔥 리스트 자체도 높이 지정 */
+  max-height: calc(100vh - 300px);
+  overflow-y: auto;
+}
+
+/* ✅ 트레이너 카드 (크기 줄이기) */
+.trainer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: white;
+  padding: 10px 12px; /* 🔥 내부 패딩 줄임 */
+  border-radius: 8px; /* 약간 더 작은 라운딩 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 130px; /* 🔥 카드 크기 줄이기 */
+  margin: auto;
+  margin-left: 0; /* 🔥 왼쪽 정렬 */
+}
+
+
+/* ✅ 트레이너 정보 */
+.trainer-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 5px 0;
 }
 
 .Walk4-back-button {
-  padding: 8px;
   background: none;
   border: none;
   font-size: 24px;
   cursor: pointer;
+  padding: 8px;
+  margin-bottom: 20px;
+}
+
+.walk4-back-button img {
+  width: 24px;
+  height: 24px;
 }
 
 .Walk4-title {
   font-size: 24px;
   font-weight: 500;
-  margin-top: 24px;
   line-height: 1.4;
+  margin-top: 4px;
 }
 
-.Walk4-bottom-section {
-  margin-top: auto;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+/* ✅ 트레이너 리스트 */
+.trainer-grid {
+  padding-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  width: 100%;
+  max-width: 400px;
+  justify-items: center;
+}
+
+/* 하단 버튼 고정 */
+.Walk4-bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width:350px;
   background-color: white;
+  padding: 20px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+}
+
+/* ✅ 하단 버튼 고정 */
+.walk4-bottom-section {
+  background-color: white;
+  padding: 20px;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
 }
 
 .Walk4-next-button {
   background-color: #006400;
   color: white;
-  border: none;
+  padding: 16px 32px;
   border-radius: 8px;
-  padding: 15px;
-  font-size: 16px;
+  border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-  margin: 10px 0;
+  transition: background-color 0.2s;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  max-width: 460px; /* 버튼 너비 제한 */
+  text-align: center;
 }
 
-.Walk4-next-button:hover {
-  background-color: #005300;
+.walk4-next-button.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
-@media (max-width: 500px) {
-  .Walk4-container {
-    width: 100%;
-  }
+/* ✅ 트레이너 리스트 감싸는 스크롤 컨테이너 */
+.trainer-scroll-container {
+  flex-grow: 1;
+  overflow-y: auto; /* 스크롤 가능 */
+  padding-bottom: 20px;
+
+  /* 🔥 높이 지정 (헤더 & 하단 버튼 제외) */
+  height: calc(100vh - 140px);
 }
 
+/* ✅ 트레이너 리스트 2개씩 정렬 */
+.trainer-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2개씩 정렬 */
+  gap: 10px;
+  padding-bottom: 20px; /* 하단 버튼과 간격 */
+  overflow: hidden;
+}
