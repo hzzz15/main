@@ -219,6 +219,7 @@ main::-webkit-scrollbar-thumb:hover {
   top: 1px;
   right: -5px;
   width: 70px;
+  object-fit: contain;
 }
 
 .main-review-section {
