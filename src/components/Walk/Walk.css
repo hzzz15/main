@@ -274,3 +274,21 @@ html {
   }
 }
 
+
+/* Walk 설명 텍스트 */
+.Walk-description {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+}
+
+.Walk-description-text {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
