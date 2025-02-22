@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
 
@@ -15,6 +15,9 @@ from backend.routers.address import router as address_router
 from backend.routers.google_places import router as google_places_router  # Google Places 라우터 임포트
 import os
 import httpx
+
+# 한나
+from backend.routers import review
 
 app = FastAPI()
 
@@ -40,6 +43,9 @@ app.include_router(auth_router, prefix="/api/auth", tags=["Auth"])  # ✅ prefix
 # 밥꺼 추가
 app.include_router(address_router, prefix="/api/address", tags=["Address"])
 app.include_router(google_places_router, prefix="/api/places", tags=["Google Places"])
+
+# 한나
+app.include_router(review.router, prefix="/api", tags=["Reviews"])
 
 # ✅ T맵 도보 길찾기 API 프록시
 @app.get("/proxy/tmap-route")
