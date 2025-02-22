@@ -1,6 +1,6 @@
 /* Walk4 전체 컨테이너 */
 .Walk4-container {
-  background-color: #e8eae8; /* 배경색 변경 */
+  background-color: #DCEBDC; /* 배경색 변경 */
 }
 
 
@@ -148,4 +148,20 @@
   gap: 10px;
   padding-bottom: 20px; /* 하단 버튼과 간격 */
   overflow: hidden;
+}
+/* ❓ 아이콘 버튼 */
+.Walk4-info-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  position: absolute;
+  right: 20px;
+  top: 73%;
+  transform: translateY(-50%);
+}
+
+.Walk4-info-button img {
+  width: 24px;
+  height: 24px;
 }

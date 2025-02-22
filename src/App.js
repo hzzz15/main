@@ -73,6 +73,7 @@ import WalkPage from "./pages/WalkPage"
 import Walk2Page from "./pages/Walk2Page"
 import Walk3Page from "./pages/Walk3Page"
 import Walk4Page from "./pages/Walk4Page"
+import Walk4_noticePage from "./pages/Walk4_noticePage"
 import Walk5Page from "./pages/Walk5Page"
 import PricePage from "./pages/PricePage"
 
@@ -159,6 +160,7 @@ function App() {
       <Route path="/Walk2Page" element={<Walk2Page />} />
       <Route path="/Walk3Page" element={<Walk3Page />} />
       <Route path="/Walk4Page" element={<Walk4Page />} />
+      <Route path="/Walk4_noticePage" element={<Walk4_noticePage />} />
       <Route path="/Walk5Page" element={<Walk5Page />} />
       <Route path="/PricePage" element={<PricePage />} />
     </Routes>

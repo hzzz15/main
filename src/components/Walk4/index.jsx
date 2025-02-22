@@ -17,27 +17,31 @@ const Walk4 = () => {
   const [selectedTrainer, setSelectedTrainer] = useState(null);
 
   return (
-      <div className="Walk4-container">
-    {/* 헤더 (고정) */}
-    <header className="Walk4-header">
-      <button className="Walk4-back-button" onClick={() => navigate("/Walk3Page")}>
-        <img src="/icons/back.png" alt="뒤로가기" />
-      </button>
-      <h1 className="Walk4-title">트레이너를 <br /> 선택하시겠습니까?</h1>
-    </header>
+    <div className="Walk4-container">
+      {/* 헤더 */}
+      <header className="Walk4-header">
+        <button className="Walk4-back-button" onClick={() => navigate("/Walk3Page")}>
+          <img src="/icons/back.png" alt="뒤로가기" />
+        </button>
+        <h1 className="Walk4-title">트레이너를 <br /> 선택하시겠습니까?</h1>
+        {/* ❓ 버튼 추가 */}
+        <button className="Walk4-info-button" onClick={() => navigate("/Walk4_noticePage")}>
+          <img src="/icons/question.png" alt="궁합 점수 설명" />
+        </button>
+      </header>
 
-    {/* ✅ trainer-scroll-container 추가해서 스크롤 가능하도록 */}
-    <div className="Walk4-trainer-list">
+      {/* 트레이너 리스트 */}
+      <div className="Walk4-trainer-list">
         {trainers.map((trainer) => (
           <Trainer key={trainer.id} {...trainer} />
         ))}
       </div>
 
-    {/* 하단 버튼 (고정) */}
-    <div className="Walk4-bottom">
-      <button className="Walk4-next-button" onClick={() => navigate("/Walk5Page")}>다음으로</button>
+      {/* 하단 버튼 */}
+      <div className="Walk4-bottom">
+        <button className="Walk4-next-button" onClick={() => navigate("/Walk5Page")}>다음으로</button>
+      </div>
     </div>
-  </div>
   );
 };
 

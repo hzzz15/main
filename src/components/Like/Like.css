@@ -50,7 +50,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  padding: 0px 11px 0px 0px;
+  padding: 0px 7px 0px 0px;
 }
 
 /* 스크롤바 스타일링 */
@@ -59,14 +59,14 @@
 }
 
 .like-main-content::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #DCEBDC;
 }
 
 .like-main-content::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #DCEBDC;
   border-radius: 3px;
 }
 
 .like-main-content::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #DCEBDC;
 }
