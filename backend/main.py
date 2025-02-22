@@ -5,7 +5,7 @@ from fastapi.responses import Response
 from backend.routers import users, Dbti_router, auth
 from backend.routers import users, Dbti_router, Care_recommed
 
-
+from backend.routers.pets import router as pet_router
 from backend.routers.auth import router as auth_router
 from backend.routers.upload import router as upload_router
 from dotenv import load_dotenv
@@ -35,9 +35,9 @@ app.add_middleware(
 # 라우터 등록
 app.include_router(users.router)
 app.include_router(Dbti_router.router, prefix="/api")
-app.include_router(auth.router, prefix="/api/auth")
 app.include_router(Care_recommed.router)
-app.include_router(upload_router, prefix="/upload", tags=["Upload"])
+app.include_router(pet_router, prefix="/api/pets", tags=["Pets"])
+app.include_router(upload_router, prefix="/api/upload", tags=["Upload"])
 app.include_router(auth_router, prefix="/api/auth", tags=["Auth"])  # ✅ prefix 유지
 
 # 밥꺼 추가
