@@ -1,7 +1,7 @@
 import React from "react";
 import "./Trainer.css";
 
-function Trainer({ name, mbti, compatibility, image }) {
+function Trainer({ name, experience, trainer_mbti, match_scores, image }) {
   return (
     <div className="trainer-card">
       {/* 트레이너 사진 */}
@@ -13,11 +13,10 @@ function Trainer({ name, mbti, compatibility, image }) {
       <div className="trainer-info">
         <div className="trainer-text">
           <p className="trainer-name">{name}</p>
-          <p className="trainer-mbti">{mbti}</p>
+          <p className="trainer-mbti">MBTI: {trainer_mbti}</p>
         </div>
-        <div className="trainer-compatibility">
-          <p>궁합</p>
-          <p className="compatibility-score">{compatibility}%</p>
+        <div className="trainer-match-scores">
+          <p>총 궁합: {match_scores.total_match_score}</p>
         </div>
       </div>
     </div>

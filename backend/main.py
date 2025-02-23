@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
 
-from backend.routers import users, Dbti_router, auth
+from backend.routers import users, Dbti_router, auth, Dbti_match_router
 from backend.routers import users, Dbti_router, Care_recommed
 
 from backend.routers.pets import router as pet_router
@@ -39,6 +39,7 @@ app.include_router(Care_recommed.router)
 app.include_router(pet_router, prefix="/api/pets", tags=["Pets"])
 app.include_router(upload_router, prefix="/api/upload", tags=["Upload"])
 app.include_router(auth_router, prefix="/api/auth", tags=["Auth"])  # ✅ prefix 유지
+app.include_router(Dbti_match_router.router)
 
 # 밥꺼 추가
 app.include_router(address_router, prefix="/api/address", tags=["Address"])
