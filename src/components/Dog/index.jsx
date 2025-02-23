@@ -2,37 +2,52 @@ import { useState } from "react";
 import "./Dog.css";
 
 export default function DogCard({ dog, initialLiked = false }) {
-  // 초기 상태를 prop으로 받아서 설정
   const [isLiked, setIsLiked] = useState(initialLiked);
 
-  const getDogId = () => {
-    if (dog.id && typeof dog.id === "number") return dog.id;
-    if (dog.URL) {
-      const match = dog.URL.match(/(\d+)(\/)?$/);
+  const getDogId = (dogData) => {
+    // dogData가 없으면 현재 dog 사용
+    const targetDog = dogData || dog;
+
+    if (targetDog.id && typeof targetDog.id === "number") return targetDog.id;
+    if (targetDog.URL) {
+      const match = targetDog.URL.match(/(\d+)(\/)?$/);
       if (match) {
         const parsed = parseInt(match[1], 10);
         if (!isNaN(parsed)) return parsed;
       }
     }
-    console.error("유효한 강아지 id를 추출하지 못했습니다.");
-    return null;
+    // ID를 찾을 수 없는 경우, 이름과 이미지 URL을 조합하여 고유 식별자 생성
+    return `${targetDog["이름"]}-${targetDog["이미지 URL"]}`;
   };
 
   const handlePawClick = (e) => {
     e.stopPropagation();
-    const dogId = getDogId();
-    if (dogId === null) return;
+    const currentDogId = getDogId();
+    
+    // localStorage에서 기존 데이터 가져오기
+    let likedDogs = JSON.parse(localStorage.getItem("likedDogs")) || [];
 
-    // 이미 좋아요한 경우 중복 저장 방지
-    if (isLiked) return;
-
-    // localStorage에서 기존에 저장된 likedDogs 배열을 불러오거나 빈 배열로 초기화
-    const likedDogs = JSON.parse(localStorage.getItem("likedDogs")) || [];
-    if (!likedDogs.some((item) => item.id === dogId)) {
-      likedDogs.push(dog);
+    if (isLiked) {
+      // 이미 좋아요 상태인 경우: localStorage에서 제거
+      likedDogs = likedDogs.filter((likedDog) => {
+        const likedDogId = getDogId(likedDog);
+        return likedDogId !== currentDogId;
+      });
       localStorage.setItem("likedDogs", JSON.stringify(likedDogs));
+      setIsLiked(false);
+    } else {
+      // 좋아요하지 않은 상태인 경우: localStorage에 추가
+      const isDogAlreadyLiked = likedDogs.some((likedDog) => {
+        const likedDogId = getDogId(likedDog);
+        return likedDogId === currentDogId;
+      });
+
+      if (!isDogAlreadyLiked) {
+        likedDogs.push(dog);
+        localStorage.setItem("likedDogs", JSON.stringify(likedDogs));
+      }
+      setIsLiked(true);
     }
-    setIsLiked(true);
   };
 
   return (

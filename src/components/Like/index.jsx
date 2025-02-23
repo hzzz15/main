@@ -27,7 +27,7 @@ function Like() {
               <DogCard key={index} dog={dog} initialLiked={true} />
             ))
           ) : (
-            <p>저장된 강아지가 없습니다.</p>
+            <div className="like-chat-message">저장된 강아지가 없습니다.</div>
           )}
         </div>
       </main>

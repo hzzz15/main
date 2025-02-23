@@ -4,10 +4,8 @@ import BottomNavigation from '../components/BottomNavigation'
 
 function LikePage() {
   return (
-    <div className="page-wrapper">
-      <div className="content-wrapper">
-        <Like/>
-      </div>
+    <div>
+      <Like/>
       <BottomNavigation/>
     </div>
   )

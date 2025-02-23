@@ -35,16 +35,17 @@
 .like-t-header-content h2 {
   font-size: 15px;
   color: #565656;
-  font-weight: 500;
 }
 
 .like-t-chat-message {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 20vh - 30px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 18px;
   color: #666;
+  width: 100%;
+  text-align: center;
 }
 
 .like-t-dogs-grid {
@@ -54,19 +55,20 @@
   padding: 10px 20px 10px 7px;
 }
 
+/* 스크롤바 스타일링 */
 .like-t-main-content::-webkit-scrollbar {
   width: 6px;
 }
 
 .like-t-main-content::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #F2F0D5;
 }
 
 .like-t-main-content::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #F2F0D5;
   border-radius: 3px;
 }
 
 .like-t-main-content::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #F2F0D5;
 }
