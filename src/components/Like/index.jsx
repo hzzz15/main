@@ -1,11 +1,19 @@
-import "./Like.css"
+import { useState, useEffect } from "react";
 import DogCard from "../Dog";
-import { dogs } from "../../app/data";
+import "./Like.css";
 
 function Like() {
+  const [likedDogs, setLikedDogs] = useState([]);
+
+  useEffect(() => {
+    const storedDogs = JSON.parse(localStorage.getItem("likedDogs"));
+    if (storedDogs) {
+      setLikedDogs(storedDogs);
+    }
+  }, []);
 
   return (
-    <div className="like-container" style={{minHeight: '100%', overflowY: 'auto'}}>
+    <div className="like-container" style={{ minHeight: "100%", overflowY: "auto" }}>
       <header className="like-header">
         <div className="like-header-content">
           <h1>발도장</h1>
@@ -13,17 +21,18 @@ function Like() {
         </div>
       </header>
       <main className="like-main-content">
-
-        {/* 일단 임시보호 데이터 넣어둠 */}
         <div className="like-dogs-grid">
-          {dogs.map((dog, index) => (
-            <DogCard key={index} dog={dog} />
-          ))}
+          {likedDogs.length > 0 ? (
+            likedDogs.map((dog, index) => (
+              <DogCard key={index} dog={dog} initialLiked={true} />
+            ))
+          ) : (
+            <p>저장된 강아지가 없습니다.</p>
+          )}
         </div>
       </main>
     </div>
-  )
+  );
 }
 
-export default Like
-
+export default Like;

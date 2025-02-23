@@ -1,24 +1,42 @@
-"use client"
+import { useState } from "react";
+import "./Dog.css";
 
-import { useState } from "react"
-import "./Dog.css"
+export default function DogCard({ dog, initialLiked = false }) {
+  // 초기 상태를 prop으로 받아서 설정
+  const [isLiked, setIsLiked] = useState(initialLiked);
 
-export default function DogCard({ dog }) {
-  const [isLiked, setIsLiked] = useState(false)
+  const getDogId = () => {
+    if (dog.id && typeof dog.id === "number") return dog.id;
+    if (dog.URL) {
+      const match = dog.URL.match(/(\d+)(\/)?$/);
+      if (match) {
+        const parsed = parseInt(match[1], 10);
+        if (!isNaN(parsed)) return parsed;
+      }
+    }
+    console.error("유효한 강아지 id를 추출하지 못했습니다.");
+    return null;
+  };
 
   const handlePawClick = (e) => {
-    e.stopPropagation() // 이벤트 버블링 방지
-    setIsLiked(!isLiked)
-  }
+    e.stopPropagation();
+    const dogId = getDogId();
+    if (dogId === null) return;
 
-  const handleCardClick = () => {
-    if (dog.URL) {
-      window.open(dog.URL, "_blank")
+    // 이미 좋아요한 경우 중복 저장 방지
+    if (isLiked) return;
+
+    // localStorage에서 기존에 저장된 likedDogs 배열을 불러오거나 빈 배열로 초기화
+    const likedDogs = JSON.parse(localStorage.getItem("likedDogs")) || [];
+    if (!likedDogs.some((item) => item.id === dogId)) {
+      likedDogs.push(dog);
+      localStorage.setItem("likedDogs", JSON.stringify(likedDogs));
     }
-  }
+    setIsLiked(true);
+  };
 
   return (
-    <div className="dog-card" onClick={handleCardClick} style={{ cursor: "pointer" }}>
+    <div className="dog-card" style={{ cursor: "pointer" }}>
       <div className="dog-image">
         <img
           src={dog["이미지 URL"].split(";")[0] || "/placeholder.svg"}
@@ -38,9 +56,13 @@ export default function DogCard({ dog }) {
         onClick={handlePawClick}
         aria-label="좋아요"
       >
-        <img src="/temporarycareicons/paw.png" alt="발바닥 아이콘" width="24" height="24" />
+        <img
+          src="/temporarycareicons/paw.png"
+          alt="발바닥 아이콘"
+          width="24"
+          height="24"
+        />
       </button>
     </div>
-  )
+  );
 }
-
