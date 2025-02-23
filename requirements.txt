@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+passlib[bcrypt]
+sqlalchemy
+dotenv
+requests
+jwt
+pydantic
+httpx
+asyncpg
+python-multipart     
+supabase
+openai

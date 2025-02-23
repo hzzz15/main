@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
 
-from backend.routers import users, Dbti_router, auth
+from backend.routers import users, Dbti_router, auth, Dbti_match_router
 from backend.routers import users, Dbti_router, Care_recommed
 
 from backend.routers.pets import router as pet_router
@@ -26,7 +26,7 @@ TMAP_API_KEY = os.getenv("TMAP_API_KEY")
 # CORS 설정 (React와 통신 가능하도록 허용)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], 
+    allow_origins=["http://localhost:3000"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -38,7 +38,8 @@ app.include_router(Dbti_router.router, prefix="/api")
 app.include_router(Care_recommed.router)
 app.include_router(pet_router, prefix="/api/pets", tags=["Pets"])
 app.include_router(upload_router, prefix="/api/upload", tags=["Upload"])
-app.include_router(auth_router, prefix="/api/auth", tags=["Auth"])  # ✅ prefix 유지
+app.include_router(auth_router, prefix="/api/auth", tags=["Auth"])
+app.include_router(Dbti_match_router.router)
 
 # 밥꺼 추가
 app.include_router(address_router, prefix="/api/address", tags=["Address"])
