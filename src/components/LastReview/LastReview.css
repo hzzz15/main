@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     height: 80%;
-    background-color: #DCEBDC;
+    background-color: #FFE0B2;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -143,7 +143,7 @@
   .lastreview-submit-review-btn {
     width: calc(100% - 40px); /* 좌우 여백을 고려한 너비 */
     padding: 12px;
-    background-color: #075915;
+    background-color: #F2762E;
     color: white;
     border: none;
     border-radius: 8px;
@@ -155,7 +155,7 @@
   }
   
   .lastreview-submit-review-btn:hover {
-    background-color: #064012;
+    background-color: #F2762E;
   }
   
   

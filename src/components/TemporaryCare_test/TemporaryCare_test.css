@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  background-color: #DCEBDC;
+  background-color: #FFE0B2;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -42,7 +42,7 @@
 .TemporaryCare-test-header-content h1 {
   font-size: 33px;
   font-weight: bold;
-  color: #075915;
+  color: #f2762e;
   margin: 25px 0 0 15px;
 }
 
@@ -64,7 +64,7 @@
 
 .TemporaryCare-test-progress-bar {
   height: 8px;
-  background-color: #075915;
+  background-color: #f2762e;
   transition: all 0.3s ease;
 }
 
@@ -98,7 +98,7 @@
   font-size: 1.125rem;
   font-weight: 600;
   color: white;
-  background-color: #075915;
+  background-color: #f2762e;
   border-radius: 0.5rem;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
@@ -107,17 +107,17 @@
 }
 
 .TemporaryCare-test-choice-button:hover {
-  background-color: #064d10;
+  background-color: #FF8C42;
 }
 
 .TemporaryCare-test-choice-button.selected {
-  background-color: #053f0e;
+  background-color: #FF8C42;
 }
 
 .TemporaryCare-test-next-button {
   margin-top: 2rem;
   padding: 0.8rem 2rem;
-  background-color: #075915;
+  background-color: #f2762e;
   color: white;
   font-size: 14px;
   font-weight: 600;
@@ -128,7 +128,7 @@
 }
 
 .TemporaryCare-test-next-button:hover {
-  background-color: #064d10;
+  background-color: #FF8C42;
 }
 
 .TemporaryCare-test-next-button.disabled {

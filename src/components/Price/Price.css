@@ -10,7 +10,7 @@ html {
   height: 100%;
   max-width: 500px;
   margin: 0 auto;
-  background-color: #DCEBDC;
+  background-color: #FFE0B2;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   position: absolute;
@@ -81,7 +81,7 @@ html {
 }
 
 .Price-duration-button.selected {
-  background-color: #006400;
+  background-color: #f2762e;
   color: white;
 }
 
@@ -100,7 +100,7 @@ html {
   justify-content: space-between;
   align-items: center;
   padding: 16px 0;
-  border-bottom: 1px solid #075915;
+  border-bottom: 1px solid #565656;
 }
 
 .Price-dog-type {
@@ -129,7 +129,7 @@ html {
 }
 
 .Price-amount {
-  color: #075915;
+  color: #565656;
   font-weight: 500;
 }
 
@@ -156,7 +156,7 @@ html {
   justify-content: space-between;
   align-items: center;
   padding: 16px 0;
-  border-bottom: 1px solid #075915;
+  border-bottom: 1px solid #565656;
 }
 
 .Price-service-info {

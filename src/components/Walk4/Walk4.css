@@ -1,6 +1,6 @@
 /* Walk4 전체 컨테이너 */
 .Walk4-container {
-  background-color: #DCEBDC; /* 배경색 변경 */
+  background-color: #FFE0B2; /* 배경색 변경 */
 }
 
 
@@ -111,7 +111,7 @@
 }
 
 .Walk4-next-button {
-  background-color: #006400;
+  background-color: #F2762E;
   color: white;
   padding: 16px 32px;
   border-radius: 8px;

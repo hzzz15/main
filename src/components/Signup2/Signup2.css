@@ -1,6 +1,6 @@
 .signup2-container {
   min-height: 100vh;
-  background-color: #DCEBDC;
+  background-color: #FFE0B2;
   padding: 20px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
     "Helvetica Neue", sans-serif;
@@ -67,7 +67,7 @@
     width: 100%;
     padding: 12px 0;
     border: none;
-    border-bottom: 2px solid #075915;
+    border-bottom: 2px solid #f2762e;
     background: transparent;
     font-size: 16px;
     outline: none;
@@ -77,7 +77,7 @@
     width: 100%;
     padding: 12px 0;
     border: none;
-    border-bottom: 2px solid #075915;
+    border-bottom: 2px solid #f2762e;
     background: transparent;
     font-size: 16px;
     outline: none;
@@ -87,7 +87,7 @@
     width: 100%;
     padding: 12px 0;
     border: none;
-    border-bottom: 2px solid #075915;
+    border-bottom: 2px solid #f2762e;
     background: transparent;
     font-size: 16px;
     outline: none;
@@ -97,10 +97,10 @@
     display: block;
     margin: 20px auto 0;
     padding: 15px;
-    border: 2px solid #075915;
+    border: 2px solid #f2762e;
     border-radius: 30px;
     background-color: white;
-    color: #075915;
+    color: #f2762e;
     font-weight: bold;
     font-size: 20px;
     cursor: pointer;

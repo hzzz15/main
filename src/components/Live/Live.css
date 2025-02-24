@@ -3,7 +3,7 @@
   flex-direction: column;
   height: calc(100% - 100px); /* BottomNavigation 높이를 뺌 */
   padding-bottom: 100px; /* BottomNavigation 높이만큼 패딩 추가 */
-  background-color: #DCEBDC;
+  background-color: #FFE0B2;
   box-sizing: border-box;
   padding: 0 0 20px 0; /* 하단에 20px 패딩 추가 */
   margin: 0;
@@ -67,7 +67,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #075915;
+  background-color: #F2762E;
 }
 
 .live-header-button:hover {
@@ -129,7 +129,7 @@
   }
   
   .live-chat-message.user {
-    background-color: #075915;
+    background-color: #F2762E;
     color: white;
     align-self: flex-end;
     border-radius: 15px 15px 1px 15px;
@@ -148,7 +148,7 @@
     bottom: 100px; /* 하단바 높이만큼 띄우기 */
     width: 100%; /* 전체 너비로 변경 */
     display: flex;
-    background: #DCEBDC;
+    background: #FFE0B2;
     padding: 10px 0;
     z-index: 1000;
     left: 0; /* left 값 제거하여 부모 기준으로 정렬 */
@@ -182,7 +182,7 @@
   
   /* 보내기 버튼 */
   .live-chat-send-button {
-    background-color: #075915;
+    background-color: #F2762E;
     color: white;
     padding: 10px 15px;
     border-radius: 20px;
@@ -192,5 +192,5 @@
   }
   
   .live-chat-send-button:hover {
-    background-color: #064a12;
+    background-color: #F2762E;
   }

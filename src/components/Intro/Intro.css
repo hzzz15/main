@@ -2,7 +2,7 @@
     min-height: 100vh;
     max-width: 500px;
     margin: 0 auto;
-    background-color: #075915;
+    background-color: #f2762e;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,7 +41,7 @@
     border: none;
     border-radius: 100px;
     background-color: white;
-    color: #075915;
+    color: #f2762e;
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;

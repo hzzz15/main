@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #006400;
+  --primary-color: #F2762E;
   --background-color: #f5f5f5;
   --card-background: #ffffff;
   --text-color: #333;
@@ -19,7 +19,7 @@ body {
   flex-direction: column;
   height: calc(100% - 100px);
   padding-bottom: 100px;
-  background-color: #dcebdc;
+  background-color: #FFE0B2;
   box-sizing: border-box;
   padding: 0 0 5px 0;
   margin: 0;
@@ -65,16 +65,16 @@ body {
 }
 
 .main-content::-webkit-scrollbar-track {
-  background: #DCEBDC;
+  background: #FFE0B2;
 }
 
 .main-content::-webkit-scrollbar-thumb {
-  background: #DCEBDC;
+  background: #FFE0B2;
   border-radius: 3px;
 }
 
 .main-content::-webkit-scrollbar-thumb:hover {
-  background: #DCEBDC;
+  background: #FFE0B2;
 }
 
 .main-weather-section,
@@ -259,11 +259,11 @@ body {
 }
 
 .main-tag {
-  border: 1px solid var(--primary-color);
+  border: 1px solid #f2762e;
   border-radius: 1rem;
   padding: 0.5rem 1rem;
   background-color: transparent;
-  color: var(--primary-color);
+  color: #f2762e;
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -271,7 +271,7 @@ body {
 
 .main-tag:hover,
 .main-tag:focus {
-  background-color: var(--primary-color);
+  background-color: #f2762e;
   color: var(--card-background);
 }
 

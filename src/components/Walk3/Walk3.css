@@ -12,7 +12,7 @@ html {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  background-color: #DCEBDC;
+  background-color: #FFE0B2;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   position: absolute;
@@ -143,7 +143,7 @@ html {
 }
 
 .Walk3-date:not(.Walk3-past):hover {
-  background-color: rgba(7, 89, 21, 0.1);
+  background-color: rgba(255, 224, 178);
 }
 
 .Walk3-date.Walk3-past {
@@ -152,17 +152,17 @@ html {
 }
 
 .Walk3-date.Walk3-selected {
-  background-color: #075915;
+  background-color: #F2762E;
   color: white;
 }
 
 .Walk3-date.Walk3-today {
-  border: 2px solid #075915;
+  border: 2px solid #F2762E;
   font-weight: bold;
 }
 
 .Walk3-date.Walk3-today:not(.Walk3-selected):hover {
-  background-color: rgba(7, 89, 21, 0.2);
+  background-color: rgba(255, 224, 178);
 }
 
 .Walk3-bottom-section {
@@ -183,7 +183,7 @@ html {
 }
 
 .Walk3-next-button {
-  background-color: #006400;
+  background-color: #F2762E;
   color: white;
   padding: 16px 32px;
   border-radius: 8px;

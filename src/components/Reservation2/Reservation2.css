@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: #DCEBDC;
+  background-color: #FFE0B2;
   box-sizing: border-box;
   margin: 0;
 }
@@ -65,7 +65,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #075915;
+  background-color: #f2762e;
 }
 
 .reservation2-header-button:hover {

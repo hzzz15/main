@@ -65,7 +65,7 @@ export default function Walk() {
           <span
             className="Walk-today-label"
             onClick={() => navigate("/PricePage")}
-            style={{ cursor: "pointer", color: "#006400", textDecoration: "underline" }}
+            style={{ cursor: "pointer", color: "#565656", textDecoration: "underline" }}
           >
             요금표
           </span>

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 80%;
-  background-color: #e8eae8;
+  background-color: #FFE0B2;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -87,7 +87,7 @@
   flex: 1;
   overflow-y: auto;
   padding: 20px 14px 20px 20px;
-  background-color: #DCEBDC;
+  background-color: #FFE0B2;
 }
 
 .myprofile-info-section {
@@ -119,7 +119,7 @@
   flex: 1;
   padding: 8px 0;
   border: none;
-  border-bottom: 2px solid #075915;
+  border-bottom: 1px solid #565656;
   font-size: 16px;
   color: #333;
   background-color: transparent;
@@ -127,7 +127,7 @@
 
 .myprofile-input:focus {
   outline: none;
-  border-bottom-color: #075915;
+  border-bottom-color: #F2762E;
 }
 
 .myprofile-change-button {
@@ -136,11 +136,11 @@
   border-radius: 15px;
   padding: 8px 15px;
   font-size: 14px;
-  color: #075915;
+  color: #F2762E;
   cursor: pointer;
   margin-left: 10px;
   white-space: nowrap;
-  border: 1px solid #075915;
+  border: 1px solid #F2762E;
   border-radius: 25px;
 }
 
@@ -152,7 +152,7 @@
   display: block;
   width: 70%;
   padding: 15px;
-  background-color: #075915;
+  background-color: #F2762E;
   color: white;
   border: none;
   border-radius: 25px;
@@ -163,7 +163,7 @@
 }
 
 .myprofile-save-button:hover {
-  background-color: #064512;
+  background-color: #F2762E;
 }
 
 .myprofile-logout-button {
@@ -171,8 +171,8 @@
   width: 35%;
   padding: 8px 12px;
   background-color: white;
-  color: #075915;
-  border: 1px solid #075915;
+  color: #F2762E;
+  border: 1px solid #F2762E;
   border-radius: 25px;
   font-size: 16px;
   cursor: pointer;
@@ -186,16 +186,16 @@
 }
 
 .myprofile-scrollable-container::-webkit-scrollbar-track {
-  background: #DCEBDC;
+  background: #FFE0B2;
 }
 
 .myprofile-scrollable-container::-webkit-scrollbar-thumb {
-  background: #DCEBDC;
+  background: #FFE0B2;
   border-radius: 3px;
 }
 
 .myprofile-scrollable-container::-webkit-scrollbar-thumb:hover {
-  background: #DCEBDC;
+  background: #FFE0B2;
 }
 
 .myprofile-container::-webkit-scrollbar {

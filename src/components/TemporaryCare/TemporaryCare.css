@@ -1,5 +1,5 @@
 .TemporaryCare-temporary-care {
-  background-color: #DCEBDC;
+  background-color: #FFE0B2;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -55,7 +55,7 @@
 .TemporaryCare-matching-button {
   width: 100%;
   padding: 15px;
-  background-color: #006400;
+  background-color: #f2762e;
   color: white;
   border: none;
   border-radius: 8px;
@@ -75,16 +75,16 @@
 }
 
 .TemporaryCare-main-content::-webkit-scrollbar-track {
-  background: #DCEBDC;
+  background: #FFE0B2;
 }
 
 .TemporaryCare-main-content::-webkit-scrollbar-thumb {
-  background: #DCEBDC;
+  background: #FFE0B2;
   border-radius: 3px;
 }
 
 .TemporaryCare-main-content::-webkit-scrollbar-thumb:hover {
-  background: #DCEBDC;
+  background: #FFE0B2;
 }
 
 

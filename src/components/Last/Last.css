@@ -3,7 +3,7 @@
   flex-direction: column;
   height: calc(100% - 100px);
   padding-bottom: 100px;
-  background-color: #DCEBDC;
+  background-color: #FFE0B2;
   box-sizing: border-box;
   padding: 0 0 20px 0;
   margin: 0;
@@ -67,7 +67,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #075915;
+  background-color: #F2762E;
 }
 
 .last-header-button:hover {
@@ -118,8 +118,8 @@
   margin-top: 20px;
   padding: 10px 30px;
   background-color: white;
-  color: #075915;
-  border: 2px solid #075915;
+  color: #F2762E;
+  border: 2px solid #F2762E;
   border-radius: 25px;
   font-size: 16px;
   text-decoration: none;
@@ -127,7 +127,7 @@
 }
 
 .last-match-button:hover {
-  background-color: #075915;
+  background-color: #F2762E;
   color: white;
 }
 
@@ -203,9 +203,9 @@
 
 .action-button {
   padding: 8px 20px;
-  border: 1px solid #075915;
+  border: 1px solid #F2762E;
   border-radius: 20px;
-  color: #075915;
+  color: #F2762E;
   background: white;
   font-size: 14px;
   cursor: pointer;
@@ -216,7 +216,7 @@
 }
 
 .action-button:hover {
-  background: #075915;
+  background: #F2762E;
   color: white;
 }
 

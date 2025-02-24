@@ -1,5 +1,5 @@
 .TemporaryCare_Re-temporary-care {
-  background-color: #DCEBDC;
+  background-color: #FFE0B2;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -52,7 +52,7 @@
 }
 
 .TemporaryCare_Re-tags-container {
-  background-color: #DCEBDC;
+  background-color: #FFE0B2;
   padding: 8px 0;
 }
 
@@ -67,7 +67,7 @@
 .TemporaryCare_Re-tag {
   padding: 6px 12px;
   border-radius: 20px;
-  border: 1px solid #075915;
+  border: 1px solid #f2762e;
   background-color: white;
   color: black;
   font-size: 14px;
@@ -89,14 +89,14 @@
 }
 
 .TemporaryCare_Re-scrollable-content::-webkit-scrollbar-track {
-  background: #DCEBDC;
+  background: #FFE0B2;
 }
 
 .TemporaryCare_Re-scrollable-content::-webkit-scrollbar-thumb {
-  background: #DCEBDC;
+  background: #FFE0B2;
   border-radius: 3px;
 }
 
 .TemporaryCare_Re-scrollable-content::-webkit-scrollbar-thumb:hover {
-  background: #DCEBDC;
+  background: #FFE0B2;
 }

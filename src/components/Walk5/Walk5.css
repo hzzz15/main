@@ -12,7 +12,7 @@ html {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  background-color: #DCEBDC;
+  background-color: #FFE0B2;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   position: absolute;
@@ -62,7 +62,6 @@ html {
   font-size: 24px;
   font-weight: 500;
   margin-top: 24px;
-  line-height: 1.4;
 }
 
 .Walk5-content {
@@ -138,7 +137,7 @@ html {
   appearance: none;
   width: 24px;
   height: 24px;
-  border: 2px solid #006400;
+  border: 2px solid #F2762E;
   border-radius: 50%;
   outline: none;
   cursor: pointer;
@@ -146,7 +145,7 @@ html {
 }
 
 .Walk5-checkbox:checked {
-  background-color: #006400;
+  background-color: #F2762E;
   position: relative;
 }
 
@@ -205,7 +204,7 @@ html {
 }
 
 .Walk5-next-button {
-  background-color: #006400;
+  background-color: #F2762E;
   color: white;
   border: none;
   border-radius: 8px;
@@ -217,7 +216,7 @@ html {
 }
 
 .Walk5-next-button:hover {
-  background-color: #005300;
+  background-color: #f2762e;
 }
 
 @media (max-width: 500px) {
