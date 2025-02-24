@@ -274,7 +274,7 @@ const handleSubmit = async (e) => {
                 checked={petGender === "female"} 
                 onChange={() => setPetGender("female")}
               />
-                <span>암컷아이</span>
+                <span>여자아이</span>
               </label>
               <label className="doginformation-radio-label">
               <input 
@@ -284,7 +284,7 @@ const handleSubmit = async (e) => {
                 checked={petGender === "male"} 
                 onChange={() => setPetGender("male")}
               />
-                <span>수컷아이</span>
+                <span>남자아이</span>
               </label>
             </div>
           </div>
