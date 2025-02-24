@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState } from "react"
 import "./TrainerInformation.css"
 
 export default function TrainerInformation() {
@@ -8,25 +8,9 @@ export default function TrainerInformation() {
   const [mbti, setMbti] = useState("")
   const [experience, setExperience] = useState("")
 
-  const nameRef = useRef(null)
-  const mbtiRef = useRef(null)
-  const experienceRef = useRef(null)
-
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log({ name, mbti, experience })
-  }
-
-  const handleInput = (setter) => (e) => {
-    const text = e.target.innerText
-    setter(text)
-  }
-
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault()
-      e.target.blur()
-    }
   }
 
   return (
@@ -49,37 +33,31 @@ export default function TrainerInformation() {
 
           <div className="trainerinformation-form-group">
             <label className="trainerinformation-label">이름</label>
-            <div
-              ref={nameRef}
+            <input
+              type="text"
               className="trainerinformation-form-input"
-              contentEditable
-              onInput={handleInput(setName)}
-              onKeyDown={handleKeyDown}
-              dangerouslySetInnerHTML={{ __html: name }}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
 
           <div className="trainerinformation-form-group">
             <label className="trainerinformation-label">MBTI</label>
-            <div
-              ref={mbtiRef}
+            <input
+              type="text"
               className="trainerinformation-form-input"
-              contentEditable
-              onInput={handleInput(setMbti)}
-              onKeyDown={handleKeyDown}
-              dangerouslySetInnerHTML={{ __html: mbti }}
+              value={mbti}
+              onChange={(e) => setMbti(e.target.value)}
             />
           </div>
 
           <div className="trainerinformation-form-group">
             <label className="trainerinformation-label">경력</label>
-            <div
-              ref={experienceRef}
+            <input
+              type="text"
               className="trainerinformation-form-input"
-              contentEditable
-              onInput={handleInput(setExperience)}
-              onKeyDown={handleKeyDown}
-              dangerouslySetInnerHTML={{ __html: experience }}
+              value={experience}
+              onChange={(e) => setExperience(e.target.value)}
             />
           </div>
 
