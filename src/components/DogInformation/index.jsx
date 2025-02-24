@@ -177,19 +177,23 @@ export default function DogInformation() {
         if (file.size > 5 * 1024 * 1024) {
           throw new Error("파일 크기는 5MB를 초과할 수 없습니다.")
         }
-
+  
         // 이미지 타입 체크
         if (!file.type.startsWith("image/")) {
           throw new Error("이미지 파일만 업로드 가능합니다.")
         }
-
+  
         setPetImage(file)
-        const objectUrl = URL.createObjectURL(file)
-        setPreviewImage(objectUrl)
         setImageError(false)
-
-        // 메모리 누수 방지를 위해 이전 ObjectURL 해제
-        return () => URL.revokeObjectURL(objectUrl)
+        
+        // blob URL 생성 제거
+        // 이미지 미리보기는 파일 자체를 사용
+        const reader = new FileReader()
+        reader.onloadend = () => {
+          setPreviewImage(reader.result)
+        }
+        reader.readAsDataURL(file)
+  
       } catch (error) {
         console.error("❌ 이미지 처리 중 오류:", error)
         alert(error.message)
