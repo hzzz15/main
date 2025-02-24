@@ -70,7 +70,8 @@ function Profile() {
                   alt="프로필 이미지"
                   onError={(e) => {
                     console.error("이미지 로드 실패:", profileImage)
-                    e.target.style.display = "none"
+                    e.target.src = "/placeholder.svg"
+                    setProfileImage(null)
                   }}
                 />
               ) : (
@@ -102,4 +103,3 @@ function Profile() {
 }
 
 export default Profile
-

@@ -12,6 +12,7 @@ function MyProfile() {
   const [address, setAddress] = useState("")
   const [email, setEmail] = useState("")
   const [nickname, setNickname] = useState("")
+  const [profileImage, setProfileImage] = useState(null)
   const [isPhoneEditable, setIsPhoneEditable] = useState(false)
   const [isAddressEditable, setIsAddressEditable] = useState(false)
   const [isEmailEditable, setIsEmailEditable] = useState(false)
@@ -54,6 +55,19 @@ function MyProfile() {
         setOriginalPhoneNumber(userData.phone_number || "")
         setOriginalAddress(userData.address || "")
         setOriginalEmail(userData.email || "")
+
+        // 반려견 프로필 이미지 가져오기
+        const { data: petData, error: petError } = await supabase
+          .from("pets")
+          .select("image_url")
+          .eq("uuid_id", session.user.id)
+          .maybeSingle()
+
+        if (petError) {
+          console.error("반려견 데이터 조회 에러:", petError)
+        } else if (petData?.image_url) {
+          setProfileImage(petData.image_url)
+        }
       }
     }
 
@@ -166,7 +180,24 @@ function MyProfile() {
               <br />
               안녕하세요!
             </h1>
-            <img src="/dogprofile/dog.jpg" alt="프로필 아바타" className="myprofile-avatar-icon" />
+            <div className="myprofile-avatar-container">
+              {profileImage ? (
+                <img
+                  src={profileImage || "/placeholder.svg"}
+                  alt="반려견 프로필"
+                  className="myprofile-avatar-image"
+                  onError={(e) => {
+                    console.error("이미지 로드 실패:", profileImage)
+                    e.target.src = "/placeholder.svg"
+                    setProfileImage(null)
+                  }}
+                />
+              ) : (
+                <div className="myprofile-avatar-placeholder">
+                  <span>프로필 없음</span>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </header>

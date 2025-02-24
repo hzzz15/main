@@ -1,10 +1,97 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import { supabase } from "../../lib/supabaseClient"
 import "./Walk5.css"
 
 export default function Walk5() {
   const navigate = useNavigate()
+  const [profileImage, setProfileImage] = useState(null)
+  const [petInfo, setPetInfo] = useState({
+    name: "",
+    size: "",
+    birth_date: "",
+    gender: ""
+  })
+
+  useEffect(() => {
+    const fetchPetProfile = async () => {
+      try {
+        const { data: { user }, error: userError } = await supabase.auth.getUser()
+
+        if (userError) {
+          console.error("사용자 정보 조회 에러:", userError)
+          return
+        }
+
+        if (!user) {
+          console.log("로그인된 사용자가 없습니다.")
+          return
+        }
+
+        const { data: petData, error: petError } = await supabase
+          .from("pets")
+          .select("*")
+          .eq("uuid_id", user.id)
+          .maybeSingle()
+
+        if (petError) {
+          console.error("반려견 데이터 조회 에러:", petError)
+          return
+        }
+
+        if (petData) {
+          setProfileImage(petData.image_url)
+          setPetInfo({
+            name: petData.name || "",
+            size: petData.size || "",
+            birth_date: petData.birth_date || "",
+            gender: petData.gender === "female" ? "여아" : "남아"
+          })
+        }
+      } catch (error) {
+        console.error("데이터 불러오기 실패:", error)
+      }
+    }
+
+    fetchPetProfile()
+  }, [])
+
+  // 나이 계산 함수 수정
+  const calculateAge = (birthDate) => {
+    if (!birthDate) return ""
+    
+    const today = new Date()
+    const birth = new Date(birthDate)
+    
+    let years = today.getFullYear() - birth.getFullYear()
+    let months = today.getMonth() - birth.getMonth()
+
+    // 월이 음수인 경우 처리
+    if (months < 0) {
+      years--
+      months += 12
+    }
+
+    // 일자 비교로 월 조정
+    if (today.getDate() < birth.getDate()) {
+      months--
+      if (months < 0) {
+        years--
+        months += 12
+      }
+    }
+
+    // 년과 개월 표시 로직
+    if (years > 0) {
+      if (months > 0) {
+        return `${years}년 ${months}개월`
+      }
+      return `${years}년`
+    }
+    return `${months}개월`
+  }
 
   return (
     <div className="Walk5-container">
@@ -22,11 +109,27 @@ export default function Walk5() {
       <div className="Walk5-content">
         <div className="Walk5-profile-card">
           <div className="Walk5-profile-image">
-            <img src="/dogprofile/dog.jpg" alt="반려동물 프로필" width={64} height={64} />
+            {profileImage ? (
+              <img
+                src={profileImage || "/placeholder.svg"}
+                alt="반려동물 프로필"
+                onError={(e) => {
+                  console.error("이미지 로드 실패:", profileImage)
+                  e.target.src = "/placeholder.svg"
+                  setProfileImage(null)
+                }}
+              />
+            ) : (
+              <div className="Walk5-profile-placeholder">
+                <span>프로필 없음</span>
+              </div>
+            )}
           </div>
           <div className="Walk5-profile-info">
-            <div className="Walk5-name">이름</div>
-            <div className="Walk5-details">소형견 · 개월수 · 성별</div>
+            <div className="Walk5-name">{petInfo.name || "이름"}</div>
+            <div className="Walk5-details">
+              {`${petInfo.size || "사이즈"}\n${petInfo.gender || "성별"} · ${calculateAge(petInfo.birth_date) || "나이"}`}
+            </div>
           </div>
           <button className="Walk5-edit-button">
             <input type="checkbox" className="Walk5-checkbox" defaultChecked />

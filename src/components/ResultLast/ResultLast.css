@@ -83,30 +83,52 @@
 }
 
 .resultlast-profile-circle {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #ddd;
+  background-color: #f0f0f0;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .resultlast-dog-photo,
 .resultlast-user-photo {
   width: 100px;
   height: 100px;
-  border-radius: 50%; /* 원형 모양 */
-  overflow: hidden; /* 원 밖으로 넘치는 부분 숨기기 */
+  border-radius: 50%;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .resultlast-dog-photo img,
 .resultlast-user-photo img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 이미지가 원형 안에 꽉 차도록 */
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.resultlast-avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .resultlast-paw-prints {
@@ -149,6 +171,20 @@
   border-radius: 8px;
   height: 100px;
   width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.resultlast-notes-box p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.Resultlast-no-data {
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+  margin-top: 40px;
 }
 
 /* 스크롤바 스타일 */
@@ -185,4 +221,3 @@
 .resultlast-container::-webkit-scrollbar-thumb:hover {
   background: #dcebdc;
 }
-

@@ -1,9 +1,59 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
+import { supabase } from "../../lib/supabaseClient"
 import "./Reservation1.css"
 
 function Reservation1() {
+  const [profileImage, setProfileImage] = useState(null)
+  const [petInfo, setPetInfo] = useState({
+    name: "",
+    pet_mbti: ""
+  })
+
+  useEffect(() => {
+    const fetchPetProfile = async () => {
+      try {
+        const { data: { user }, error: userError } = await supabase.auth.getUser()
+
+        if (userError) {
+          console.error("사용자 정보 조회 에러:", userError)
+          return
+        }
+
+        if (!user) {
+          console.log("로그인된 사용자가 없습니다.")
+          return
+        }
+
+        const { data: petData, error: petError } = await supabase
+          .from("pets")
+          .select("*")
+          .eq("uuid_id", user.id)
+          .maybeSingle()
+
+        if (petError) {
+          console.error("반려견 데이터 조회 에러:", petError)
+          return
+        }
+
+        if (petData) {
+          setProfileImage(petData.image_url)
+          setPetInfo({
+            name: petData.name || "",
+            pet_mbti: petData.pet_mbti || "" // DogInformation에서 등록한 멍BTI
+          })
+          console.log("가져온 멍BTI:", petData.pet_mbti) // 데이터 확인용 로그
+        }
+      } catch (error) {
+        console.error("데이터 불러오기 실패:", error)
+      }
+    }
+
+    fetchPetProfile()
+  }, [])
+
   return (
     <div className="reservation1-container">
       <header className="reservation1-header">
@@ -29,10 +79,27 @@ function Reservation1() {
           <div className="reservation1-match-players">
             <div className="reservation1-player">
               <div className="reservation1-player-avatar">
-                <img src="/dogprofile/dog.jpg" alt="강아지 사진" className="reservation1-avatar-image" />
+                {profileImage ? (
+                  <img
+                    src={profileImage || "/placeholder.svg"}
+                    alt="반려견 프로필"
+                    className="reservation1-avatar-image"
+                    onError={(e) => {
+                      console.error("이미지 로드 실패:", profileImage)
+                      e.target.src = "/placeholder.svg"
+                      setProfileImage(null)
+                    }}
+                  />
+                ) : (
+                  <div className="reservation1-avatar-placeholder">
+                    <span>프로필 없음</span>
+                  </div>
+                )}
               </div>
-              <div className="reservation1-player-name">이름</div>
-              <div className="reservation1-player-detail">멍BTI</div>
+              <div className="reservation1-player-name">{petInfo.name || "이름"}</div>
+              <div className="reservation1-player-detail">
+                {petInfo.pet_mbti ? `멍BTI : ${petInfo.pet_mbti}` : "멍BTI 미등록"}
+              </div>
             </div>
             <div className="reservation1-match-image">
               <img src="/reservationicons/matching.png" alt="Matching" className="reservation1-match-icon" />
@@ -50,4 +117,3 @@ function Reservation1() {
 }
 
 export default Reservation1
-
