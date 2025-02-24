@@ -1,17 +1,71 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { supabase } from "../../lib/supabaseClient";
 
 const TMAP_API_KEY = process.env.REACT_APP_TMAP_API_KEY;
 
-
-const Map = () => {
+const Map = ({ onDataReady }) => {
   const mapRef = useRef(null);
+  const reservationIdRef = useRef(null);
   const [map, setMap] = useState(null);
+  const [distance, setDistance] = useState(null);
+  const [steps, setSteps] = useState(null);
+  const [time, setTime] = useState(null);
   const [polyline, setPolyline] = useState(null);
+  const [uuidId, setUuidId] = useState(null);  // ✅ uuidId 상태 추가
+  const [reservationId, setReservationId] = useState(null);
 
   useEffect(() => {
-    fetchAddresses();
+    const fetchUserUUID = async () => {
+      const { data: { session }, error } = await supabase.auth.getSession();
+
+      if (error || !session) {
+        console.error("🚨 UUID 가져오기 실패:", error);
+        return;
+      }
+
+      console.log("✅ Supabase에서 가져온 uuid_id:", session.user.id);
+      setUuidId(session.user.id);
+    };
+
+    fetchUserUUID();
   }, []);
+
+  // ✅ `uuid_id`가 설정된 후 데이터 가져오기
+  useEffect(() => {
+    console.log("가져온 uuidId:", uuidId)
+    if (uuidId) {
+      const fetchData = async () => {
+        await fetchReservationId(uuidId).then(()=> fetchAddresses());
+      };
+      fetchData();
+    }
+  }, [uuidId]);
+
+  // ✅ `uuid_id` 기반으로 `reservation_id` 조회
+  const fetchReservationId = async (uuidId) => {
+    console.log("가져온 uuidId:", uuidId)
+    try {
+      if (!uuidId) {
+        console.error("🚨 로그인된 사용자 UUID가 없습니다.");
+        return;
+      }
+
+      const response = await axios.get(
+        `http://localhost:8000/api/reservations/latest?uuid_id=${uuidId}`
+      );
+      console.log("📌 예약 데이터 응답:", response.data);
+
+      if (response.data && response.data.id) {
+        setReservationId(response.data.id); // ✅ reservationId 설정
+        console.log("✅ 가져온 예약 ID:", response.data.id);
+      } else {
+        console.error("🚨 현재 사용자에 대한 예약 데이터를 찾을 수 없습니다.");
+      }
+    } catch (error) {
+      console.error("🚨 예약 데이터를 불러오는 데 실패했습니다:", error);
+    }
+  };
 
   const fetchAddresses = async () => {
     try {
@@ -24,93 +78,153 @@ const Map = () => {
         return;
       }
 
-      const startLocation = data[0];
-      const startPosition = new window.Tmapv2.LatLng(startLocation.latitude, startLocation.longitude);
+      const startLocation = data[0]; // 출발지
+      const endLocation = data[1]; // 목적지
 
-      const endLocation = data[data.length - 1];
-      const endPosition = new window.Tmapv2.LatLng(endLocation.latitude, endLocation.longitude);
-
-      const newMap = new window.Tmapv2.Map(mapRef.current, {
-        center: startPosition,
-        width: "100%",
-        height: "100%",
-        zoom: 16,
-      });
-
-      setMap(newMap);
-      console.log("🗺️ 지도 객체 생성 완료:", newMap);
-
-      const startMarker = new window.Tmapv2.Marker({
-        position: startPosition,
-        map: newMap,
-        label: "출발지",
-      });
-
-      const endMarker = new window.Tmapv2.Marker({
-        position: endPosition,
-        map: newMap,
-        label: "목적지",
-      });
-
-      console.log("📍 출발지 마커 추가 완료:", startMarker);
-      console.log("📍 목적지 마커 추가 완료:", endMarker);
-
-      drawPedestrianRoute(startLocation, endLocation, newMap);
+      initializeMap(startLocation, endLocation);
+      fetchWalkingDistance(startLocation, endLocation);
     } catch (error) {
       console.error("🚨 주소 데이터를 불러오는데 실패했습니다:", error);
     }
   };
 
-  // Tmap API를 이용한 보행자 경로 요청
+  const initializeMap = (startLocation, endLocation) => {
+    const startPosition = new window.Tmapv2.LatLng(startLocation.latitude, startLocation.longitude);
+    const endPosition = new window.Tmapv2.LatLng(endLocation.latitude, endLocation.longitude);
+
+    const newMap = new window.Tmapv2.Map(mapRef.current, {
+      center: startPosition,
+      width: "100%",
+      height: "100%",
+      zoom: 16,
+    });
+
+    setMap(newMap);
+    console.log("🗺️ 지도 객체 생성 완료:", newMap);
+
+    new window.Tmapv2.Marker({ position: startPosition, map: newMap, label: "출발지" });
+    new window.Tmapv2.Marker({ position: endPosition, map: newMap, label: "목적지" });
+
+    drawPedestrianRoute(startLocation, endLocation, newMap);
+  };
+
+  const fetchWalkingDistance = async (start, end) => {
+    try {
+      const requestData = {
+        startX: start.longitude.toFixed(6),
+        startY: start.latitude.toFixed(6),
+        endX: end.longitude.toFixed(6),
+        endY: end.latitude.toFixed(6),
+        reqCoordType: "WGS84GEO",
+        resCoordType: "WGS84GEO",
+        startName: "출발지",
+        endName: "목적지",
+      };
+
+      const headers = { "Content-Type": "application/json", "appKey": TMAP_API_KEY };
+
+      const response = await axios.post(
+        `https://apis.openapi.sk.com/tmap/routes/pedestrian?version=1`,
+        JSON.stringify(requestData),
+        { headers }
+      );
+
+      const resultData = response.data.features;
+      console.log("🚶 Tmap API 응답 데이터:", resultData);
+
+      let totalDistance = 0;
+      let totalTime = 0;
+
+      resultData.forEach((feature) => {
+        if (feature.properties.distance) totalDistance += feature.properties.distance;
+        if (feature.properties.time) totalTime += feature.properties.time;
+      });
+
+      const distanceKm = (totalDistance / 1000).toFixed(2); // km 단위 변환
+      const estimatedSteps = Math.round(totalDistance / 0.7); // 걸음 수 (1걸음 = 약 0.7m)
+      const estimatedTime = Math.ceil(totalTime / 60); // 분 단위 변환
+
+      setDistance(distanceKm);
+      setTime(estimatedTime);
+      setSteps(estimatedSteps);
+
+      console.log(`📏 거리: ${distanceKm} km`);
+      console.log(`🚶‍♂️ 걸음 수: ${estimatedSteps} 걸음`);
+      console.log(`⏳ 예상 소요 시간: ${estimatedTime} 분`);
+
+      // ✅ 부모 컴포넌트로 데이터 전달
+      onDataReady({ 
+        uuidId,
+        distance: distanceKm, 
+        steps: estimatedSteps, 
+        time: estimatedTime,
+        startLocation: start,
+        endLocation: end,
+       
+      });
+
+      console.log("📡 Map에서 보내는 데이터:", {
+        uuidId,
+        distance: distanceKm,
+        steps: estimatedSteps,
+        time: estimatedTime,
+        startLocation: start,
+        endLocation: end,
+      });
+
+    } catch (error) {
+      console.error("🚨 거리 데이터를 불러오는데 실패했습니다:", error);
+    }
+  };
+
+  // ✅ Tmap API를 이용한 보행자 경로 요청
   const drawPedestrianRoute = async (start, end, mapInstance) => {
     try {
-      console.log("📌 start 데이터:", start);
-      console.log("📌 end 데이터:", end);
+      console.log("📌 출발지:", start);
+      console.log("📌 목적지:", end);
 
       const requestData = {
-        startX: String(start.longitude),
-        startY: String(start.latitude),
-        endX: String(end.longitude),
-        endY: String(end.latitude),
+        startX: start.longitude.toFixed(6),
+        startY: start.latitude.toFixed(6),
+        endX: end.longitude.toFixed(6),
+        endY: end.latitude.toFixed(6),
         reqCoordType: "WGS84GEO",
-        resCoordType: "EPSG3857", // Tmap API는 EPSG3857 좌표계 반환
+        resCoordType: "WGS84GEO",
+        startName: "출발지",
+        endName: "목적지",
       };
 
       console.log("📌 요청할 API 데이터:", requestData);
 
       const headers = {
         "Content-Type": "application/json",
+        "appKey": TMAP_API_KEY,
       };
 
       const response = await axios.post(
-        `https://apis.openapi.sk.com/tmap/routes/pedestrian?version=1&appKey=${TMAP_API_KEY}`,
-        requestData,
+        `https://apis.openapi.sk.com/tmap/routes/pedestrian?version=1`,
+        JSON.stringify(requestData),
         { headers }
       );
 
       const resultData = response.data.features;
-      console.log("🛤️ Tmap API 응답 데이터:", resultData);
+      console.log("🚶 Tmap API 응답 데이터:", resultData);
 
       if (!resultData || resultData.length === 0) {
         console.error("🚨 API 오류 또는 경로 데이터가 없습니다.", resultData);
         return;
       }
 
-      // EPSG3857 좌표를 WGS84 좌표로 변환 후 폴리라인 그리기
       const drawInfoArr = [];
       for (let i = 0; i < resultData.length; i++) {
         const geometry = resultData[i].geometry;
         if (geometry.type === "LineString") {
           for (let j = 0; j < geometry.coordinates.length; j++) {
-            const latlng = new window.Tmapv2.Point(
-              geometry.coordinates[j][0],
-              geometry.coordinates[j][1]
+            const latLng = new window.Tmapv2.LatLng(
+              geometry.coordinates[j][1],
+              geometry.coordinates[j][0]
             );
-
-            // 좌표 변환: EPSG3857 → WGS84
-            const convertPoint = new window.Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlng);
-            const convertChange = new window.Tmapv2.LatLng(convertPoint._lat, convertPoint._lng);
-            drawInfoArr.push(convertChange);
+            drawInfoArr.push(latLng);
           }
         }
       }
@@ -118,19 +232,16 @@ const Map = () => {
       console.log("📌 변환된 폴리라인 좌표 개수:", drawInfoArr.length);
       console.log("📌 변환된 폴리라인 좌표 목록:", drawInfoArr);
 
-      if (drawInfoArr.length === 0) {
-        console.error("🚨 폴리라인을 그릴 좌표가 없습니다.");
-        return;
-      }
+      if (polyline) polyline.setMap(null);
 
-      // 기존 폴리라인 삭제
+      // ✅ 기존 폴리라인 삭제
       if (polyline) {
         console.log("🛑 기존 폴리라인 삭제");
         polyline.setMap(null);
         setPolyline(null);
       }
 
-      // 새로운 폴리라인 추가
+      // ✅ 새로운 폴리라인 추가
       const newPolyline = new window.Tmapv2.Polyline({
         path: drawInfoArr,
         strokeColor: "#0000FF",
@@ -139,14 +250,9 @@ const Map = () => {
         zIndex: 1000,
       });
 
-      newPolyline.setZIndex(1000);
       setPolyline(newPolyline);
       console.log("🛤️ 변환된 보행자 경로 폴리라인 추가 완료:", newPolyline);
 
-      // 지도 자동 확대 조정
-      const bounds = new window.Tmapv2.LatLngBounds();
-      drawInfoArr.forEach((latLng) => bounds.extend(latLng));
-      mapInstance.fitBounds(bounds);
     } catch (error) {
       console.error("🚨 경로 데이터를 불러오는데 실패했습니다:", error);
     }
@@ -154,7 +260,7 @@ const Map = () => {
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      <div id="map" ref={mapRef} style={{ width: "100%", height: "100%", borderRadius: "20px" }} />
+      <div id="map" ref={mapRef} style={{ width: "100%", height: "80%", borderRadius: "20px" }} />
     </div>
   );
 };

@@ -12,7 +12,11 @@ from dotenv import load_dotenv
 
 # 밥꺼 추가
 from backend.routers.address import router as address_router
-from backend.routers.google_places import router as google_places_router  # Google Places 라우터 임포트
+from backend.routers.google_places import router as google_places_router
+from backend.routers.walk import router as walk
+from backend.routers.reservations import router as reservations
+from backend.routers.gpt_router import router as gpt_router
+
 import os
 import httpx
 
@@ -44,6 +48,9 @@ app.include_router(Dbti_match_router.router)
 # 밥꺼 추가
 app.include_router(address_router, prefix="/api/address", tags=["Address"])
 app.include_router(google_places_router, prefix="/api/places", tags=["Google Places"])
+app.include_router(gpt_router, prefix="/api/gpt", tags=["GPT-4o"])
+app.include_router(walk, prefix="/api/walk", tags=["Walk"])
+app.include_router(reservations, prefix="/api/reservations", tags=["Reservations"])
 
 # 한나
 app.include_router(review.router, prefix="/api", tags=["Reviews"])
