@@ -56,6 +56,9 @@ const Walk4 = () => {
         <h1 className="Walk4-title">
           트레이너를 <br /> 선택하시겠습니까?
         </h1>
+        <button className="Walk4-info-button" onClick={() => navigate("/Walk4_noticePage")}>
+          <img src="/icons/question.png" alt="도움말" />
+        </button>
       </header>
 
       <div className="Walk4-trainer-list">
