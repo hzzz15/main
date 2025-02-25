@@ -220,14 +220,6 @@
   color: white;
 }
 
-.last-t-review-button {
-  composes: last-t-action-button;
-}
-
-.last-t-meet-again-button {
-  composes: last-t-action-button;
-}
-
 .last-t-reservation-list {
   padding: 20px 0;
 }
