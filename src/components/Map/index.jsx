@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { supabase } from "../../lib/supabaseClient";
+import RealTimeLocation from "../RealTimeLocation";
 
 const TMAP_API_KEY = process.env.REACT_APP_TMAP_API_KEY;
 
 const Map = ({ onDataReady }) => {
   const mapRef = useRef(null);
-  const reservationIdRef = useRef(null);
   const [map, setMap] = useState(null);
   const [distance, setDistance] = useState(null);
   const [steps, setSteps] = useState(null);
@@ -14,6 +14,9 @@ const Map = ({ onDataReady }) => {
   const [polyline, setPolyline] = useState(null);
   const [uuidId, setUuidId] = useState(null);  // ✅ uuidId 상태 추가
   const [reservationId, setReservationId] = useState(null);
+  const [startLocation, setStartLocation] = useState(null);
+  const [endLocation, setEndLocation] = useState(null);
+  const [prevEndLocation, setPrevEndLocation] = useState(null);
 
   useEffect(() => {
     const fetchUserUUID = async () => {
@@ -35,22 +38,22 @@ const Map = ({ onDataReady }) => {
   useEffect(() => {
     console.log("가져온 uuidId:", uuidId)
     if (uuidId) {
-      const fetchData = async () => {
-        await fetchReservationId(uuidId).then(()=> fetchAddresses());
-      };
-      fetchData();
+        fetchReservationId(uuidId);
     }
   }, [uuidId]);
+
+  // ✅ reservationId가 설정된 후 주소 가져오기
+  useEffect(() => {
+    if (reservationId) {
+        console.log("reservationId 변경 감지됨:", reservationId);
+        fetchAddresses();
+    }
+  }, [reservationId]);
 
   // ✅ `uuid_id` 기반으로 `reservation_id` 조회
   const fetchReservationId = async (uuidId) => {
     console.log("가져온 uuidId:", uuidId)
     try {
-      if (!uuidId) {
-        console.error("🚨 로그인된 사용자 UUID가 없습니다.");
-        return;
-      }
-
       const response = await axios.get(
         `http://localhost:8000/api/reservations/latest?uuid_id=${uuidId}`
       );
@@ -69,44 +72,44 @@ const Map = ({ onDataReady }) => {
 
   const fetchAddresses = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/address/addresses");
+      const response = await fetch(`http://localhost:8000/api/reservations/${reservationId}/address`);
       const data = await response.json();
-      console.log("📌 받아온 주소 데이터:", data);
 
-      if (!data || data.length < 2) {
-        console.error("🚨 출발지와 목적지를 설정할 데이터가 부족합니다.");
-        return;
-      }
+      console.log(" 예약에서 가져온 주소 데이터:", data);
 
-      const startLocation = data[0]; // 출발지
-      const endLocation = data[1]; // 목적지
+      const startLocation = {
+        latitude: data.latitude,
+        longitude: data.longitude
+      };
 
-      initializeMap(startLocation, endLocation);
-      fetchWalkingDistance(startLocation, endLocation);
+      setStartLocation(startLocation);
+      setEndLocation(startLocation); // 초기 목적지는 출발지와 동일하게 설정
+      initializeMap(startLocation, startLocation);
     } catch (error) {
       console.error("🚨 주소 데이터를 불러오는데 실패했습니다:", error);
     }
   };
 
-  const initializeMap = (startLocation, endLocation) => {
-    const startPosition = new window.Tmapv2.LatLng(startLocation.latitude, startLocation.longitude);
-    const endPosition = new window.Tmapv2.LatLng(endLocation.latitude, endLocation.longitude);
-
-    const newMap = new window.Tmapv2.Map(mapRef.current, {
-      center: startPosition,
-      width: "100%",
-      height: "100%",
-      zoom: 16,
-    });
-
-    setMap(newMap);
-    console.log("🗺️ 지도 객체 생성 완료:", newMap);
-
-    new window.Tmapv2.Marker({ position: startPosition, map: newMap, label: "출발지" });
-    new window.Tmapv2.Marker({ position: endPosition, map: newMap, label: "목적지" });
-
-    drawPedestrianRoute(startLocation, endLocation, newMap);
+    // ✅ 실시간 목적지 업데이트 (30초마다 호출됨)
+  const handleRealTimeLocationUpdate = (newLocation) => {
+    console.log("📍 실시간 목적지 업데이트:", newLocation);
+    setEndLocation(newLocation); // 목적지 업데이트
   };
+
+  useEffect(() => {
+    if (!startLocation || !endLocation) return;
+
+    // 🛑 목적지가 변경되었을 때만 지도 업데이트
+    if (prevEndLocation && prevEndLocation.latitude === endLocation.latitude && prevEndLocation.longitude === endLocation.longitude) {
+      console.log("⏳ 위치 변화 없음, API 요청 생략");
+      return;
+    }
+
+    console.log("📌 위치 변화 감지됨! 지도 및 경로 업데이트 실행");
+    initializeMap(startLocation, endLocation);
+    fetchWalkingDistance(startLocation, endLocation);
+    setPrevEndLocation(endLocation);
+  }, [endLocation]);
 
   const fetchWalkingDistance = async (start, end) => {
     try {
@@ -118,7 +121,7 @@ const Map = ({ onDataReady }) => {
         reqCoordType: "WGS84GEO",
         resCoordType: "WGS84GEO",
         startName: "출발지",
-        endName: "목적지",
+        endName: "현재위치",
       };
 
       const headers = { "Content-Type": "application/json", "appKey": TMAP_API_KEY };
@@ -160,17 +163,9 @@ const Map = ({ onDataReady }) => {
         time: estimatedTime,
         startLocation: start,
         endLocation: end,
-       
-      });
 
-      console.log("📡 Map에서 보내는 데이터:", {
-        uuidId,
-        distance: distanceKm,
-        steps: estimatedSteps,
-        time: estimatedTime,
-        startLocation: start,
-        endLocation: end,
       });
+      drawPedestrianRoute(startLocation, end);
 
     } catch (error) {
       console.error("🚨 거리 데이터를 불러오는데 실패했습니다:", error);
@@ -258,8 +253,32 @@ const Map = ({ onDataReady }) => {
     }
   };
 
+  const initializeMap = (startLocation, endLocation) => {
+    if (map) {
+      console.log("기존 지도 객체 삭제");
+      map.destroy();
+      setMap(null);
+    }
+
+    const startPosition = new window.Tmapv2.LatLng(startLocation.latitude, startLocation.longitude);
+    const endPosition = new window.Tmapv2.LatLng(endLocation.latitude, endLocation.longitude);
+
+    const newMap = new window.Tmapv2.Map(mapRef.current, {
+      center: startPosition,
+      width: "100%",
+      height: "100%",
+      zoom: 16,
+    });
+
+    setMap(newMap);
+
+    new window.Tmapv2.Marker({ position: startPosition, map: newMap, label: "출발지" });
+    new window.Tmapv2.Marker({ position: endPosition, map: newMap, label: "목적지" });
+  };
+
   return (
     <div style={{ width: "100%", height: "100%" }}>
+      <RealTimeLocation onLocationUpdate={handleRealTimeLocationUpdate} />
       <div id="map" ref={mapRef} style={{ width: "100%", height: "80%", borderRadius: "20px" }} />
     </div>
   );
