@@ -356,7 +356,7 @@ export default function DogInformation() {
   }
 
   return (
-    <div className="doginformation-container">
+    <div className="doginformation-container" style={{ height: "100%", overflowY: "auto" }}>
       <header className="doginformation-header">
         <a href="/ProfilePage" className="doginformation-back-button">
           <img src="/icons/back.png" alt="뒤로가기" className="doginformation-back-icon" />

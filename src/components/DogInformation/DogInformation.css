@@ -4,13 +4,15 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  /* overflow-y: auto 제거 - 컨테이너 전체 스크롤 제거 */
 }
 
 .doginformation-preview {
-  width: 100px; /* ✅ 원 크기에 맞게 조정 (원하는 크기로 변경 가능) */
+  width: 100px;
   height: 100px;
-  object-fit: cover; /* ✅ 원 안에 꽉 차도록 */
-  border-radius: 50%; /* ✅ 원 형태 유지 */
+  object-fit: cover;
+  border-radius: 50%;
   border: 2px solid #ddd;
 }
 
@@ -18,9 +20,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
+  position: sticky; /* 헤더 고정 */
+  top: 0; /* 상단에 고정 */
+  z-index: 100; /* 다른 요소 위에 표시 */
   padding: 20px;
   background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
 }
 
 .doginformation-back-button {
@@ -64,7 +69,8 @@
   flex: 1;
   background-color: #FFE0B2;
   padding: 20px;
-  overflow-y: auto;
+  overflow-y: auto; /* 콘텐츠 영역만 스크롤 가능하도록 설정 */
+  height: calc(100% - 190px); /* 헤더 높이를 고려하여 조정 (필요에 따라 값 조정) */
 }
 
 .doginformation-form-title {
@@ -207,3 +213,20 @@
   border-radius: 50%;
 }
 
+/* 스크롤바 스타일 수정 - 색상을 #FFE0B2로 변경 */
+.doginformation-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.doginformation-content::-webkit-scrollbar-track {
+  background: #FFE0B2;
+}
+
+.doginformation-content::-webkit-scrollbar-thumb {
+  background: #FFE0B2;
+  border-radius: 3px;
+}
+
+.doginformation-content::-webkit-scrollbar-thumb:hover {
+  background: #FFE0B2;
+}
