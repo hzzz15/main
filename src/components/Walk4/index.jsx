@@ -7,11 +7,10 @@ const Walk4 = () => {
   const navigate = useNavigate();
   const [trainers, setTrainers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const pet_id = 1; // 예시
+  const pet_id = 140; // 예시
 
   useEffect(() => {
     if (!pet_id) {
-      // pet_id가 없으면 에러 처리하거나, 이전 페이지로 리다이렉트
       console.error("pet_id가 전달되지 않았습니다.");
       return;
     }
@@ -19,23 +18,21 @@ const Walk4 = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("전체 응답:", data);
-        console.log("matches 배열:", data.matches);
-        // 백엔드에서 받은 matches 배열의 각 항목을 원하는 데이터 구조로 매핑합니다.
-        const mappedTrainers = data.matches.map((match) => {
-          return {
-            id: match.trainer_id,
-            name: match.name,
-            experience: match.experience,
-            trainer_mbti: match.trainer_mbti,
-            // match_scores 객체로 세부 점수들을 묶어서 전달
-            match_scores: {
-              mbti_match_score: match.mbti_match_score,
-              activity_match_score: match.activity_match_score,
-              total_match_score: match.total_match_score,
-            },
-            image: match.image_url
-          };
-        });
+        // data.matches가 undefined일 경우 빈 배열을 기본값으로 사용
+        const matchesArray = data.matches || [];
+        console.log("matches 배열:", matchesArray);
+        const mappedTrainers = matchesArray.map((match) => ({
+          id: match.trainer_id,
+          name: match.name,
+          experience: match.experience,
+          trainer_mbti: match.trainer_mbti,
+          match_scores: {
+            mbti_match_score: match.mbti_match_score,
+            activity_match_score: match.activity_match_score,
+            total_match_score: match.total_match_score,
+          },
+          image: match.image_url,
+        }));
         setTrainers(mappedTrainers);
         setLoading(false);
       })
