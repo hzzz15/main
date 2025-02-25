@@ -95,18 +95,15 @@
 }
 
 .trainerinformation-submit-button {
-  width: 65%;
+  width: 100%;
   padding: 12px;
   background-color: #F2762E;
   color: white;
   border: none;
-  border-radius: 25px;
+  border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+  margin-top: 20px;
 }
 
 .trainerinformation-submit-button:hover {
