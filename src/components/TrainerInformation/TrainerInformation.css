@@ -52,7 +52,7 @@
 
 .trainerinformation-content {
   flex: 1;
-  background-color: #f2f0d5;
+  background-color: #FFF3DA;
   padding: 20px;
   overflow-y: auto;
 }
@@ -81,7 +81,7 @@
   flex-grow: 1;
   padding: 6px 0;
   border: none;
-  border-bottom: 1px solid #075915;
+  border-bottom: 1px solid #565656;
   background-color: transparent;
   font-size: 14px;
   outline: none;
@@ -97,7 +97,7 @@
 .trainerinformation-submit-button {
   width: 65%;
   padding: 12px;
-  background-color: #2b5b40;
+  background-color: #F2762E;
   color: white;
   border: none;
   border-radius: 25px;
@@ -110,6 +110,6 @@
 }
 
 .trainerinformation-submit-button:hover {
-  background-color: #224732;
+  background-color: #FF8C42;
 }
 

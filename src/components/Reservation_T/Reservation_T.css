@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: #F2F0D5;
+    background-color: #FFF3DA;
   }
   
   .reservation-t-header {
@@ -61,7 +61,7 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #075915;
+    background-color: #f2762e;
   }
   
   .reservation-t-header-button:hover {
@@ -180,7 +180,7 @@
   .reservation-t-match-button {
     padding: 10px 0;
     font-size: 16px;
-    border: 2px solid #075915;
+    border: 2px solid #f2762e;
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s;
@@ -190,12 +190,12 @@
     align-items: center;
     justify-content: center;
     background-color: white;
-    color: #075915;
+    color: #f2762e;
     font-weight: bold;
   }
   
   .reservation-t-match-button:hover {
-    background-color: #075915;
+    background-color: #f2762e;
     color: white;
   }
   

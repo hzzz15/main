@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   height: calc(100vh - 100px);
-  background-color: #F2F0D5;
+  background-color: #FFF3DA;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -67,7 +67,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #075915;
+  background-color: #F2762E;
 }
 
 .live-T-map-container {
@@ -98,7 +98,7 @@
   justify-content: center;
   gap: 20px;
   padding: 15px 20px;
-  background-color: #F2F0D5;
+  background-color: #FFF3DA;
   width: 90%;
   margin-top: auto;
   margin-bottom: 10px;
@@ -106,7 +106,7 @@
 
 .live-T-start-button,
 .live-T-end-button {
-  background-color: #075915;
+  background-color: #F2762E;
   color: white;
   border: none;
   border-radius: 8px;
@@ -120,6 +120,6 @@
 
 .live-T-start-button:hover,
 .live-T-end-button:hover {
-  background-color: #054a10;
+  background-color: #FF8C42;
 }
 

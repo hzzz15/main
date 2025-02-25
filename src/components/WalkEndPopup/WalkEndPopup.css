@@ -24,7 +24,7 @@
   .walkend-popup-message {
     font-size: 16px;
     font-weight: bold;
-    color: #006400;
+    color: #f2762e;
     margin-bottom: 20px;
   }
 
@@ -36,8 +36,8 @@
 
   .walkend-popup-button {
     background-color: white;
-    color: #006400;
-    border: 2px solid #006400;
+    color: #f2762e;
+    border: 2px solid #f2762e;
     border-radius: 8px;
     padding: 10px 20px;
     font-size: 16px;
@@ -46,17 +46,17 @@
   }
 
   .walkend-popup-button.cancel {
-    border-color: #333;
-    color: #333;
+    border-color: #f2762e;
+    color: #f2762e;
   }
 
   .walkend-popup-button:hover {
-    background-color: #006400;
+    background-color: #f2762e;
     color: white;
   }
   
   .walkend-popup-button.cancel:hover {
-    background-color: #333;
+    background-color: #f2762e;
     color: white;
   }
   
