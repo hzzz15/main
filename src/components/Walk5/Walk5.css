@@ -13,31 +13,12 @@ html {
   display: flex;
   flex-direction: column;
   background-color: #FFE0B2;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden; /* auto에서 hidden으로 변경 */
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-}
-
-/* 스크롤바 스타일링 */
-.Walk5-container::-webkit-scrollbar {
-  width: 6px;
-}
-
-.Walk5-container::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-.Walk5-container::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 3px;
-}
-
-.Walk5-container::-webkit-scrollbar-thumb:hover {
-  background: #555;
 }
 
 .Walk5-header {
@@ -66,7 +47,27 @@ html {
 
 .Walk5-content {
   flex: 1;
-  padding: 20px;
+  padding: 20px 15px 20px 20px;
+  overflow-y: auto; /* 스크롤 추가 */
+  -webkit-overflow-scrolling: touch; /* 부드러운 스크롤 */
+}
+
+/* 스크롤바 스타일링을 Walk5-content에 적용 */
+.Walk5-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.Walk5-content::-webkit-scrollbar-track {
+  background: #FFE0B2;
+}
+
+.Walk5-content::-webkit-scrollbar-thumb {
+  background: #FFE0B2;
+  border-radius: 3px;
+}
+
+.Walk5-content::-webkit-scrollbar-thumb:hover {
+  background: #FFE0B2;
 }
 
 .Walk5-profile-card {
@@ -223,4 +224,19 @@ html {
   .Walk5-container {
     width: 100%;
   }
+}
+
+
+/* 안내 문구 스타일 */
+.Walk5-info-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #d9534f; /* 🔴 경고 느낌 강조 */
+  margin-bottom: 8px;
+}
+
+.Walk5-info-text {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
 }

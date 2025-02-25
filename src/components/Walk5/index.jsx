@@ -140,7 +140,15 @@ export default function Walk5() {
           <h2 className="Walk5-section-title">요청사항</h2>
           <textarea className="Walk5-request-input" placeholder="요청사항을 꼼꼼하게 적어주세요!" rows={6}></textarea>
         </div>
-      </div>
+            {/* ✅ 추가된 안내 문구 */}
+            <div className="Walk5-info-box">
+                <p className="Walk5-info-title">📢 강아지 인식표 착용했나요?</p>
+                <p className="Walk5-info-text">
+                  반려견의 안전을 위해 인식표 착용은 필수입니다.
+                  인식표를 착용하지 않은 강아지는 산책이 불가능하며, 이를 어기고 산책 중 발생한 사고에 대한 책임은 보호자에게 있습니다.
+                </p>
+              </div>
+            </div>
 
       <div className="Walk5-bottom-section">
         <button className="Walk5-next-button" onClick={() => navigate("/Reservation1Page")}>
