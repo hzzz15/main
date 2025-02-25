@@ -96,7 +96,7 @@
   flex-grow: 1;
   padding: 6px 0;
   border: none;
-  border-bottom: 1px solid #F2762E;
+  border-bottom: 1px solid #565656;
   background-color: transparent;
   font-size: 14px;
   outline: none;
@@ -109,7 +109,7 @@
 .doginformation-textarea {
   min-height: 80px;
   resize: vertical;
-  border: 1px solid #F2762E;
+  border: 1px solid #565656;
   border-radius: 4px;
 }
 

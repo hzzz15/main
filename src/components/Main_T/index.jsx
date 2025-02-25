@@ -62,13 +62,13 @@ function Main_T() {
         <div className="Main_T-info-grid">
           <div className="Main_T-info-card clickable-card" onClick={() => handleClick("Reservation_T")}>
             <h3>지난 예약 <br/>확인하기</h3>
-            <p>GPS 경로로 함께</p>
-            <p>산책 로드 확인</p>
+            <p></p>
+            <p></p>
           </div>
           <div className="Main_T-info-card clickable-card" onClick={() => handleClick("Review_T")}>
             <h3>내 후기들</h3>
-            <p>유기견에게</p>
-            <p>임시 쉼터를</p>
+            <p></p>
+            <p></p>
           </div>
         </div>
         <div className="Main_T-review-section clickable-card" onClick={() => handleClick("Review")}>
